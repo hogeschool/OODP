@@ -5,7 +5,7 @@
     * void methods (W02.1.C01)
     * non-void methods (W02.1.C02 & 04)
     * methods calling other methods (W02.1.C03)
-    * expression body definition (W02.1.C03)
+    * expression-bodied method (W02.1.C03)
     * code paths (W02.1.C05)
     * 
     * PART 2: classes
@@ -89,7 +89,7 @@ public class Program
         return topics;
     }
 
-    //Expression body definition
+    //Expression-bodied method
     public static void LetsStart() => Console.WriteLine("Let's get started!");
 
     public static bool AreReady()
