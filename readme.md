@@ -30,7 +30,7 @@ The latter half of the course will expand your skills and prepare you for the ne
 - [**Week14: Containers, LINQ**](./Week14/readme.md)  
 - [**Week15: LINQ, Enumeration**](./Week15/readme.md)
 - **Week16: RECAP / SAMPLE EXAM**
-- **Week17: PROJECT WEEK / ENDTERM EXAM PREPERATION**
+- **Week17: PROJECT WEEK / ENDTERM EXAM PREPARATION**
 - **Week18: ENDTERM EXAM**
 - **Week19:**
 - **Week20: RETAKE EXAM**
