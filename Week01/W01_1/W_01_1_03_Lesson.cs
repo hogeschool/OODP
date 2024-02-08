@@ -124,7 +124,7 @@ public static class W_01_1_03_Lesson
                 //Default optional
         }
 
-        // switch expression
+        // switch statement
         switch (day)
         {
             case "Monday" or "Tuesday" or "Wednesday" or "Thursday" or "Friday":
