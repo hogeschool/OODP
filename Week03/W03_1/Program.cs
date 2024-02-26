@@ -10,8 +10,6 @@
     *  - const fields (W03.1.C06-08)
     * PART 3
     *  - readonly fields (W03.1.C09-10)
-    
-    * Resources: const vs readonly https://www.bytehide.com/blog/const-vs-readonly-in-c-explanation-in-3-minutes
 */
 
 public class Program
