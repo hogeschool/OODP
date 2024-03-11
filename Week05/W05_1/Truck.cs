@@ -1,4 +1,4 @@
-﻿public class Truck : GasCar
+﻿class Truck : GasCar
 {
     public int CargoCapacity;
 

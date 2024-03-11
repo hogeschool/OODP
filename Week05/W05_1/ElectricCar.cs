@@ -1,4 +1,4 @@
-public class ElectricCar : Vehicle
+﻿class ElectricCar : Vehicle
 {
     public int BatteryCapacity;
 

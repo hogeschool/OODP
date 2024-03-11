@@ -1,4 +1,4 @@
-/*
+﻿/*
  Contents:
   - Type checking ('is' keyword) (W05.1.C01)
   - virtual & override (W05.1.C02)
@@ -25,7 +25,7 @@
 
 */
 
-public class Program
+static class Program
 {
     public static void Main()
     {

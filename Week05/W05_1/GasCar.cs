@@ -1,11 +1,11 @@
-﻿public class GasCar : Vehicle
-{
-    public bool HasNewSparkPlugs;
+﻿//Note: we cannot access the private members
+//IncreaseMileage nor _mileage from this class
 
-    public GasCar(string make, string model) : base(make, model)
-    {
-        HasNewSparkPlugs = true;
-    }
+class GasCar : Vehicle
+{
+    public bool HasNewSparkPlugs = true;
+
+    public GasCar(string make, string model) : base(make, model) { }
 
     public override void Drive(int distance)
     {

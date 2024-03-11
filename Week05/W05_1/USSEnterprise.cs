@@ -1,4 +1,4 @@
-﻿public class USSEnterprise
+﻿class USSEnterprise
 {
     public string Name;
     public int WarpSpeed { get; set; }
