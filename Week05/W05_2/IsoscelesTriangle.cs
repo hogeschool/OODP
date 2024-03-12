@@ -31,7 +31,7 @@
     }
     private void SetSlantHeight()
     {
-        _slantHeight = Math.Sqrt(Math.Pow(_base, 2) + Math.Pow(_height, 2));
+        _slantHeight = Math.Sqrt(Math.Pow(_base / 2, 2) + Math.Pow(_height, 2));
     }
 
     protected static bool IsValidSide(double side) => side > 0;
