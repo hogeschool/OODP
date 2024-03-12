@@ -1,4 +1,4 @@
-﻿public class Pyramid : IsoscelesTriangle
+﻿class Pyramid : IsoscelesTriangle
 {
     public Pyramid(double _base, double apex, string color)
         : base(_base, apex, color) { }
@@ -13,8 +13,10 @@
         SetHeight(apex);
     }
 
-    public override void Paint(string color) => Paint(color, color, color, color, color);
-
+    public override void Paint(string color)
+    {
+        Paint(color, color, color, color, color);
+    }
     public void Paint(string c1, string c2, string c3, string c4, string c5)
     {
         Color = $"{c1} {c2} {c3} {c4} {c5}";

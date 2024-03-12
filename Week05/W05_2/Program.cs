@@ -1,4 +1,4 @@
-/*
+﻿/*
  Contents:
   * PART 1: access modifiers
     - private fields & methods (repeat)
@@ -12,7 +12,7 @@
     - ??? (W05.2.C07)
 */
 
-public class Program
+static class Program
 {
     public static void Main()
     {
@@ -150,23 +150,18 @@ public class Program
 
     private static void PropertyVirtual()
     {
-        Console.WriteLine("===\n Virtual properties ===");
+        Console.WriteLine("\n=== Virtual properties ===");
         Console.WriteLine("Like virtual methods, virtual properties may be " +
             "used as-is or overridden by a derived class:");
         List<Product> products = new()
         {
             new Product("Hotdog", 2.5, "Tasty hotdog!"),
-            new ProductBundle ("Hotdogs", 10, "Tasty hotdogs!", 4),
+            new ProductBundle("Hotdogs", 10, "Tasty hotdogs!", 4),
         };
 
         foreach (var product in products)
         {
-            product.Sell();
-            Console.WriteLine($"{product.Name} sold: {product.Sold}");
-            if (product is ProductBundle)
-            {
-                Console.WriteLine($"{product.Name} bundles sold: {((ProductBundle)product).BundlesSold}\n");
-            }
+            Console.WriteLine($"{product.Description}");
         }
     }
 

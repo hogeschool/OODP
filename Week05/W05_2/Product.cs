@@ -1,4 +1,4 @@
-﻿public class Product
+﻿class Product
 {
     public string Name { get; set; } //auto-implemented property
     public virtual string Description { get; set; } = "none"; //virtual; default value
@@ -7,7 +7,7 @@
     public double Price
     {
         get => _price;
-        set => _price = value >= 0 ? value : 0;
+        set => _price = Math.Max(0, value); //must always be at least 0
     }
 
     public int Sold { get; protected set; } //different access modifiers

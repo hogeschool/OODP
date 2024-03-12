@@ -1,4 +1,4 @@
-﻿public class IsoscelesTriangle
+﻿class IsoscelesTriangle
 {
     //Notice the naming convention for private fields (_camelCase)
     private double _base, _height, _slantHeight;
@@ -40,7 +40,9 @@
 
     public override string ToString()
     {
-        return $"{base.ToString()} with base: {_base}, height: {_height}, slant height: {_slantHeight}, color: {Color}";
+        return $"{base.ToString()} with base: {_base}, " +
+            $"height: {_height}, slant height: {_slantHeight}, " +
+            $"color: {Color}";
     }
 }
 

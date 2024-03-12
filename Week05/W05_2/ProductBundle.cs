@@ -1,11 +1,7 @@
-﻿public class ProductBundle : Product
+﻿class ProductBundle : Product
 {
-    private string _description; //backing field
-    public override string Description
-    { 
-        get => _description;
-        set => _description = value + $" Quantity: {Quantity}";
-    }
+    public override string Description => base.Description + $" (quantity: {Quantity})"; //read-only
+    // same as: public override string Description { get => base.Description + $" (quantity: {Quantity}) }";
 
     public int Quantity { get; } //read-only
     public int BundlesSold { get; private set; } //different access modifiers
