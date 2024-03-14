@@ -46,10 +46,10 @@ public class Program
             Console.WriteLine($"{rental}'s current renter: {rental.CurrentRenter}");
 
             if (rental is LandVehicle lv)
-			{
-				lv.StartEngine();
-				lv.StopEngine();
-			}
+            {
+                lv.StartEngine();
+                lv.StopEngine();
+            }
 
             Console.WriteLine();
         }
