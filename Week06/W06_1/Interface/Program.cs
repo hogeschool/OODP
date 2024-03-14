@@ -41,12 +41,16 @@ public class Program
 
         foreach (var rental in rentals)
         {
-            Console.WriteLine($"{rental.ToString()}'s rental ID: {rental.RentalId}");
-            Console.WriteLine($"{rental.ToString()}'s price per day: {rental.PricePerDay}");
-            Console.WriteLine($"{rental.ToString()}'s current renter: {rental.CurrentRenter}");
-            var landVehicle = rental as LandVehicle;
-            landVehicle?.StartEngine();
-            landVehicle?.StopEngine();
+            Console.WriteLine($"{rental}'s rental ID: {rental.RentalId}");
+            Console.WriteLine($"{rental}'s price per day: {rental.PricePerDay}");
+            Console.WriteLine($"{rental}'s current renter: {rental.CurrentRenter}");
+
+            if (rental is LandVehicle lv)
+			{
+				lv.StartEngine();
+				lv.StopEngine();
+			}
+
             Console.WriteLine();
         }
     }
