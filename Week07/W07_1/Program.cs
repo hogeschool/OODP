@@ -72,8 +72,6 @@ public class Program
 
     private static T Pop<T>(List<T> list)
     {
-        //Note: this method will not work for all types.
-        //We will learn more about this later in the course.
         T first = list[0];
         list.RemoveAt(0);
         return first;
