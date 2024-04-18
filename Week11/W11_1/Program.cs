@@ -10,13 +10,13 @@
   - Indexer overloading (W11.1.C08)
 */
 
-public class Program
+static class Program
 {
     static void Main()
     {
         Tuples();
         Arrays();
-        IndexerOverloading();
+        IndexerOverloading(); //Extra
     }
 
 //Tuples
@@ -80,7 +80,7 @@ public class Program
             (isCorrect ? "correct!" : "incorrect."));
     }
 
-    static void IndexerOverloading()
+    static void IndexerOverloading() //Extra
     {
         Console.WriteLine("\n=== Indexer overloading ===");
         int[] ints = new[] { 3, 5, 1, 6, -2 };

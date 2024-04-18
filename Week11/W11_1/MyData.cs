@@ -1,4 +1,4 @@
-﻿public class MyData
+﻿class MyData
 {
     private int[] _data;
     public MyData(int[] data) => _data = data;

@@ -1,12 +1,12 @@
 ﻿public class Person : IEquatable<Person>
 {
-    public string Name { get; set; }
+    public string? Name { get; set; }
     public int Age { get; set; }
 
     //Implement the IEquatable interface method
     public bool Equals(Person other)
     {
-        if (other == null)
+        if (other is null)
         {
             return false;
         }
@@ -18,17 +18,7 @@
     //Override the Object.Equals method to support comparison with other types of objects
     public override bool Equals(object obj)
     {
-        if (obj == null)
-        {
-            return false;
-        }
-
-        if (!(obj is Person))
-        {
-            return false;
-        }
-
-        return Equals((Person)obj);
+        return Equals(obj as Person);
     }
 
     public static bool operator ==(Person p1, Person p2)
