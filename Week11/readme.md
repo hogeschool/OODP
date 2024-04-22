@@ -10,7 +10,13 @@
 Not covered; should speak for itself:
 * Arrays: Length & accessing elements (W11.1.C05-C06)
 * Arrays: Sort & Reverse (W11.1.C07)
-*  Indexer overloading (W11.1.C08)
+* Extra: indexer overloading (W11.1.C08)
+* string methods 
+  * https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0#methods
+
+  * Some string methods to mention:
+    * Contains, Trim, Split, Length, Substring, 
+    * IsNullOrEmpty, ToUpper, ToLower
 
 ## Day 2 (W11_2)
 
@@ -18,9 +24,3 @@ Not covered; should speak for itself:
 
 * jagged arrays (W10.2.C01-02)
 * multidimensional arrays (W10.2.C03-04)
-* string methods 
-  * https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-7.0#methods
-
-  * Some string methods to mention:
-    * Contains, Trim, Split, Length, Substring, 
-    * IsNullOrEmpty, ToUpper, ToLower
