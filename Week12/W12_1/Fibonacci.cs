@@ -3,6 +3,10 @@
     public static int Iteratively(int n)
     {
         // Very clumsy. Not intuitive at all, and a lot of code.
+        if(n == 0)
+        {
+            return 0;
+        }
         int n0 = 0;
         int n1 = 1;
 
