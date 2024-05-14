@@ -1,7 +1,4 @@
-﻿using System.Runtime.Intrinsics.Arm;
-using System.Security.Cryptography;
-
-namespace TeacherFiles_Draw;
+﻿namespace TeacherFiles_Draw;
 
 class Program
 {
