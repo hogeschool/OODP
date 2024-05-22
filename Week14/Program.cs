@@ -4,7 +4,7 @@
 // 14.2 class assignments
 
 int[] intArr = [-5, -3, 6, 2, 2, 6, -2];
-List<int> intList = [1, 2, 3, 4, 5, 4, 3, 2, 1];
+List<int> intList = [1, 2, 3, 4, 5, 4, 1, 2, 3];
 
 // Use Where to filter numbers larger than 2
 List<int> filtered2 = intArr.Where(x => x > 2).ToList();
@@ -16,7 +16,9 @@ List<int> orderedDescList = intList.OrderByDescending(_ => _).ToList(); // Same 
 // See: https://stackoverflow.com/questions/1832684/c-sharp-sort-and-orderby-comparison
 
 // Reverse a collection
-intList.Reverse();
+intList.Reverse(); // NOT LINQ; this is a List method
+intArr.Reverse(); // NOT LINQ; this is an array method
+List<int> reversedList = Enumerable.Reverse(intList).ToList(); // LINQ. Returns the reversed list
 
 List<int> intList2 = [1, 2, 3, 2, 1, 5, 6];
 
