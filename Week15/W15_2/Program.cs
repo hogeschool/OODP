@@ -3,11 +3,13 @@
  *  - switch (W15.2.C02)
  *  - looping (W15.2.C03)
  *  - conversion (W15.2.C04)
- *  - description (W15.2.C05)
  */
 
 /* 
-In C#, an enum (or enumeration type) is used to assign constant names to a group of numeric integer values. It makes constant values more readable, for example, WeekDays.Monday is more readable then number 0 when referring to the day in a week.
+In C#, an enum (or enumeration type) is used to assign constant names to a
+group of numeric integer values. It makes constant values more readable.
+For example, WeekDays.Monday is more readable then number 0 when referring to
+the day in a week.
 
 enum WeekDays
 {
@@ -21,25 +23,19 @@ enum WeekDays
 }
 */
 
-public class Program
+static class Program
 {
-    public enum IceCreamFlavor // enum declaration
+    enum IceCreamFlavor // enum declaration
     {
-        [Description("Classic Vanilla")] // Descriptions are optional
-        Vanilla = 1, // Initialization. The numbering is optional.
-        [Description("Decadent Chocolate")]
-        Chocolate = 2,
-        [Description("Sweet Strawberry")]
+        Vanilla = 1, // Initialization. The numbering is optional; it starts at 0 by default.
+        Chocolate = 2, // If you leave out numbers 2-6, they will be numbered automatically.
         Strawberry = 3,
-        [Description("Buttery Caramel")]
         Caramel = 4,
-        [Description("Refreshing Mint")]
         Mint = 5,
-        [Description("Irresistible Cookie Dough")]
         CookieDough = 6
     }
 
-    public static void Main()
+    static void Main()
     {
         // Enum member assignment
         IceCreamFlavor myFlavor = IceCreamFlavor.Caramel;
@@ -59,31 +55,11 @@ public class Program
 
     // Method to get flavor message based on the ice cream flavor.
     // This is how we 'convert' an enum member.
-    static string GetFlavorMessage(IceCreamFlavor flavor)
+    static string GetFlavorMessage(IceCreamFlavor flavor) => flavor switch
     {
-        switch (flavor)
-        {
-            case IceCreamFlavor.Vanilla:
-                return "You selected Vanilla ice cream!";
-            case IceCreamFlavor.Chocolate:
-                return "You selected Chocolate ice cream!";
-            case IceCreamFlavor.Strawberry:
-                return "You selected Strawberry ice cream!";
-            default:
-                return "You selected a different ice cream flavor!";
-        }
-    }
-
-    // Custom attribute to store enum member descriptions.
-    // You don't need to know this!
-    [AttributeUsage(AttributeTargets.Field)]
-    class DescriptionAttribute : Attribute
-    {
-        public string Description { get; }
-
-        public DescriptionAttribute(string description)
-        {
-            Description = description;
-        }
-    }
+        IceCreamFlavor.Vanilla => "You selected Vanilla ice cream!",
+        IceCreamFlavor.Chocolate => "You selected Chocolate ice cream!",
+        IceCreamFlavor.Strawberry => "You selected Strawberry ice cream!",
+        _ => throw new ArgumentException("This ice cream flavor is not available."),
+    };
 }
