@@ -60,6 +60,6 @@ static class Program
         IceCreamFlavor.Vanilla => "You selected Vanilla ice cream!",
         IceCreamFlavor.Chocolate => "You selected Chocolate ice cream!",
         IceCreamFlavor.Strawberry => "You selected Strawberry ice cream!",
-        _ => throw new ArgumentException("This ice cream flavor is not available."),
+        _ => throw new ArgumentException("This ice cream flavor is not available."), // Impossible to reach. Why do you think this is?
     };
 }
