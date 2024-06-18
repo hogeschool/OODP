@@ -10,6 +10,7 @@ PART 1: static
 *  static classes (W03.1.C03)
 *  W03.1.C04: what concepts did you just use?
 *  W03.1.C05: ??? (solve the bug)
+*  static constructor (no exercises here but it comes in the sample exam end term assignment 4)
 
 PART 2: const
 *  const fields (W03.1.C06-08)
