@@ -28,7 +28,7 @@ public static class W_01_1_01_Lesson
         char initial; //16 bit
         int age = 24; //32 bits
         double height = 165.3; //64 bits
-        bool male = false; //8 bits
+        bool male = true; //8 bits
 
         // Error initial has not been assigned
         // char initialCopy = initial;
