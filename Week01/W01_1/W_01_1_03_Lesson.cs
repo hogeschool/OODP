@@ -4,7 +4,7 @@
    * Grouping cases in switch statements and expressions
    * Switch Statements and expressions with the relational pattern
 
-    Class Exercises: W_01_1_C08 - W_01_1_C09
+    Class Exercises: W01.1.1T08 - 10
 
     Switch statements:
     https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
@@ -172,6 +172,6 @@ public static class W_01_1_03_Lesson
     }
 
     /**********************************************
-    *           W_01_1_C08 - W_01_1_C09           *
+    *               W01.1.1T08 - 10               *
     ***********************************************/
 }

@@ -17,7 +17,7 @@
     * Be Careful With Read (optional)
     * Types of errors - compiler errors, warnings, run time errors, logical errors
 
-    Class Exercises: W_01_1_C01 - W_01_1_C03
+    Class Exercises: W01.11T01 - 03
 */
 public static class W_01_1_01_Lesson
 {
@@ -263,6 +263,6 @@ public static class W_01_1_01_Lesson
     }
 
     /**********************************************
-    *           W_01_1_C01 - W_01_1_C03           *
+    *               W01.1.1T01 - 03               *
     ***********************************************/
 }

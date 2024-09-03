@@ -10,7 +10,7 @@
    * Selection Ternary
    * Selection If / Else / If Else
 
-    Class Exercises: W_01_1_C04 - W_01_1_C07
+    Class Exercises: W01.1.1T04 - 07
 */
 public static class W_01_1_02_Lesson
 {
@@ -136,6 +136,6 @@ public static class W_01_1_02_Lesson
     }
 
     /**********************************************
-    *           W_01_1_C04 - W_01_1_C07           *
+    *               W01.1.1T04 - 07               *
     ***********************************************/
 }
