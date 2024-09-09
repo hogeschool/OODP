@@ -1,18 +1,18 @@
 /*
     Contents:
     * PART 1: methods
-    * parameters (W02.1.1T01)
-    * void methods (W02.1.1T01)
-    * non-void methods (W02.1.1T02 & 04)
-    * methods calling other methods (W02.1.1T03)
-    * expression-bodied method (W02.1.1T03)
-    * code paths (W02.1.1T05)
+    * parameters (W02.1.C01)
+    * void methods (W02.1.C01)
+    * non-void methods (W02.1.C02 & 04)
+    * methods calling other methods (W02.1.C03)
+    * expression body definition (W02.1.C03)
+    * code paths (W02.1.C05)
     * 
     * PART 2: classes
-    * instantiation (W02.1.1T06)
-    * fields (W02.1.1T07)
-    * constructors (W02.1.1T07)
-    * this (W02.1.1T08)
+    * instantiation (W02.1.C06)
+    * fields (W02.1.C07)
+    * constructors (W02.1.C07)
+    * this (W02.1.C08)
     * methods
 */
 
@@ -37,7 +37,11 @@ static class Program
         //Like in Python, methods can have reference-typed parameters
         //and return reference-typed parameters as well.
         Console.WriteLine("Let's take attendance then.");
-        List<string> studentList = new() {
+
+        //Instead of [] you could also use
+        // - new() {"Hello", "World!"}
+        // - new List<string>() {"Hello", "World!"}
+        List<string> studentList = [ 
             "Mary Booai",
             "Donald Chase",
             "Franklin Wayne",
@@ -45,7 +49,7 @@ static class Program
             "Wayne Parker",
             "Cameron Phillips",
             "John Reese",
-        };
+        ];
         Console.WriteLine(CheckPresence(studentList, 7));
 
         //Methods calling other methods.
@@ -80,7 +84,7 @@ static class Program
 
     public static string WhatIsThisLessonAbout()
     {
-        List<string> topicList = new() { "methods", "basic classes" };
+        List<string> topicList = ["methods", "basic classes"];
         string topics = "";
         for (int i = 0; i < topicList.Count; i++)
         {
