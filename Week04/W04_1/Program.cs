@@ -11,7 +11,7 @@
     *  - 'finally' block (W04.1.C08)
 */
 
-public class Program
+static class Program
 {
     public static void Main()
     {
@@ -19,7 +19,7 @@ public class Program
         ReadingWriting();
 
         //Part 2
-        Console.WriteLine("\nFor JSON file handling," +
+        Console.WriteLine("\nFor JSON file handling, " +
             "see the Descriptions of the assignments. " +
             "This has example code that you can use.");
 
@@ -38,7 +38,7 @@ public class Program
         Console.WriteLine(contents);
 
         Console.WriteLine("Please enter a name:");
-        string name = Console.ReadLine();
+        string? name = Console.ReadLine();
         Console.WriteLine("Please enter an age:");
         int age = Convert.ToInt32(Console.ReadLine());
         WriteCSVFileBasic(fileName, name, age);
@@ -50,7 +50,6 @@ public class Program
         StreamReader reader = new(csvFileName);
         string contents = reader.ReadToEnd();
         reader.Close();
-        reader.Dispose();
         return contents;
     }
 
@@ -59,7 +58,6 @@ public class Program
         StreamWriter writer = new(csvFileName, true);
         writer.WriteLine($"{name},{age}");
         writer.Close();
-        writer.Dispose();
     }
 
     public static void GenericExceptionHandling()
@@ -70,7 +68,7 @@ public class Program
         Console.WriteLine(contents);
 
         Console.WriteLine("Please enter a name:");
-        string name = Console.ReadLine();
+        string? name = Console.ReadLine();
 
         int age = -1;
         bool success = false;
@@ -99,7 +97,7 @@ public class Program
         Console.WriteLine(contents);
 
         Console.WriteLine("Please enter a name:");
-        string name = Console.ReadLine();
+        string? name = Console.ReadLine();
 
         int age = -1;
         bool success = false;
@@ -123,7 +121,7 @@ public class Program
 
     public static string ReadCSVFileBetter(string fileName)
     {
-        StreamReader reader = null;
+        StreamReader? reader = null;
         try
         {
             reader = new StreamReader(fileName);
@@ -143,15 +141,15 @@ public class Program
             //This is the same as:
             //if (file != null)
             //{
-            //    reader.Close();
-            //    reader.Dispose();
+            //    file.close();
+            //    file.dispose();
             //}
         }
     }
 
     public static void WriteCSVFileBetter(string csvFileName, string name, int age)
     {
-        StreamWriter writer = null;
+        StreamWriter? writer = null;
         try
         {
             //true: append; false: overwrite
