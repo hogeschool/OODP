@@ -1,4 +1,4 @@
-﻿public class Toy
+﻿class Toy
 {
     public string Squeak() => "Squeak!";
 }

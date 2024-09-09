@@ -1,4 +1,4 @@
-﻿public class Athlete
+﻿class Athlete
 {
     public int GoldMedalsCount;
     public int SilverMedalsCount;

@@ -13,7 +13,7 @@
     *  - default constructors (W02.2.C08)
 */
 
-public class Program
+static class Program
 {
     public static void Main()
     {

@@ -1,4 +1,4 @@
-﻿public class ToyFactory
+﻿class ToyFactory
 {
-    public Toy Produce() => new Toy();
+    public Toy Produce() => new(); // Return a new Toy
 }

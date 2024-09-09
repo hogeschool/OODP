@@ -1,13 +1,13 @@
-﻿public class Author
+﻿class Author
 {
     public string Name;
-    public List<string> PublishedBooks = new();
+    public List<string> PublishedBooks = []; // [] is the same as new() or new List<string>()
 
     public Author(string name)
     {
         Name = name;
         //Alternatively, PublishedBooks can be initialized in the constructor.
-        //PublishedBooks = new();
+        //PublishedBooks = [];
     }
 
     public void PublishBook(string bookName) => PublishedBooks.Add(bookName);

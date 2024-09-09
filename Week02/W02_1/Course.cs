@@ -1,4 +1,4 @@
-public class Course
+class Course
 {
     //Fields
     public string Name;
