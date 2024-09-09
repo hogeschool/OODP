@@ -1,4 +1,4 @@
-﻿public static class BugattiFactory
+﻿static class BugattiFactory
 {
     public static int DivoTopSpeed = 380;
     public static int VeyrTopSpeed = 410;
@@ -11,6 +11,6 @@
     //    VeyrTopSpeed = 410;
     //}
 
-    public static Bugatti ProduceDivo() => new Bugatti("Divo", DivoTopSpeed);
-    public static Bugatti ProduceVeyron() => new Bugatti("Veyron", VeyrTopSpeed);
+    public static Bugatti ProduceDivo() => new("Divo", DivoTopSpeed);
+    public static Bugatti ProduceVeyron() => new("Veyron", VeyrTopSpeed);
 }

@@ -1,4 +1,4 @@
-﻿public class Bugatti
+﻿class Bugatti
 {
     public readonly string Model;
     public int TopSpeed;
@@ -13,20 +13,17 @@
 
     //Alternatively, you can use a static constructor
     //to assign values to static fields.
-    //static Bugatti() => FactoryLocation = "Molsheim";
+    //static Car() => FactoryLocation = "Molsheim";
 
-    public string Info()
-    {
-        return $"This Bugatti {Model} has a top speed of {TopSpeed}";
-    }
+    public string Info() => $"This Bugatti {Model} has a top speed of {TopSpeed}";
 
-    public static Bugatti WhichIsFaster(Bugatti bugatti1, Bugatti bugatti2)
+    public static Bugatti? WhichIsFaster(Bugatti bugatti1, Bugatti bugatti2)
     {
-        if (bugatti1 == null && bugatti2 == null)
+        if (bugatti1 is null && bugatti2 is null)
             return null;
-        if (bugatti1 == null)
+        if (bugatti1 is null)
             return bugatti2;
-        if (bugatti2 == null)
+        if (bugatti2 is null)
             return bugatti1;
         return bugatti1.TopSpeed > bugatti2.TopSpeed ? bugatti1 : bugatti2;
     }
