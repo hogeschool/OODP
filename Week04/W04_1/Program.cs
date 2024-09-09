@@ -137,12 +137,10 @@ static class Program
         finally //Executed whether there was an exception or not
         {
             reader?.Close();
-            reader?.Dispose();
             //This is the same as:
             //if (file != null)
             //{
-            //    file.close();
-            //    file.dispose();
+            //    file.Close();
             //}
         }
     }
@@ -163,7 +161,6 @@ static class Program
         finally
         {
             writer?.Close();
-            writer?.Dispose();
         }
     }
 }
