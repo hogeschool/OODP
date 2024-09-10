@@ -2,7 +2,8 @@
 {
     public int BatteryCapacity;
 
-    public ElectricCar(string make, string model) : this(make, model, 40) { }
+    public ElectricCar(GasCar gasCar, int batteryCapacity) // Convert a gas car to an electric car
+        : this(gasCar.Make, gasCar.Model, batteryCapacity) { }
     public ElectricCar(string make, string model, int batteryCapacity)
         : base(make, model)
     {

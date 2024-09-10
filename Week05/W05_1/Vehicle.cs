@@ -18,7 +18,7 @@
         HasFreshTires = false;
     }
 
-    public int ReadMileage() => _mileage;
+    public int GetMileage() => _mileage;
     private void IncreaseMileage(int distance)
     {
         if (distance < 0)

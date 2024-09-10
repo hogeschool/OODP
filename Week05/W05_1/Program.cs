@@ -46,16 +46,16 @@ static class Program
 
         //This is a repeat of the end of the last lesson
         Vehicle newHollandTractor = new("New Holland", "T7.270");
-        Console.WriteLine("Tractor mileage: " + newHollandTractor.ReadMileage());
+        Console.WriteLine("Tractor mileage: " + newHollandTractor.GetMileage());
         newHollandTractor.Drive();
-        Console.WriteLine("Tractor mileage: " + newHollandTractor.ReadMileage());
+        Console.WriteLine("Tractor mileage: " + newHollandTractor.GetMileage());
 
         Console.WriteLine("\nThe derived class 'GasCar' " +
             "has access to its base class' PUBLIC members:");
         GasCar porsche911 = new("Porsche", "911 GT3");
-        Console.WriteLine("Porsche mileage: " + porsche911.ReadMileage());
+        Console.WriteLine("Porsche mileage: " + porsche911.GetMileage());
         porsche911.Drive();
-        Console.WriteLine("Porsche mileage: " + porsche911.ReadMileage());
+        Console.WriteLine("Porsche mileage: " + porsche911.GetMileage());
         Console.WriteLine();
     }
 
