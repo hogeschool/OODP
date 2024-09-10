@@ -1,4 +1,4 @@
-/*
+﻿/*
     Contents:
     * PART 1: overloaded methods
     *  - overload styles
@@ -15,7 +15,7 @@
     *  - constructor
 */
 
-public class Program
+static class Program
 {
     public static void Main()
     {
@@ -40,7 +40,7 @@ public class Program
         string toUpper1 = StringFormatter.Capitalize(hello);
         string toUpper2 = StringFormatter.Capitalize(hello, false);
         string toUpper3 = StringFormatter.Capitalize(hello, true);
-        foreach (var word in new List<string>() {toUpper1, toUpper2, toUpper3 })
+        foreach (var word in new List<string>() { toUpper1, toUpper2, toUpper3 })
         {
             Console.WriteLine($"'{hello}' was changed to '{word}'");
         }
@@ -63,17 +63,18 @@ public class Program
 
     public static void OverloadedConstructors()
     {
-        Console.WriteLine("\n=== Constructor overloading ===");
+        Console.WriteLine("=== Constructor overloading ===");
 
         //The Vehicle constructor has constructor that are commented out.
         //Have a look at the code to see the different styles.
 
+        List<Vehicle> vehicles = [];
         Vehicle car1 = new("Toyota", "Camry", 2020);
         Vehicle car2 = new("Toyota", 2020);
         Vehicle car3 = new(2020);
         Vehicle car4 = new(car1);
 
-        foreach (var car in new List<Vehicle>() { car1, car2, car3, car4 })
+        foreach (Vehicle car in new List<Vehicle>() { car1, car2, car3, car4 })
         {
             Console.WriteLine("Make: " + car.Make);
             Console.WriteLine("Model: " + car.Model);
@@ -81,10 +82,10 @@ public class Program
             Console.WriteLine();
         }
     }
-    
+
     public static void Inheritance()
     {
-        Console.WriteLine("\n=== Inheritance ===");
+        Console.WriteLine("=== Inheritance ===");
 
         Console.WriteLine("Class car reuses the fields and one constructor of" +
             "its base class Vehicle.");
