@@ -1,16 +1,16 @@
 /*
     Contents:
     * PART 1
-    *  a: classes with objects as fields (W02.2.C01)
-    *  b: null (W02.2.C02-03)
+    *  a: classes with objects as fields (W02.2.1T01)
+    *  b: null (W02.2.1T02-03)
     * PART 2
-    *  - returning objects (W02.2.C04)
+    *  - returning objects (W02.2.1T04)
     * PART 3
-    *  a: List of objects (W02.2.C06)
-    *  b: foreach (W02.2.C05)
-    *  c: classes with List as field (W02.2.C07)
+    *  a: List of objects (W02.2.1T06)
+    *  b: foreach (W02.2.1T05)
+    *  c: classes with List as field (W02.2.1T07)
     * PART 4
-    *  - default constructors (W02.2.C08)
+    *  - default constructors (W02.2.1T08)
 */
 
 static class Program
