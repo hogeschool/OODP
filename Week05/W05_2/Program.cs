@@ -2,21 +2,21 @@
  Contents:
   * PART 1: access modifiers
     - private fields & methods (repeat)
-    - protected fields & methods (W05.2.C01)
+    - protected fields & methods (W05.2.1T01)
   * PART 2: properties
-    - get (W05.2.C02)
-    - set; read/write; validation (W05.2.C03)
-    - auto-implemented & default values (W05.2.C04)
-    - virtual & override (W05.2.C05)
-    - access modifiers (W05.2.C06)
-    - ??? (W05.2.C07)
+    - get (W05.2.1T02)
+    - set; read/write; validation (W05.2.1T03)
+    - auto-implemented & default values (W05.2.1T04)
+    - virtual & override (W05.2.1T05)
+    - access modifiers (W05.2.1T06)
+    - ??? (W05.2.1T07)
 */
 
 static class Program
 {
     public static void Main()
     {
-        PrivateMembers();
+        PrivateMembers(); // Repeat of last week
         //ProtectedMembers();
         //PropertyGet();
         //PropertyReadWrite();
@@ -28,14 +28,12 @@ static class Program
 
     private static void PrivateMembers()
     {
-        //This is a repeat of last week.
         Console.WriteLine("=== Private fields and methods ===");
 
-        List<IsoscelesTriangle> shapes = new()
-        {
+        List<IsoscelesTriangle> shapes = [
             new IsoscelesTriangle(4.0, 5.0, "Red"),
             new Pyramid(6.0, 7.0, "Yellow"),
-        };
+        ];
 
         foreach (IsoscelesTriangle s in shapes)
         {
@@ -56,33 +54,32 @@ static class Program
 
         Console.WriteLine("Now we know we can only interact with the class " +
             "through public members, and not touch the private members.");
-        foreach (IsoscelesTriangle s in shapes)
+        foreach (IsoscelesTriangle iso in shapes)
         {
-            s.SetBase(2.5);
-            s.SetHeight(3);
+            iso.SetBase(2.5);
+            iso.SetHeight(3);
 
-            if (s is Pyramid)
+            if (iso is Pyramid p)
             {
-                ((Pyramid)s).Paint("Blue", "White", "Red", "Orange", "Black");
+                p.Paint("Blue", "White", "Red", "Orange", "Black");
             }
-            else if (s is IsoscelesTriangle)
+            else if (iso is IsoscelesTriangle i)
             {
-                s.Paint("Orange");
+                i.Paint("Orange");
             }
 
-            Console.WriteLine(s.ToString() + "\n");
+            Console.WriteLine(iso.ToString() + "\n");
         }
     }
 
     private static void ProtectedMembers()
     {
-        Console.WriteLine("===\n Protected fields and methods ===");
+        Console.WriteLine("=== Protected fields and methods ===");
 
-        List<IsoscelesTriangle> shapes = new()
-        {
+        List<IsoscelesTriangle> shapes = [
             new IsoscelesTriangle(4.0, 5.0, "Red"),
             new Pyramid(6.0, 7.0, "Yellow"),
-        };
+        ];
 
         foreach (IsoscelesTriangle s in shapes)
         {
@@ -100,7 +97,7 @@ static class Program
 
     private static void PropertyGet()
     {
-        Console.WriteLine("===\n Read-only properties ===");
+        Console.WriteLine("=== Read-only properties ===");
         ProductBundle hotdogs = new("Hotdogs", 10, "Tasty hotdogs!", 4);
 
         Console.WriteLine("Quantity can be read: " + hotdogs.Quantity);
@@ -110,13 +107,14 @@ static class Program
         Console.WriteLine("Read-only properties may be set in the constructor," +
             "but once the object is constructed, it cannot be changed anymore.\n");
     }
+
     private static void PropertyReadWrite()
     {
-        Console.WriteLine("===\n Reading from and writing to properties ===");
+        Console.WriteLine("=== Reading from and writing to properties ===");
 
         ProductBundle hotdogs = new("Hotdogs", 10, "Tasty hotdogs!", 4);
         Console.WriteLine("Description is a read/write property:");
-        var oldDescription = hotdogs.Description;
+        string oldDescription = hotdogs.Description;
         hotdogs.Description = "Very tasty hotdogs!";
         Console.WriteLine($"Description updated " +
             $"from {oldDescription} to: {hotdogs.Description}\n");
@@ -132,17 +130,17 @@ static class Program
 
     private static void PropertyAuto()
     {
-        Console.WriteLine("===\n Auto-implemented properties ===");
+        Console.WriteLine("=== Auto-implemented properties ===");
         Console.WriteLine("No additional logic is used to read and write the Name.");
         Product hotdog = new("Hotdog", 2.5, "Tasty hotdog!");
-        var oldName = hotdog.Name;
+        string oldName = hotdog.Name;
         hotdog.Name = "Frankfurter";
         Console.WriteLine($"Name updated from {oldName} to: {hotdog.Name}\n");
     }
 
     private static void PropertyDefault()
     {
-        Console.WriteLine("===\n Property default values ===");
+        Console.WriteLine("=== Property default values ===");
         Console.WriteLine("Properties may be given default values:");
         Product hotdog = new("Hotdog", 2.5);
         Console.WriteLine($"Description was set to: {hotdog.Description}\n");
@@ -153,21 +151,22 @@ static class Program
         Console.WriteLine("\n=== Virtual properties ===");
         Console.WriteLine("Like virtual methods, virtual properties may be " +
             "used as-is or overridden by a derived class:");
-        List<Product> products = new()
-        {
+        List<Product> products = [
             new Product("Hotdog", 2.5, "Tasty hotdog!"),
             new ProductBundle("Hotdogs", 10, "Tasty hotdogs!", 4),
-        };
+        ];
 
         foreach (var product in products)
         {
             Console.WriteLine($"{product.Description}");
         }
+
+        Console.WriteLine();
     }
 
     private static void PropertyAccessMods()
     {
-        Console.WriteLine("===\n Property access modifiers ===");
+        Console.WriteLine("=== Property access modifiers ===");
         Console.WriteLine("The get and the set may have different access modifiers.");
 
         Product hotdog = new("Hotdog", 2.5, "Tasty hotdog!");

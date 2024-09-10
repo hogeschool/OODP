@@ -3,13 +3,16 @@
     public Pyramid(double _base, double apex, string color)
         : base(_base, apex, color) { }
 
-    //Not even a derived class can access its base class' private members
-    //public double GetBase() => _base;
+    // Not even a derived class can access its base class' private members
+    // public double GetBase() => _base; would result in an error
 
-    public void SetApex(double apex) //Apex is the Pyramid's height
+    public void SetApex(double apex) // Apex is the Pyramid's height
     {
         if (!IsValidSide(apex))
+        {
+            Console.WriteLine($"Apex not valid: {apex}");
             return;
+        }
         SetHeight(apex);
     }
 

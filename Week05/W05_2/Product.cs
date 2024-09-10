@@ -3,7 +3,7 @@
     public string Name { get; set; } //auto-implemented property
     public virtual string Description { get; set; } = "none"; //virtual; default value
 
-    private double _price; //backing field
+    private double _price; //backing field of Price
     public double Price
     {
         get => _price;
@@ -17,7 +17,7 @@
     {
         Name = name;
         Price = price;
-        if (description != null)
+        if (description is not null)
             Description = description;
     }
 

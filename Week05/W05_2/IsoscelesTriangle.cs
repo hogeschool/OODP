@@ -1,6 +1,6 @@
 ﻿class IsoscelesTriangle
 {
-    //Notice the naming convention for private fields (_camelCase)
+    // Notice the naming convention for private fields (_camelCase)
     private double _base, _height, _slantHeight;
     protected string Color;
 
