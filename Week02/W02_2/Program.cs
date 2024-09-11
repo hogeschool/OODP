@@ -41,11 +41,11 @@ static class Program
         //Objects as fields; null
         Console.WriteLine("\n=== Object field is not null :D ===");
         Engine engine = new(200);
-        Car car1 = new Car(engine);
+        Car car1 = new(engine);
         Console.WriteLine(car1.Info());
 
         Console.WriteLine("\n=== Object field is null :'( ===");
-        Car car2 = new Car(null);
+        Car car2 = new(null);
         Console.WriteLine(car2.Info());
     }
 
@@ -61,7 +61,7 @@ static class Program
         //Part 3a
         Console.WriteLine("\n=== List of objects ===");
         ToyFactory factory = new();
-        List<Toy> toys = new();
+        List<Toy> toys = [];
         int howManyToys = 5;
         for (int i = 0; i < howManyToys; i++)
         {
