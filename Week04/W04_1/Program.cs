@@ -1,29 +1,27 @@
 /*
     Contents:
-    * PART 1: reading from & writing to files
-    *  - reading (W04.1.C01)
-    *  - writing (W04.1.C02)
-    * PART 2: JSON
-    *  - reading & writing (W04.1.C03-05)
-    * PART 3: exception handling
-    *  - generic (W04.1.C06)
-    *  - specific (W04.1.C07)
-    *  - 'finally' block (W04.1.C08)
+    * PART 0: reading from & writing to files
+    * PART 1: JSON
+    *  - reading & writing (W04.1.1T01-03)
+    * PART 2: exception handling
+    *  - generic (W04.1.1T04)
+    *  - specific (W04.1.1T05)
+    *  - 'finally' block (W04.1.1T06)
 */
 
 static class Program
 {
     public static void Main()
     {
-        //Part 1
+        //Part 0
         ReadingWriting();
 
-        //Part 2
+        //Part 1
         Console.WriteLine("\nFor JSON file handling, " +
             "see the Descriptions of the assignments. " +
             "This has example code that you can use.");
 
-        //Part 3
+        //Part 2
         Console.WriteLine("\nTons of things can go wrong in the code of Part 1.");
         Console.WriteLine("Let us try to catch these, shall we?");
         GenericExceptionHandling();
