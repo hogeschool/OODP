@@ -1,7 +1,7 @@
 ﻿class Vehicle
 {
-    public string Make;
-    public string Model;
+    public readonly string Make;
+    public readonly string Model;
     public bool HasFreshTires = true;
     private int _mileage = 0;
 
