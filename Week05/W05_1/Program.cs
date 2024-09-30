@@ -1,12 +1,12 @@
 ﻿/*
  Contents:
-  - Type checking ('is' keyword) (W05.1.C01)
-  - virtual & override (W05.1.C02)
-  - Multiple derived classes (W05.1.C03)
-  - Derived further (W05.1.C04)
-  - Overriding ToString() (W05.1.C05)
-  - Safe/unsafe casting (W05.1.C06)
-  - Access modifiers: public & private (W05.1.C07-09)
+  - Type checking ('is' keyword) (W05.1.1T01)
+  - virtual & override (W05.1.1T02)
+  - Multiple derived classes (W05.1.1T03)
+  - Derived further (W05.1.1T04)
+  - Overriding ToString() (W05.1.1T05)
+  - Safe/unsafe casting (W05.1.1T06)
+  - Access modifiers: public & private (W05.1.1T07-09)
 
  Inheritance hierarchy:
 
@@ -74,11 +74,10 @@ static class Program
     {
         Console.WriteLine("\n=== Type checking ('is' keyword) ===");
 
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             new Vehicle("New Holland", "T7.270"),
             new GasCar("Porsche", "911 GT3"),
-        };
+        ];
 
         foreach (Vehicle vehicle in vehicles)
         {
@@ -101,11 +100,10 @@ static class Program
         Console.WriteLine("\n=== virtual & override ===");
         Console.WriteLine("Virtual methods can overridden by derived class.\n");
 
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             new Vehicle("New Holland", "T7.270"),
             new GasCar("Porsche", "911 GT3"),
-        };
+        ];
 
         foreach (Vehicle vehicle in vehicles)
         {
@@ -132,11 +130,10 @@ static class Program
         Console.WriteLine("\n=== Multiple derived classes ===");
         Console.WriteLine("A base class can have any number of derived classes:");
 
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             new GasCar("Porsche", "911 GT3"),
-            new ElectricCar("Tesla", "Model X"),
-        };
+            new ElectricCar("Tesla", "Model X", 100),
+        ];
 
         foreach (var vehicle in vehicles)
         {
@@ -161,11 +158,10 @@ static class Program
         Console.WriteLine("A derived class can have its own derived classes:");
         Console.WriteLine();
 
-        List<GasCar> gasCars = new()
-        {
+        List<GasCar> gasCars = [
             new GasCar("Porsche", "911 GT3"),
             new Truck("DAF", "XF", 52),
-        };
+        ];
 
         foreach (var gasCar in gasCars)
         {
@@ -188,13 +184,12 @@ static class Program
         Console.WriteLine("Hence classes can override the " +
             "Object class' virtual ToString() method.\n");
 
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             new Vehicle("New Holland", "T7.270"),
             new GasCar("Porsche", "911 GT3"),
             new Truck("DAF", "XF", 52),
-            new ElectricCar("Tesla", "Model X"),
-        };
+            new ElectricCar("Tesla", "Model X", 100),
+        ];
 
         foreach (var vehicle in vehicles)
         {
@@ -210,11 +205,10 @@ static class Program
         Console.WriteLine("\n=== Safe vs unsafe casting ===");
         Console.WriteLine("Casting can be done in two ways.");
 
-        List<object> objects = new()
-        {
+        List<object> objects = [
             new Truck("DAF", "XF", 52),
             new USSEnterprise(),
-        };
+        ];
 
         Console.WriteLine("\nUnsafe casting can cause an InvalidCastException");
         //NOTE: exception handling is NOT the correct approach.
