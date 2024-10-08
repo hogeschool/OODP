@@ -1,7 +1,6 @@
-﻿public class SportsCar : Car
+﻿class SportsCar : Car
 {
-    public SportsCar(int horsepower, int weight)
-        : base(horsepower, weight) { }
+    public SportsCar(int horsepower, int weight) : base(horsepower, weight) { }
 
     public new double EstimateTopSpeedKph()
     {

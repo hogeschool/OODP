@@ -1,9 +1,8 @@
-﻿public class Car : Vehicle
+﻿class Car : Vehicle
 {
-    public int NumberOfWheels { get; }
+    public readonly int NumberOfWheels;
 
-    public Car(int horsepower, int weight)
-        : this(horsepower, weight, 4) { }
+    public Car(int horsepower, int weight) : this(horsepower, weight, 4) { }
     public Car(int horsepower, int weight, int numberOfWheels)
         : base(horsepower, weight)
     {

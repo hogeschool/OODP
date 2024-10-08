@@ -1,4 +1,4 @@
-/*
+﻿/*
  Contents:
   * PART 1: abstract class
     - abstract methods & overriding them (W06.2.C01 & 02)
@@ -6,9 +6,9 @@
   * PART 2: new method (W06.2.C04 & 05)
 */
 
-public class Program
+static class Program
 {
-    public static void Main(string[] args)
+    public static void Main()
     {
         //Part 1
         AbstractMethods();
@@ -48,11 +48,10 @@ public class Program
     public static void CastToAbstractClass()
     {
         Console.WriteLine("\n=== Cast to abstract class ===");
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             new Car(200, 1500),
             new Motorcycle(150, 300, 500),
-        };
+        ];
 
         foreach (Vehicle vehicle in vehicles)
         {
@@ -71,9 +70,9 @@ public class Program
 
             //We need to cast back to Motorcycle
             //in order to do a wheelie
-            if (vehicle is Motorcycle)
+            if (vehicle is Motorcycle m)
             {
-                ((Motorcycle)vehicle).DoWheelie();
+                m.DoWheelie();
             }
         }
     }
@@ -87,12 +86,11 @@ public class Program
         Console.WriteLine("Sports car's estimated top speed (km/h): "
             + sportsCar.EstimateTopSpeedKph());
 
-        List<Vehicle> vehicles = new()
-        {
+        List<Vehicle> vehicles = [
             sportsCar,
             new Car(200, 1500),
             new Motorcycle(150, 300, 500),
-        };
+        ];
 
         foreach (Vehicle vehicle in vehicles)
         {

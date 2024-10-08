@@ -1,6 +1,6 @@
-﻿public class Motorcycle : Vehicle
+﻿class Motorcycle : Vehicle
 {
-    public int EngineDisplacement;
+    public readonly int EngineDisplacement;
 
     public Motorcycle(int horsepower, int weight, int engineDisplacement)
         : base(horsepower, weight)
