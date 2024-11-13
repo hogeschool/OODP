@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-public class MyList<T> : IEnumerable<T>
+class MyList<T> : IEnumerable<T>
 {
     private List<T> _list = new();
     

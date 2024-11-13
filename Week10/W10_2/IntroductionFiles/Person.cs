@@ -1,4 +1,4 @@
-﻿public class Person : IEquatable<Person>
+﻿class Person : IEquatable<Person>
 {
     public string? Name { get; set; }
     public int Age { get; set; }

@@ -1,9 +1,9 @@
-﻿public interface ISizeable 
+﻿interface ISizeable 
 {
     int Size { get; }
 }
 
-public class Box : ISizeable
+class Box : ISizeable
 {
     public int Width { get; }
     public int Height { get; }
@@ -14,18 +14,18 @@ public class Box : ISizeable
         Height = height;
     }
 
-    public int Size { get => Width * Height; }
+    public int Size => Width * Height;
 }
 
-public class Ball : ISizeable
+class Ball : ISizeable
 {
     public int Radius { get; }
     public Ball(int radius) => Radius = radius;
 
-    public int Size { get => (int)(4 / 3.0 * Math.PI * Radius * Radius * Radius); }
+    public int Size => (int)(4 / 3.0 * Math.PI * Radius * Radius * Radius);
 }
 
-public class Space
+class Space
 {
     private readonly int _maxCapacity;
     private int _usedCapacity;

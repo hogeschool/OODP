@@ -1,4 +1,4 @@
-﻿public class Student : IComparable<Student>
+﻿class Student : IComparable<Student>
 {
     public string Name { get; set; }
     public int Age { get; set; }

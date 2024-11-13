@@ -1,6 +1,6 @@
 ﻿using System.Collections;
 
-public class YieldIEnum
+class YieldIEnum
 {
     public static void YieldEnum()
     {
@@ -87,7 +87,7 @@ public class YieldIEnum
     }
 }
 
-public class Product
+class Product
 {
     private int _id;
     private string _name;
@@ -103,7 +103,7 @@ public class Product
     public override string ToString() => $"id: {_id}, name: {_name}, price: {_price}";
 }
 
-public class ProductListing : IEnumerable
+class ProductListing : IEnumerable
 {
     private List<Product> _products = new();
 
