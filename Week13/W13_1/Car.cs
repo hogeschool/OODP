@@ -1,9 +1,7 @@
-
-public class Car
+class Car
 {
-
-    public string Brand { get; }
-    public string Color { get; }
+    public readonly string Brand;
+    public readonly string Color;
 
     public Car(string brand, string color)
     {
@@ -11,4 +9,5 @@ public class Car
         Color = color;
     }
 
+    public override string ToString() => $"{Brand} {Color}";
 }
