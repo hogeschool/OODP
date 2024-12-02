@@ -72,7 +72,7 @@ Some more advanced examples using the delegate types Action and Func.
         SayMyName(3, "James", sayIt);
     }
 
-// Higher Order Method taking a method with an input parameter and that returns a value.
+// Higher Order Method taking a method with an input parameter and that returns a value
     public static void RepeatAction(int numTimes, Func<int, string> action)
     {
         for (int i = 0; i < numTimes; i++)
@@ -82,7 +82,7 @@ Some more advanced examples using the delegate types Action and Func.
         }
     }
 
-// Higher Order Method taking a method with only an input parameter.
+// Higher Order Method taking a method with only an input parameter
     public static void SayMyName(int numTimes, string name, Action<string> action)
     {
         for (int i = 0; i < numTimes; i++)
@@ -91,7 +91,7 @@ Some more advanced examples using the delegate types Action and Func.
         }
     }
 
-//Named method.
+//Named method
     public static string RepeatString(int numRepeats)
     {
         return $"Hello, world! (iteration {numRepeats + 1})";
@@ -100,9 +100,9 @@ Some more advanced examples using the delegate types Action and Func.
     public static void Examples()
     {
         List<Car> cars = [new Car("Kia", "Blue"), new Car("Mazda", "Red"), new Car("Volvo", "Black")];
-        List<Car> filteredCars = [];
 
         // LONG
+        List<Car> filteredCars = [];
         foreach (Car car in cars)
         {
             if (car.Brand.StartsWith('V'))
@@ -116,7 +116,7 @@ Some more advanced examples using the delegate types Action and Func.
         }
 
         // SHORTER
-        filteredCars = FilterCars(cars, e => e.Brand.StartsWith('V'));
+        filteredCars = FilterCars(cars, car => car.Brand.StartsWith('V'));
         filteredCars.ForEach(car => Console.WriteLine(car));
 
         // SHORTEST (?)
