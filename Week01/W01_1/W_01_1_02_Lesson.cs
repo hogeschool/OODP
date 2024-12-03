@@ -12,7 +12,7 @@
 
     Class Exercises: W01.1.1T04 - 07
 */
-public static class W_01_1_02_Lesson
+static class W_01_1_02_Lesson
 {
     // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0
     public static void StringMethods()

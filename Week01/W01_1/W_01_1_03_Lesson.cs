@@ -18,13 +18,13 @@
     Note: Switch statements are not always faster: https://www.dotnetperls.com/if-switch-performance
 */
 
-public static class W_01_1_03_Lesson
+static class W_01_1_03_Lesson
 {
     /*
         Switch with constant pattern - test if an expression result equals a specified constant
         https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/patterns#constant-pattern
     */
-    public static void SwitchStatementAndExpression()
+    static void SwitchStatementAndExpression()
     {
         Console.WriteLine("Enter a number");
         int num1 = Convert.ToInt32(Console.ReadLine());

@@ -19,7 +19,7 @@
 
     Class Exercises: W01.11T01 - 03
 */
-public static class W_01_1_01_Lesson
+static class W_01_1_01_Lesson
 {
     public static void Variables()
     {
