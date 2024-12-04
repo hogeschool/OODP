@@ -22,15 +22,19 @@
     *  - random double (W01.2.1T10)
 */
 
-public static class Program
+static class Program
 {
-    public static void Main()
+    static void Main()
     {
-        //If there is a 'static void Main' in the project,
-        //it will be the entry point of the program.
-        //It is similar to using if __name__ == "__main__" in Python.
+        /*
+        As a reminder: if there is a 'static void Main' in the project, it will
+        be the entry point of the program. It is similar to using
+        if __name__ == "__main__":
+            main()
+        in Python.
+        */
 
-        //Uncomment the part you wish you demonstrate:
+        //Uncomment the part you wish to run:
         //While();
         //DoWhile();
         //For();
@@ -38,16 +42,19 @@ public static class Program
         //Lists();
         //Random();
 
-        //The next part is run multiple times, to demonstrate that a
-        //seeded Random generates predictable numbers.
-        //for (int i = 0; i < 3; i++)
+        /*
+        The next part is run multiple times, to demonstrate that a
+        seeded Random generates predictable numbers.
+        */
+        for (int i = 0; i < 3; i++)
         //{
         //    Console.WriteLine($"===Run #{i+1}===");
         //    PseudoRandom();
         //}
+        */
     }
 
-    public static void While()
+    static void While()
     {
         //The while-loop works exactly the same as in Python.
         int i = 0;
@@ -58,14 +65,14 @@ public static class Program
         Console.WriteLine(i);
     }
 
-    public static void DoWhile()
+    static void DoWhile()
     {
         /*
-         * The do-while-loop has only one difference with the regular
-         * while-loop: it is always executed at least once.
-         * This is useful for example when you want to get
-         * valid input from the user.
-         */
+        The do-while-loop has only one difference with the regular
+        while-loop: it is always executed at least once.
+        This is useful for example when you want to get
+        valid input from the user.
+        */
         int i = 10;
         do
         {
@@ -74,7 +81,7 @@ public static class Program
         Console.WriteLine(i);
     }
 
-    public static void For()
+    static void For()
     {
         /*
          * The for-loop in C# works differently than in Python.
@@ -86,6 +93,7 @@ public static class Program
         {
             Console.WriteLine(i);
         }
+        
         /*
          * C#'s for-loop might remind you of
          * a for-loop using a 'range' in Python:
@@ -100,10 +108,10 @@ public static class Program
         }
     }
 
-    public static void Scope()
+    static void Scope()
     {
-        //Like with if/else/else-if blocks, variables created inside
-        //code blocks will no longer exist after the code block is finished.
+        // Like if/else/else-if blocks, variables created inside
+        // code blocks will no longer exist after the code block is finished.
         Console.WriteLine("While-loop #1");
         int i = 0;
         while (i < 10)
@@ -111,17 +119,17 @@ public static class Program
             var temp = "i is currently " + i++;
             Console.WriteLine(temp);
         }
-        //Console.WriteLine(temp); would cause an error as 'temp' no longer exists
+        //Console.WriteLine(temp); // would cause an error as 'temp' no longer exists
 
-        //This also includes the initializer of the for-loop:
+        // This also includes the initializer of the for-loop:
         Console.WriteLine("\nFor-loop #1");
         for (int j = 0; j < 10; j++)
         {
             Console.WriteLine(j);
         }
-        //Console.WriteLine(j); would cause an error as 'j' no longer exists
+        //Console.WriteLine(j); // would cause an error as 'j' no longer exists
 
-        //Note that if you need the variable afterwards, you can do this:
+        // Note that if you need the variable afterwards, you can do this:
         Console.WriteLine("\nFor-loop #2");
         int k = 0;
         for (; k < 10; k++)
@@ -131,48 +139,51 @@ public static class Program
         Console.WriteLine("After the for-loop, k is " + k);
     }
 
-    public static void Lists()
+    static void Lists()
     {
-        //Creating a List object. Lists are much like lists in Python,
-        //but there are differences. For example, it can contain only
-        //one type of element.
-        //Therefore you need to specify the type of the elements.
+        /*
+        Creating a List object. Lists are much like lists in Python, but there
+        are differences. For example, it can contain only one type of element.
+        Therefore you need to specify the type of the elements.
+        */
         List<int> myIntList = new() { 1, 2, 3 };
+        //List<int> myIntList = [1, 2, 3]; // Alternative
         List<string> myStringList = new() { "Hello", "World" };
 
-        //Index (same as in Python)
-        //Which element will it print?
+        // Index (same as in Python)
+        //  - Which element will it print?
         Console.WriteLine("The first/second/third? element is "
             + myIntList[1]);
 
-        //Similar to len() in Python
+        // Similar to len() in Python
         Console.WriteLine("\nAmount of elements in the list: "
             + myIntList.Count);
 
-        //Adding to a List
-        //In Python, this is Append()
+        // Adding to a List
+        //  - In Python, this is Append()
         myIntList.Add(1);
 
-        //Removing from a List
+        // Removing from a List
         myIntList.Remove(1);
-        //What do you think this removes?
-        // a: first occurrance of given element
-        // b: all occurrances of given element
-        // c: element at given index
+        /*
+        What do you think this removes?
+        a: first occurrance of given element
+        b: all occurrances of given element
+        c: element at given index
+        */
 
-        //Loop
+        // Loop
         Console.WriteLine("\nPrinting all elements of a List object");
         for (int i = 0; i < myStringList.Count; i++)
         {
             Console.WriteLine(myStringList[i]);
         }
-        //Next week you'll learn an even better way
-        //to loop through a List object!
+        // Next week you'll learn an even better way to loop through a List object!
     }
 
-    public static void Random()
+    static void Random()
     {
-        Random rand = new();
+        Random rand = new(); // rand is an object of class Random
 
         Console.WriteLine("Randomly generate an int from 0 to 4");
         for (int i = 0; i < 10; i++)
@@ -193,16 +204,16 @@ public static class Program
         }
     }
 
-    public static void PseudoRandom()
+    static void PseudoRandom()
     {
-        Random pseudoRand0 = new(0); //seed 0
-        Random pseudoRand1 = new(1); //seed 1
+        Random pseudoRand0 = new(0); // seed 0
+        Random pseudoRand1 = new(1); // seed 1
         Console.WriteLine("Not truly random numbers");
         int max = 9;
         for (int i = 0; i < 10; i++)
         {
             Console.WriteLine(
-                pseudoRand0.Next(max+1) + " " + pseudoRand1.Next(max+1));
+                pseudoRand0.Next(max + 1) + " " + pseudoRand1.Next(max + 1));
         }
     }
 }
