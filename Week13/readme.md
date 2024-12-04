@@ -28,4 +28,5 @@ All of these methods take one or more methods as arguments, which makes them hig
 ## Day 2 (W13_2)
 
 ### Contents:
+None
 
