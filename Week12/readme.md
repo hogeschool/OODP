@@ -19,7 +19,7 @@ No, seriously now:
  - Disadvantages
 
 Some good sources:
- - https://www.sparknotes.com/cs/recursion/whatisrecursion/section1/
+ - https://www.sparknotes.com/cs/recursion/whatisrecursion/section1/ // Link broken :(
  - https://www.recursionvisualizer.com/
 
 ## Day 2 (W12_2)
