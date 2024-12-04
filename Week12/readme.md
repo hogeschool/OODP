@@ -19,10 +19,10 @@ No, seriously now:
  - Disadvantages
 
 Some good sources:
- - https://www.sparknotes.com/cs/recursion/whatisrecursion/section1/ // Link broken :(
+ - https://www.freecodecamp.org/news/what-is-recursion/
  - https://www.recursionvisualizer.com/
 
 ## Day 2 (W12_2)
 
 ### Contents:
-
+None
