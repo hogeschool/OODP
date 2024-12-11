@@ -116,11 +116,3 @@ List<Person> orderedPeople = people
     .OrderBy(person => person.Age)
     .ThenBy(person => person.Name)
     .ToList();
-
-// This also works for Stacks!
-Queue<Person> queue = new(people);
-while (queue.Any()) // Same as queue.Count > 0
-{
-    Person next = queue.Dequeue();
-    Console.WriteLine($"Helping {next.Name}...");
-}

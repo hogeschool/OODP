@@ -1,7 +1,7 @@
 ﻿class Person
 {
-    public string Name { get; }
-    public int Age { get; }
+    public readonly string Name;
+    public readonly int Age;
 
     public Person(string name, int age)
     {
