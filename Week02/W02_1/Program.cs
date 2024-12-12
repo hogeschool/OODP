@@ -18,7 +18,7 @@
 
 static class Program
 {
-    public static void Main()
+    static void Main()
     {
         //In C#, methods need to have their return type specified.
         //Even if they return nothing, they need
