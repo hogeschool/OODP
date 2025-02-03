@@ -7,19 +7,19 @@
     * scope (Homework)
     * 
     * PART 2
-    * Main (W01.2.1T05)
     * Built-in class: List
-    *  - Indexes (W01.2.1T06)
-    *  - Count (W01.2.1T06)
-    *  - Create (W01.2.1T07)
+    *  - Indexes (W01.2.1T05)
+    *  - Add/Remove/Count (W01.2.1T06)
+    *
+    * Built-in class: Dictionary
     *  - Add (W01.2.1T07)
-    *  - Remove (W01.2.1T07)
-    *    
+    *  - Create/look up (W01.2.1T08)
+    *
     * PART 3
     * Built-in classes: Random
-    *  - random int (W01.2.1T08)
-    *  - pseudorandom int (W01.2.1T09)
-    *  - random double (W01.2.1T10)
+    *  - random int (W01.2.1T09)
+    *  - pseudorandom int (W01.2.1T10)
+    *  - random double (W01.2.1T11)
 */
 
 static class Program
@@ -40,6 +40,7 @@ static class Program
         //For();
         //Scope();
         //Lists();
+        //Dictionaries();
         //Random();
 
         /*
@@ -180,6 +181,49 @@ static class Program
         }
         // Next week you'll learn an even better way to loop through a List object!
     }
+    
+static void Dictionaries()
+{
+    // Create a Dictionary
+    Dictionary<int, string> numbers = new()
+    {
+        { 0, "zero" },
+        { 1, "one" },
+        { 2, "two" },
+        { 3, "three" }
+    };
+
+    // Look up with error handling
+    if (numbers.TryGetValue(2, out string twoAsString))
+    {
+        Console.WriteLine($"Key 2 maps to: {twoAsString}");
+    }
+    else
+    {
+        Console.WriteLine("Key not found.");
+    }
+
+    // Add a new key-value pair
+    numbers.Add(4, "four");
+
+    // Update an existing value
+    numbers[2] = "TWO"; // Overwrites "two"
+
+    // Remove a key-value pair
+    numbers.Remove(1);
+
+    // Iterate through the dictionary
+    Console.WriteLine("Dictionary contents:");
+    foreach (var kvp in numbers)
+    {
+        Console.WriteLine($"Key: {kvp.Key}, Value: {kvp.Value}");
+    }
+
+    // Clear all entries
+    numbers.Clear();
+    Console.WriteLine("Dictionary cleared.");
+}
+
 
     static void Random()
     {
