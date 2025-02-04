@@ -1,141 +1,67 @@
-﻿/* 
-   Contents:
-   * String Methods
-   * String Equality
-   * String Escape Sequences
-   * Relational Operators
-   * Logical Operators
-   * Selection If / Else
-   * Selection Scope
-   * Selection Ternary
-   * Selection If / Else / If Else
-
-    Class Exercises: W01.1.1T04 - 07
-*/
-static class W_01_1_02_Lesson
+public class W_01_1_02_Lesson_DB
 {
-    // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0
-    public static void StringMethods()
+    public static void M()
     {
-        string word = "supercalifragilisticexpialidocious";
-        int length = word.Length;
-        string wordUpper = word.ToUpper();
-        string wordLower = word.ToLower();
-        //Note this has no effect
-        word.ToLower();
-    }
+        // String Methods Length ToUpper ToLower
+        // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0
 
-    public static void StringEquality()
-    {
-        /*
-            Two string are equal when both of them are null or both string 
-            instances are of the same length and have identical characters 
-            in each character position. We can use the == operator to check 
-            for string equality (There are other ways).
-        */
-        string s1 = "hello!";
-        string s2 = "hello!";
-        Console.WriteLine(s1 == s2);  // output: True
+        string s1 = "hello";
+        int len = s1.Length;
+        string s2 = s1.ToUpper();
+        string s3 = s1.ToLower();
+        s3.ToUpper();
 
-        string s3 = "Hello!";
-        Console.WriteLine(s1 == s3);  // output: False
-    }
+        // String Equality
+        string s4 = "hello";
+        var eq1 = s1 == s2;
+        var eq2 = s1 == s4;
 
-    public static void StringEscapeSequences()
-    {
-        string quote = "\"First, solve the problem. Then, write the code.\"\n\t- John Johnson";
-        Console.WriteLine(quote);
-        string escapeInfo = "To print a backslash (\\) write \\\\";
-        Console.WriteLine(escapeInfo);
-    }
+        // String Escape Sequences \n \t \" \' \\
+        string escChars = "Hi\nThere\tYou! \\ \" \'";
+        Console.WriteLine(escChars);
 
-    public static void RelationalOperators()
-    {
-        // Same as in Python
-        // ==, !=, >, >=, <, <=
+        // Relational Operators < <= > >= != ==
         int num1 = 1, num2 = 2;
-        bool result = num1 > num2;
-    }
+        bool check = num1 == num2;
 
-    public static void LogicalOperators()
-    {
-        bool sad = true;
-        sad = !sad; // not
-
+        //    * Logical Operators not and or 
         bool cold = true;
         bool raining = false;
-        bool stayIn = cold && raining; // and
-        bool wearCoat = cold || raining; // or
 
-        /*
-            Operator precedence (High to low)
-            Logical negation operator !
-            Conditional logical AND operator &&
-            Conditional logical OR operator ||
-        */
-    }
+        bool hot = !cold;
+        bool wearCoat = cold || raining;
+        bool stayIn = cold && raining;
 
-    public static void SelectionIfElse()
-    {
-        Console.WriteLine("Enter a number:");
-        int num = Convert.ToInt32(Console.ReadLine());
+        // Selection If / Else + Scope [odd even + secret]
         string result = "";
-        if (num % 2 == 0)
+        if (num1 % 2 == 0)
         {
             result = "even";
+            string mySecret = "shhhh";
         }
         else
         {
             result = "odd";
         }
-        Console.WriteLine($"{num} is {result}");
-    }
 
-    public static void SelectionScope()
-    {
-        int age = 18;
-        if (age < 18)
+        //    * Selection Ternary C ? T : F
+        string result2 = num1 % 2 == 0 ? "even" : "odd";
+
+        //    * Selection If / Else / If Else [+ve -ve 0]
+        if (num1 < 0)
         {
-            double price = 5.5;
+            result = " negative";
+        }
+        else if (num1 > 0)
+        {
+            result = " negative";
         }
         else
         {
-            // Error
-            // price = 10.5;
+            result = " 0";
         }
-        // Error
-        // Console.WriteLine(price);
-    }
 
-    public static void SelectionTernary()
-    {
-        Console.WriteLine("Enter a number:");
-        int num = Convert.ToInt32(Console.ReadLine());
-        string result = (num % 2 == 0) ? "even" : "odd";
-        Console.WriteLine($"{num} is {result}");
+        //     Class Exercises: W_01_1_C04 - W_01_1_C07
+        Console.WriteLine();
     }
-
-    public static void SelectionIfElseIfElse()
-    {
-        Console.WriteLine("Enter a number:");
-        int num = Convert.ToInt32(Console.ReadLine());
-        string result = "";
-        if (num > 0)
-        {
-            result = "positive";
-        }
-        else if (num < 0)
-        {
-            result = "negative";
-        }
-        else
-        {
-            result = "zero";
-        }
-        Console.WriteLine($"{num} is {result}");
-    }
-
-    /**********************************************
-    *               W01.1.1T04 - 07               *
-    ***********************************************/
 }
