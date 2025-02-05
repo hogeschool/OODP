@@ -3,7 +3,7 @@ public class W_01_1_02_Lesson_DB
     public static void M()
     {
         // String Methods Length ToUpper ToLower
-        // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-6.0
+        // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0
 
         string s1 = "hello";
         int len = s1.Length;
