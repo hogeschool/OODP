@@ -54,24 +54,23 @@ Note: Switch statements are not always faster: https://www.dotnetperls.com/if-sw
 ## Day 2 (W01_2)
 
 ### Contents:
-
-PART 1
-* while (W01.2.C01)
-* do-while (W01.2.C02)
-* for (W01.2.C03-04)
-* scope (Homework)
-
-PART 2
-* Main (W01.2.C05)
-* Built-in class: List
-  - Indexes (W01.2.C06)
-  - Count (W01.2.C06)
-  - Create (W01.2.C07)
-  - Add (W01.2.C07)
-  - Remove (W01.2.C07)
  
+PART 1
+* while (W01.2.1T01)
+* do-while (W01.2.1T02)
+* for (W01.2.1T03-04)
+* scope (Homework)
+ 
+PART 2
+* Built-in class: List
+  - Indexes (W01.2.1T05)
+  - Add/Remove/Count (W01.2.1T06)
+* Built-in class: Dictionary
+  - Add (W01.2.1T07)
+  - Create/look up (W01.2.1T08)
+
 PART 3
-* Built-in classes: Random
-  - random int (W01.2.C08)
-  - pseudorandom int (W01.2.C09)
-  - random double (W01.2.C10)
+* Built-in class: Random
+  - random int (W01.2.1T09)
+  - pseudorandom int (W01.2.1T10)
+  - random double (W01.2.1T11)
