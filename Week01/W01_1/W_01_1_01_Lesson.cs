@@ -26,15 +26,15 @@ public class W_01_1_01_Lesson_DB
         // If there is a double in the expression, the result will be a double
         var doMath2 = a + b + 1.0;
 
-        //Shortcuts ++ -- (post/pre) += -= *= /= 
+        // Shortcuts ++ -- (post/pre) += -= *= /= 
         int num = 1;
-        int num2 = num++;
-        int num3 = ++num;
+        int num2 = num++; // post
+        int num3 = ++num; // pre
         num += 10;
 
         // Comments (Ctrl /)
         // comment
-        
+
         /*
          A
          long
@@ -47,9 +47,9 @@ public class W_01_1_01_Lesson_DB
         Console.WriteLine("There");
 
         // String Concatenation + $ //Settings -> editor.quickSuggestions -> strings -> on
-        string s = name + " " + age + " " + height;
+        string s1 = name + " " + age + " " + height;
         string s2 = $"{name} {age} {height}";
-        Console.WriteLine(s);
+        Console.WriteLine(s1);
         Console.WriteLine(s2);
 
         // Input ReadLine
@@ -88,7 +88,7 @@ public class W_01_1_01_Lesson_DB
         Console.WriteLine("For break point");
 
         /**********************************************
-        *           W_01_1_C01 - W_01_1_C03           *
+        *          W_01_1_1T01 - W_01_1_1T03          *
         ***********************************************/
     }
 }
