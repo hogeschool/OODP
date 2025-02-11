@@ -1,6 +1,6 @@
 public class W_01_1_02_Lesson_DB
 {
-    public static void M()
+    public static void Main()
     {
         // String Methods Length ToUpper ToLower
         // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0
@@ -28,9 +28,9 @@ public class W_01_1_02_Lesson_DB
         bool cold = true;
         bool raining = false;
 
-        bool hot = !cold;
-        bool wearCoat = cold || raining;
-        bool stayIn = cold && raining;
+        bool hot = !cold; // not
+        bool wearCoat = cold || raining; // or
+        bool stayIn = cold && raining; // and
 
         // Selection If / Else + Scope [odd even + secret]
         string result = "";
@@ -61,7 +61,7 @@ public class W_01_1_02_Lesson_DB
             result = " 0";
         }
 
-        //     Class Exercises: W_01_1_C04 - W_01_1_C07
+        //     Class Exercises: W_01_1_1T04 - W_01_1_1T07
         Console.WriteLine();
     }
 }
