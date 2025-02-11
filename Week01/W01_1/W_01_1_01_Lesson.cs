@@ -49,15 +49,15 @@ public class W_01_1_01_Lesson_DB
         // String Concatenation + $ //Settings -> editor.quickSuggestions -> strings -> on
         string s = name + " " + age + " " + height;
         string s2 = $"{name} {age} {height}";
-        System.Console.WriteLine(s);
-        System.Console.WriteLine(s2);
+        Console.WriteLine(s);
+        Console.WriteLine(s2);
 
         // Input ReadLine
-        System.Console.WriteLine("Enter something:");
+        Console.WriteLine("Enter something:");
         // about warning: There is a chance that null (absence of a string) is stored
         // Will learn about null later in the course
         string input = Console.ReadLine();
-        System.Console.WriteLine($"You wrote {input}");
+        Console.WriteLine($"You wrote {input}");
 
         // Conversion From String to int, char, double (,) (Convert.To) Exception
         // Built in methods https://learn.microsoft.com/en-us/dotnet/api/system.convert?view=net-8.0
