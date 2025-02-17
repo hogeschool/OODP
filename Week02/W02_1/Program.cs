@@ -35,9 +35,9 @@ static class Program
         Console.WriteLine(topics);
 
         //Like in Python, methods can have reference-typed parameters
-        //and return reference-typed parameters as well.
-        Console.WriteLine("Let's take attendance then.");
+        //and return reference-typed parameters (Lists, objects) as well.
 
+        Console.WriteLine("Let's take attendance then.");
         //Instead of [] you could also use
         // - new() {"Hello", "World!"}
         // - new List<string>() {"Hello", "World!"}
