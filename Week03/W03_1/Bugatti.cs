@@ -13,7 +13,7 @@
 
     //Alternatively, you can use a static constructor
     //to assign values to static fields.
-    //static Car() => FactoryLocation = "Molsheim";
+    //static Bugatti() => FactoryLocation = "Molsheim";
 
     public string Info() => $"This Bugatti {Model} has a top speed of {TopSpeed}";
 
