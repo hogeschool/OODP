@@ -7,7 +7,7 @@ int[] intArr = [-5, -3, 6, 2, 2, 6, -2];
 List<int> intList = [1, 2, 3, 4, 5, 4, 1, 2, 3];
 
 // Use Where to filter numbers larger than 2
-List<int> filtered2 = intArr.Where(x => x > 2).ToList();
+List<int> filtered2 = intList.Where(x => x > 2).ToList();
 
 // Order a list
 List<int> orderedList = intList.OrderBy(_ => _).ToList();
