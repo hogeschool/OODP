@@ -12,8 +12,7 @@
 
     public string Info()
     {
-        if (CarEngine is null)
-            return "This car has no engine";
+        if (CarEngine is null) { return "This car has no engine"; }
         return $"This car's engine has {CarEngine.Horsepower} horsepower";
     }
 }

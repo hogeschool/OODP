@@ -16,7 +16,9 @@
     {
         string pubBooks = $"{Name} has published the following books:";
         foreach (string book in PublishedBooks)
+        {
             pubBooks += $" - {book}\n";
+        }
         return pubBooks;
     }
 }

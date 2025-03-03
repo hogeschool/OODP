@@ -15,7 +15,7 @@
 
 static class Program
 {
-    public static void Main()
+    static void Main()
     {
         Part1a();
         Part1b();
