@@ -162,19 +162,3 @@ static class Program
         }
     }
 }
-
-/*
-Avoid exception handling when possible because:
- - It slows down performance (exceptions are expensive).
- - It makes debugging harder by hiding real issues.
- - It reduces code readability when overused.
-
-Use it only for unexpected errors that can't be prevented!
-
-Use exception handling only when errors are unexpected and unavoidable, such as:
-
-- File or database access issues (e.g., file not found, permission denied).
-- Network failures (e.g., internet down, API request fails).
-- External system failures (e.g., hardware issues, third-party service errors).
-Only handle exceptions when prevention isn’t possible!
-*/
