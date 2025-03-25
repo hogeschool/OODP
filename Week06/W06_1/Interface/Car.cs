@@ -1,6 +1,6 @@
 ﻿namespace Interface;
 
-public class Car : LandVehicle, IRental
+public class Car : LandVehicle, IRentable
 {
     public int RentalId { get; set; }
     public string CurrentRenter { get; set; }
