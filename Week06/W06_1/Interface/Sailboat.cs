@@ -1,6 +1,6 @@
 ﻿namespace Interface;
 
-public class Sailboat : IRentable
+public class Sailboat : IRental
 {
     public int RentalId { get; set; }
     public string CurrentRenter { get; set; }

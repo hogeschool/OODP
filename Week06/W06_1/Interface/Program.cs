@@ -6,7 +6,7 @@ Highly recommended watch!
 
     has                       is
 +---------------+       +-----------------+
-| IRentable     |       | LandVehicle     |
+| IRental       |       | LandVehicle     |
 +---------------+       +-----------------+
    |                       |
    |                       |
@@ -32,7 +32,7 @@ public class Program
 {
     public static void Main()
     {
-        List<IRentable> rentals = new()
+        List<IRental> rentals = new()
         {
             new Car() { RentalId = 1, PricePerDay = 50, CurrentRenter = "John Doe"},
             new Truck() { RentalId = 2, PricePerDay = 75, CurrentRenter = "Jane Doe"},

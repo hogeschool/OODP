@@ -1,6 +1,6 @@
 ﻿namespace Interface;
 
-public interface IRentable
+public interface IRental
 {
     int RentalId { get; set; }
     string CurrentRenter { get; set; }
