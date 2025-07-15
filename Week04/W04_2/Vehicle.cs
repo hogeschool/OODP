@@ -1,41 +1,38 @@
 ﻿class Vehicle
 {
-    public string Make;
-    public string Model;
-    public int Year;
+    public readonly string Make;
+    public readonly string Model;
+    public bool HasFreshTires = true;
+    private int _mileage = 0;
 
-    public Vehicle(string make, string model, int year)
+    public Vehicle(string make, string model)
     {
         Make = make;
         Model = model;
-        Year = year;
     }
 
-    ////Code duplication
+    public void Drive() => Drive(1);
+    public virtual void Drive(int distance)
+    {
+        IncreaseMileage(distance);
+        HasFreshTires = false;
+    }
 
-    //public Vehicle(string make, int year)
-    //{
-    //    Make = make;
-    //    Model = "unknown model";
-    //    Year = year;
-    //}
+    public int GetMileage() => _mileage;
+    private void IncreaseMileage(int distance)
+    {
+        if (distance < 0)
+            return;
+        _mileage += distance;
+    }
 
-    //public Vehicle(int year)
-    //{
-    //    Make = "unknown make";
-    //    Model = "unknown model";
-    //    Year = year;
-    //}
+    public virtual void PerformMaintenance() => HasFreshTires = true;
 
-    //public Vehicle(Vehicle other) //Copy constructor
-    //{
-    //    Make = other.Make;
-    //    Model = other.Model;
-    //    Year = other.Year;
-    //}
-
-    //Constructor chaining
-    public Vehicle(string make, int year) : this(make, "unknown model", year) { }
-    public Vehicle(int year) : this("unknown make", "unknown model", year) { }
-    public Vehicle(Vehicle other) : this(other.Make, other.Model, other.Year) { }
+    //Overrides 'ToString()' of base class 'Object'
+    public override string ToString()
+    {
+        return $"{base.ToString()}: {Make} {Model}"
+            + $"\n - Mileage: {_mileage}"
+            + $"\n - Fresh tires: {(HasFreshTires ? "yes" : "no")}";
+    }
 }

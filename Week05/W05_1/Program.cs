@@ -1,262 +1,183 @@
 ﻿/*
  Contents:
-  - Type checking ('is' keyword) (W05.1.1T01)
-  - virtual & override (W05.1.1T02)
-  - Multiple derived classes (W05.1.1T03)
-  - Derived further (W05.1.1T04)
-  - Overriding ToString() (W05.1.1T05)
-  - Safe/unsafe casting (W05.1.1T06)
-  - Access modifiers: public & private (W05.1.1T07-09)
-
- Inheritance hierarchy:
-
-                 Object
-                   |
-             +-----+-----+
-             |           |
-          Vehicle    USSEnterprise
-             |
-     +-------+-------+
-     |               |
-  GasCar        ElectricCar
-     |
-     |
-   Truck
-
+  * PART 1: access modifiers
+    - private fields & methods (repeat)
+    - protected fields & methods (W05.2.1T01)
+  * PART 2: properties
+    - get (W05.2.1T02)
+    - set; read/write; validation (W05.2.1T03)
+    - auto-implemented & default values (W05.2.1T04)
+    - virtual & override (W05.2.1T05)
+    - access modifiers (W05.2.1T06)
+    - ??? (W05.2.1T07)
 */
 
 static class Program
 {
     public static void Main()
     {
-        BaseAndDerived();
-        BaseKeyword();
-        TypeChecking();
-        VirtualAndOverride();
-        MultipleDerivedClasses();
-        DerivedFurther();
-        Overriding_ToString();
-        SafeUnsafeCasting();
-        PublicPrivate();
+        PrivateMembers(); // Repeat of last week
+        //ProtectedMembers();
+        //PropertyGet();
+        //PropertyReadWrite();
+        //PropertyAuto();
+        //PropertyDefault();
+        //PropertyVirtual();
+        //PropertyAccessMods();
     }
 
-    public static void BaseAndDerived()
+    private static void PrivateMembers()
     {
-        Console.WriteLine("=== Base & derived classes ===");
+        Console.WriteLine("=== Private fields and methods ===");
 
-        //This is a repeat of the end of the last lesson
-        Vehicle newHollandTractor = new("New Holland", "T7.270");
-        Console.WriteLine("Tractor mileage: " + newHollandTractor.GetMileage());
-        newHollandTractor.Drive();
-        Console.WriteLine("Tractor mileage: " + newHollandTractor.GetMileage());
-
-        Console.WriteLine("\nThe derived class 'GasCar' " +
-            "has access to its base class' PUBLIC members:");
-        GasCar porsche911 = new("Porsche", "911 GT3");
-        Console.WriteLine("Porsche mileage: " + porsche911.GetMileage());
-        porsche911.Drive();
-        Console.WriteLine("Porsche mileage: " + porsche911.GetMileage());
-        Console.WriteLine();
-    }
-
-    public static void BaseKeyword()
-    {
-        Console.WriteLine("\n=== 'base' keyword ===");
-
-        Console.WriteLine("When creating an instance of a derived class, " +
-            "the base constructor needs to be called as well:\n");
-        Console.WriteLine("public GasCar(string make, string model)" +
-            " : base(make, model)\r\n{\r\n    HasNewSparkPlugs = true;\r\n}");
-        Console.WriteLine();
-    }
-
-    public static void TypeChecking()
-    {
-        Console.WriteLine("\n=== Type checking ('is' keyword) ===");
-
-        List<Vehicle> vehicles = [
-            new Vehicle("New Holland", "T7.270"),
-            new GasCar("Porsche", "911 GT3"),
+        List<IsoscelesTriangle> shapes = [
+            new IsoscelesTriangle(4.0, 5.0, "Red"),
+            new Pyramid(6.0, 7.0, "Yellow"),
         ];
 
-        foreach (Vehicle vehicle in vehicles)
+        foreach (IsoscelesTriangle s in shapes)
         {
-            Console.WriteLine($"The {vehicle.Make} {vehicle.Model}:");
-            Console.WriteLine(" - has fresh tires: " + vehicle.HasFreshTires);
+            //None of the private members can be accessed from outside the class.
+            //The following statements would all cause a runtime error
+            //("is inaccessible due to its protection level")
+            //Console.WriteLine("Base: " + s._base);
+            //Console.WriteLine("Height: " + s._height);
+            //Console.WriteLine("Slant height: " + s._slantHeight);
+            //s.SetSlantHeight();
 
-            if (vehicle is GasCar)
+            if (s is Pyramid)
             {
-                Console.WriteLine(" - is a GasCar");
-                Console.WriteLine("   * has new spark plugs: "
-                    + ((GasCar)vehicle).HasNewSparkPlugs);
+                //Console.WriteLine("Apex: " + ((Pyramid)s)._apex);
+                //Also look at the GetBase() method of the Pyramid class
+            }
+        }
+
+        Console.WriteLine("Now we know we can only interact with the class " +
+            "through public members, and not touch the private members.");
+        foreach (IsoscelesTriangle iso in shapes)
+        {
+            iso.SetBase(2.5);
+            iso.SetHeight(3);
+
+            if (iso is Pyramid p)
+            {
+                p.Paint("Blue", "White", "Red", "Orange", "Black");
+            }
+            else if (iso is IsoscelesTriangle i)
+            {
+                i.Paint("Orange");
             }
 
-            Console.WriteLine();
+            Console.WriteLine(iso.ToString() + "\n");
         }
     }
 
-    public static void VirtualAndOverride()
+    private static void ProtectedMembers()
     {
-        Console.WriteLine("\n=== virtual & override ===");
-        Console.WriteLine("Virtual methods can overridden by derived class.\n");
+        Console.WriteLine("=== Protected fields and methods ===");
 
-        List<Vehicle> vehicles = [
-            new Vehicle("New Holland", "T7.270"),
-            new GasCar("Porsche", "911 GT3"),
+        List<IsoscelesTriangle> shapes = [
+            new IsoscelesTriangle(4.0, 5.0, "Red"),
+            new Pyramid(6.0, 7.0, "Yellow"),
         ];
 
-        foreach (Vehicle vehicle in vehicles)
+        foreach (IsoscelesTriangle s in shapes)
         {
-            Console.WriteLine($"Driving the {vehicle.Make} {vehicle.Model}...");
-            vehicle.Drive(5);
-            Console.WriteLine("Has fresh tires: " + vehicle.HasFreshTires);
-
-            if (vehicle is GasCar)
-                Console.WriteLine("Has new spark plugs: " + ((GasCar)vehicle).HasNewSparkPlugs);
-
-            Console.WriteLine("\nPerforming maintenance...");
-            vehicle.PerformMaintenance();
-            Console.WriteLine("Has fresh tires: " + vehicle.HasFreshTires);
-
-            if (vehicle is GasCar)
-                Console.WriteLine("Has new spark plugs: " + ((GasCar)vehicle).HasNewSparkPlugs);
-
-            Console.WriteLine();
+            //Much like private members, we cannot access protected members
+            //from here. The following statements would all cause a runtime error:
+            //("is inaccessible due to its protection level")
+            //Console.WriteLine("Color: " + s.Color);
+            //Console.WriteLine("Is valid side: " + Isosceles.IsValidSide(7.5);
         }
+
+        Console.WriteLine("Protected members can be accessed by derived classes. " +
+            "Look at the Pyramid's SetApex method where IsValid is accessed, " +
+            "and the overloaded Paint method where Color is accessed.\n");
     }
 
-    public static void MultipleDerivedClasses()
+    private static void PropertyGet()
     {
-        Console.WriteLine("\n=== Multiple derived classes ===");
-        Console.WriteLine("A base class can have any number of derived classes:");
+        Console.WriteLine("=== Read-only properties ===");
+        ProductBundle hotdogs = new("Hotdogs", 10, "Tasty hotdogs!", 4);
 
-        List<Vehicle> vehicles = [
-            new GasCar("Porsche", "911 GT3"),
-            new ElectricCar("Tesla", "Model X", 100),
-        ];
-
-        foreach (var vehicle in vehicles)
-        {
-            Console.WriteLine($"The {vehicle.Make} {vehicle.Model}:");
-            Console.WriteLine(" - has fresh tires: " + vehicle.HasFreshTires);
-            //We can create an object immediately!
-            //This is called pattern matching type casting
-            //(You don't need to remember this.)
-            if (vehicle is GasCar gasCar) //Pattern matching type cast
-                Console.WriteLine(" - has new spark plugs: "
-                    + gasCar.HasNewSparkPlugs);
-            if (vehicle is ElectricCar electricCar)
-                Console.WriteLine(" - has a battery capacity of: "
-                    + electricCar.BatteryCapacity);
-            Console.WriteLine();
-        }
+        Console.WriteLine("Quantity can be read: " + hotdogs.Quantity);
+        Console.WriteLine("Quantity cannot be written to:\n - " +
+            "\"Property or indexer 'ProductBundle.Quantity' cannot be assigned to -- it is read only\"\n");
+        //hotdogs.Quantity = 6; runtime error
+        Console.WriteLine("Read-only properties may be set in the constructor," +
+            "but once the object is constructed, it cannot be changed anymore.\n");
     }
 
-    public static void DerivedFurther()
+    private static void PropertyReadWrite()
     {
-        Console.WriteLine("\n=== Derived and derived further ===");
-        Console.WriteLine("A derived class can have its own derived classes:");
-        Console.WriteLine();
+        Console.WriteLine("=== Reading from and writing to properties ===");
 
-        List<GasCar> gasCars = [
-            new GasCar("Porsche", "911 GT3"),
-            new Truck("DAF", "XF", 52),
-        ];
+        ProductBundle hotdogs = new("Hotdogs", 10, "Tasty hotdogs!", 4);
+        Console.WriteLine("Description is a read/write property:");
+        string oldDescription = hotdogs.Description;
+        hotdogs.Description = "Very tasty hotdogs!";
+        Console.WriteLine($"Description updated " +
+            $"from {oldDescription} to: {hotdogs.Description}\n");
+        Console.WriteLine("Additional logic is used to write to the Description. " +
+            "A backing field is required for this.\n");
 
-        foreach (var gasCar in gasCars)
-        {
-            Console.WriteLine($"The {gasCar.Make} {gasCar.Model}:");
-            Console.WriteLine(" - has fresh tires: " + gasCar.HasFreshTires);
-            Console.WriteLine(" - has new spark plugs: " + gasCar.HasNewSparkPlugs);
-            if (gasCar is Truck truck)
-                Console.WriteLine(" - has a cargo space capacity (m3) of: "
-                    + truck.CargoCapacity);
-
-            Console.WriteLine();
-        }
+        Console.WriteLine("Another example:");
+        Product hotdog = new("Hotdog", 2.5, "Tasty hotdog!");
+        hotdog.Price = -2.5;
+        Console.WriteLine($"Attempted to update Price to -2.5, but must be " +
+            $"at least 0. Therefore Price was set to: {hotdog.Price}\n");
     }
 
-    public static void Overriding_ToString()
+    private static void PropertyAuto()
     {
-        Console.WriteLine("\n=== Overriding ToString() ===");
-        Console.WriteLine("Each class is ultimately derived" +
-            " from the Object class.");
-        Console.WriteLine("Hence classes can override the " +
-            "Object class' virtual ToString() method.\n");
+        Console.WriteLine("=== Auto-implemented properties ===");
+        Console.WriteLine("No additional logic is used to read and write the Name.");
+        Product hotdog = new("Hotdog", 2.5, "Tasty hotdog!");
+        string oldName = hotdog.Name;
+        hotdog.Name = "Frankfurter";
+        Console.WriteLine($"Name updated from {oldName} to: {hotdog.Name}\n");
+    }
 
-        List<Vehicle> vehicles = [
-            new Vehicle("New Holland", "T7.270"),
-            new GasCar("Porsche", "911 GT3"),
-            new Truck("DAF", "XF", 52),
-            new ElectricCar("Tesla", "Model X", 100),
+    private static void PropertyDefault()
+    {
+        Console.WriteLine("=== Property default values ===");
+        Console.WriteLine("Properties may be given default values:");
+        Product hotdog = new("Hotdog", 2.5);
+        Console.WriteLine($"Description was set to: {hotdog.Description}\n");
+    }
+
+    private static void PropertyVirtual()
+    {
+        Console.WriteLine("\n=== Virtual properties ===");
+        Console.WriteLine("Like virtual methods, virtual properties may be " +
+            "used as-is or overridden by a derived class:");
+        List<Product> products = [
+            new Product("Hotdog", 2.5, "Tasty hotdog!"),
+            new ProductBundle("Hotdogs", 10, "Tasty hotdogs!", 4),
         ];
 
-        foreach (var vehicle in vehicles)
+        foreach (var product in products)
         {
-            //Printing an object automatically calls ToString()
-            Console.WriteLine(vehicle);
+            Console.WriteLine($"{product.Description}");
         }
 
         Console.WriteLine();
     }
 
-    public static void SafeUnsafeCasting()
+    private static void PropertyAccessMods()
     {
-        Console.WriteLine("\n=== Safe vs unsafe casting ===");
-        Console.WriteLine("Casting can be done in two ways.");
+        Console.WriteLine("=== Property access modifiers ===");
+        Console.WriteLine("The get and the set may have different access modifiers.");
 
-        List<object> objects = [
-            new Truck("DAF", "XF", 52),
-            new USSEnterprise(),
-        ];
+        Product hotdog = new("Hotdog", 2.5, "Tasty hotdog!");
+        ProductBundle hotdogs = new("Hotdogs", 10, "Tasty hotdogs!", 4);
 
-        Console.WriteLine("\nUnsafe casting can cause an InvalidCastException");
-        //NOTE: exception handling is NOT the correct approach.
-        //It is done here merely for demonstration purposes.
-        foreach (var obj in objects)
-        {
-            try
-            {
-                Console.WriteLine($"Driving the Vehicle...");
-                ((Vehicle)obj).Drive();
-            }
-            catch (InvalidCastException ex)
-            {
-                Console.WriteLine($"{obj} is not a Vehicle.");
-                Console.WriteLine(ex); //ToString is automatically called here also
-                Console.WriteLine(ex.Message);
-            }
-        }
-
-        foreach (var obj in objects)
-        {
-            Console.WriteLine("\n=== Safe casting can result in a 'null' ===");
-            Vehicle vehicle = obj as Vehicle;
-            if (vehicle != null)
-            {
-                Console.WriteLine($"Driving the Vehicle...");
-                vehicle.Drive();
-            }
-            else
-            {
-                Console.WriteLine($"{obj} is not a Vehicle");
-            }
-
-            Console.WriteLine("Alternatively, you can use the null-coalescing operator:");
-            Console.WriteLine($"Driving the Vehicle...");
-            vehicle?.Drive();
-        }
-    }
-
-    public static void PublicPrivate()
-    {
-        Console.WriteLine("\n=== public & private ===");
-
-        Vehicle newHollandTractor = new("New Holland", "T7.270");
-
-        Console.WriteLine("We cannot access IncreaseMileage nor _mileage," +
-            "from outside class Vehicle, because they are private members.");
-        //newHollandTractor.IncreaseMileage(10)); //Results in an error
-        //Console.WriteLine("Tractor mileage: " + newHollandTractor._mileage); //Results in an error
+        hotdog.Sell();
+        Console.WriteLine($"Property Sold may be read publically," +
+            $"but only written to from within this and derived classes.");
+        Console.WriteLine($"{hotdog.Name} sold: {hotdog.Sold}");
+        Console.WriteLine("Sold cannot be written to:\n - " +
+            "\"The property or indexer 'Product.Sold' cannot be used in this context because the set accessor is inaccessible.\"\n");
+        //hotdog.Sold = 2; runtime error
     }
 }
