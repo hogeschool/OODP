@@ -1,4 +1,4 @@
-public static class DB_W_01_1_03_Lesson
+public static class W_01_1_03_Switch
 {
     public static void SwitchStatementAndExpression()
     {
@@ -84,7 +84,7 @@ public static class DB_W_01_1_03_Lesson
         };
 
 
-        //Switch Expressions with the relational pattern
+        // Switch expressions with the relational pattern
         // Weekday: >=1 and <=5, Weekend: 6 or 7, error
         int day = 3;
         string result4 = day switch
@@ -93,7 +93,6 @@ public static class DB_W_01_1_03_Lesson
             6 or 7 => "Weekend",
             _ => "Error"
         };
-        //     Class Exercises: W_01_1_C08 - W_01_1_C09
         Console.WriteLine();
     }
 }

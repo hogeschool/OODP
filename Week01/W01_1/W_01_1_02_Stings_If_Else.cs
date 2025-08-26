@@ -2,7 +2,7 @@ public class W_01_1_02_Lesson_DB
 {
     public static void Main()
     {
-        // String Methods Length ToUpper ToLower
+        // String methods: Length, ToUpper, ToLower
         // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0
 
         string s1 = "hello";
@@ -11,12 +11,12 @@ public class W_01_1_02_Lesson_DB
         string s3 = s1.ToLower();
         s3.ToUpper();
 
-        // String Equality
+        // String equality
         string s4 = "hello";
         var eq1 = s1 == s2;
         var eq2 = s1 == s4;
 
-        // String Escape Sequences \n \t \" \' \\
+        // String escape sequences: \n \t \" \' \\
         string escChars = "Hi\nThere\tYou! \\ \" \'";
         Console.WriteLine(escChars);
 
@@ -24,7 +24,7 @@ public class W_01_1_02_Lesson_DB
         int num1 = 1, num2 = 2;
         bool check = num1 == num2;
 
-        //    * Logical Operators not and or 
+        //    * Logical operators, not and or 
         bool cold = true;
         bool raining = false;
 
@@ -44,7 +44,7 @@ public class W_01_1_02_Lesson_DB
             result = "odd";
         }
 
-        //    * Selection Ternary C ? T : F
+        //    * Selection ternary: C ? T : F
         string result2 = num1 % 2 == 0 ? "even" : "odd";
 
         //    * Selection If / Else / If Else [+ve -ve 0]
@@ -60,8 +60,5 @@ public class W_01_1_02_Lesson_DB
         {
             result = " 0";
         }
-
-        //     Class Exercises: W_01_1_1T04 - W_01_1_1T07
-        Console.WriteLine();
     }
 }
