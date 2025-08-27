@@ -1,25 +1,34 @@
-class Course
+/*
+Model the following:
+A course has a name and an amount of credits associated with it. 
+We want to be able to see this information in the following format:
+The Course OODP is worth 13 credits
+
+class Course:
+    def __init__(self, name, credits):
+        self.Name = name
+        self.Credits = credits
+
+    def Info(self):
+        return f"The Course {self.Name} is worth {self.Credits} credits"
+
+*/
+public class Course
 {
     // Fields
     public string Name;
     public int Credits;
 
-    // Constructor
-    // Similar to Python's __init__(self, ...)
-    // Notice that it has the same name as the class, and no return type
+    // Constructor (this)
     public Course(string name, int credits)
     {
-        //The keyword 'this' is more or less equivalent to Python's 'self'.
-        //Using 'this' is optional, but can sometimes make code more clear.
-        //For example, in the constructor it can prevent
-        //unexpected behavior due to faulty value assignment.
         this.Name = name;
         this.Credits = credits;
     }
-
-    // Method
-    // Notice:
-    // - the absence of the 'static' keyword
-    // - this is a method-bodied expression
-    public string Info() => $"Course {Name} is worth {Credits} credits";
+    
+    // Methods - notice no static
+    public string GetInfo()
+    {
+        return $"The Course {this.Name} is worth {this.Credits} credits";
+    }
 }
