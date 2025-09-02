@@ -24,4 +24,4 @@ Console.WriteLine(ans);
 ```
 * What is a `switch` statement?
 * What is a `switch` expression?
-* When should you use a `switch` statement vs an `if` statement?
+* When should you use a `switch` vs an `if` statement?

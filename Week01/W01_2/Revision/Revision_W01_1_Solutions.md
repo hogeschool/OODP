@@ -34,9 +34,9 @@ Revision - Solutions
     Console.WriteLine(ans);
     ```
     > `ans` only exists in the body (scope) of the `if`
-* What is a `switch` statement?
-    > The `switch` statement selects a statement list to execute based on pattern matching
+What is a `switch` statement?
+    > The `switch` statement selects and executes a block of code by comparing a given value against multiple case labels.
 * What is a `switch` expression?
-    > The `switch` expression selects a statement list to execute based on pattern matching
-* When should you use a `switch` statement vs an `if` statement?
+    > The `switch` expression evaluates a value and returns a result based on pattern-matching rules
+* When should you use a `switch` vs an `if` statement?
     > When comparing the same variable to multiple constants a `switch` can be cleaner
