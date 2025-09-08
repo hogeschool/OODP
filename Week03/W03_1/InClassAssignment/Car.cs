@@ -6,7 +6,7 @@
         nothing, static, const, readonly, or static readonly
     */
 
-    // *** the data associated with a Car starts here ***
+    // *** The data associated with a Car starts here ***
 
     // Belongs to the object & can be changed 
     public int TopSpeed;
