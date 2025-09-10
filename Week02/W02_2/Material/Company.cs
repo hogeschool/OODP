@@ -67,7 +67,7 @@ public class Company
     {
         string info = "Employees:\n";
         // foreach
-        foreach (Employee e in Employees)
+        foreach (Person e in Employees)
         {
             info += e.FormatName() + "\n";
         }
@@ -87,7 +87,7 @@ public class Company
     public void BulkHire(List<Person> employees)
     {
         // foreach
-        foreach (Employee e in employees)
+        foreach (Person e in employees)
         {
             Hire(e);
         }
