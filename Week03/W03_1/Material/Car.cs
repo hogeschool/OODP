@@ -8,7 +8,7 @@
 
     // *** The data associated with a Car starts here ***
 
-    // Belongs to the object & can be changed 
+    // Belongs to the object & can be changed
     public int TopSpeed;
     public int Key;
     public bool IsLocked;
@@ -16,11 +16,11 @@
 
     /*
     Belongs to the object.
-    Can be set during declaration 
-    and in the in the constructor,
-    but cannot be changed after that
+    Can be set during declaration
+    and in the in the constructor, but
+    cannot be changed after that
     */
-    public string Make;
+    public readonly string Make;
 
     /*
     Belongs to the object.
@@ -28,18 +28,18 @@
     and in the in the constructor,
     but cannot be changed after that.
     */
-    public List<string> Owners = [];
+    public readonly List<string> Owners = [];
 
-    // Belongs to the class & can be changed 
-    public int MaxTopSpeed = 400;
-    public int NumCarsCreated; // defaults to 0
+    // Belongs to the class & can be changed
+    public static int MaxTopSpeed = 400;
+    public static int NumCarsCreated; // defaults to 0
 
     /*
     Belongs to the class.
     Can only be set during declaration;
-    never ever changes
+    never ever changes.
     */
-    public int NumberOfWheels = 4;
+    public const int NumberOfWheels = 4;
 
     /* 
     Belongs to the class.
@@ -47,7 +47,7 @@
     and in the in the constructor,
     but cannot be changed after that
     */
-    public Random randGen = new();
+    public static readonly Random randGen = new Random();
 
     // *** the data associated with a Car ends here ***
 
@@ -60,7 +60,7 @@
     */
     static Car()
     {
-        // We will look at this together    
+        MaxTopSpeed = 400;
     }
 
     public Car(string color, string make, int topSpeed)
@@ -75,10 +75,10 @@
     public string GetInfo()
     {
         return
-            $"This {Color} {Make} has a top speed of {TopSpeed}\n" + 
-            $"It is currently {(IsLocked?"locked":"open")}\n"+
-            $"It is car number {NumCarsCreated}\n"+
-            $"Like all cars, it has {NumberOfWheels} wheels"+
+            $"This {Color} {Make} has a top speed of {TopSpeed}\n" +
+            $"It is currently {(IsLocked ? "locked" : "open")}\n" +
+            $"It is car number {NumCarsCreated}\n" +
+            $"Like all cars, it has {NumberOfWheels} wheels" +
             $"It has had {Owners.Count} owners";
     }
 
@@ -101,4 +101,20 @@
         and evaluates which is faster.
         Remember to consider null Cars.
     */
+    public static Car WhichIsFaster(Car car1, Car car2)
+    {
+        if (car1 == null && car2 == null)
+        {
+            return null;
+        }
+        if (car1 == null)
+        {
+            return car2;
+        }
+        if (car2 == null)
+        {
+            return car1;
+        }
+        return car1.TopSpeed > car2.TopSpeed ? car1 : car2;
+    }
 }
