@@ -1,5 +1,3 @@
-# Week 03
-
 ## Day 1 (W03_1)
 
 ### Contents:
