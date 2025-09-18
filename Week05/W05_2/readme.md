@@ -11,6 +11,10 @@
 * Classes with interface as members (W05.2.1T06)
 * Derived class that implements an interface
 
+### Introduction files
+If you use Visual Studio Code, you can igore the .sln and .csproj files; just download the CS files and run them as separate projects. You can remove the namespaces as well.
+If you use Visual Studio, you can download the files and put them in the same structure as they have been committed to GitHub. Then the IDE lets you choose which namespace to run through a dropdown menu at the top of the screen.
+
 ### But WHY use interfaces?
 HIGHLY recommended watch: https://www.youtube.com/watch?v=4sxyDXt1igs
 
