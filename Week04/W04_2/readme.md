@@ -6,7 +6,7 @@
 
 PART 1: more in inheritance
 * keyword `is` (W04.2.1T01)
-* virtual & override (W04.2.1T02)
+* `virtual` & `override` (W04.2.1T02)
 * derived classes (W04.2.1T03-04)
 * `Object` class (W04.2.1T05)
 * keyword `as` (W04.2.1T06)
