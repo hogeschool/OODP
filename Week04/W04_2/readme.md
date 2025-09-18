@@ -4,7 +4,7 @@
 
 ### Contents:
 
-PART 1: more in inheritance
+PART 1: more on inheritance
 * keyword `is` (W04.2.1T01)
 * `virtual` & `override` (W04.2.1T02)
 * derived classes (W04.2.1T03-04)
