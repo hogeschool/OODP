@@ -9,7 +9,7 @@
         Grade = grade;
     }
 
-    public virtual bool IsPass()
+    public virtual bool IsPass() // Not a great way to do this. Use inheritance instead
     {
         if (Grade is bool)
             return Convert.ToBoolean(Grade);
