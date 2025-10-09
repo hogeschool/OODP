@@ -33,6 +33,11 @@ PART 3
 * Switch expressions with the relational pattern
 
 ### Resources:
+Strings: https://learn.microsoft.com/en-us/dotnet/api/system.string
+* Some useful string methods:
+  * `Contains`, `Trim`, `Split`, `Length`, `Substring`, `IsNullOrEmpty`, `ToUpper`, `ToLower`
+
+
 Switch statements:
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
 
