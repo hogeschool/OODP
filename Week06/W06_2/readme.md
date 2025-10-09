@@ -3,7 +3,7 @@
 ## Contents:
 
 ### PART 1: generic classes and methods
-* List\<T\> is generic (W06.2.1T01)
+* `List<T>` is generic (W06.2.1T01)
 * Generic methods (W06.2.1T02)
 * Multiple generic types (W06.2.1T03)
 * Generic properties (W06.2.1T04)
