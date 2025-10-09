@@ -2,7 +2,7 @@
 
 ## Contents:
 
-### PART 1: generic classes and methods
+### PART 1: generic classes and methods (W06.2.1T01-08)
 * `List<T>` is generic (W06.2.1T01)
 * Generic methods (W06.2.1T02)
 * Multiple generic types (W06.2.1T03)
@@ -12,8 +12,14 @@
 * Inheritance of generic class with one type to multiple (W06.2.1T07)
 * Inheritance of generic class to concrete types (W06.2.1T08)
 
+###### Reading materials
+* https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/types/generics
+
 ### PART 2: generic constraints (`where`)
 * `where` (W06.2.1T09)
+
+###### Reading materials
+* https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/where-generic-type-constraint
 
 ## Summary
 Generics allow us to write flexible, reusable code that can work with any data type, while still keeping type safety.
@@ -41,6 +47,7 @@ public void PrintAll<T>(List<T> items) where T : IPrint // T must implement IPri
 
 This way, we can use generics safely while still ensuring that the provided types have the features we need.
 
+### Closing
 By the end of this topic, you’ll be able to:
 - Create your own generic methods and classes
 - Apply constraints using the `where` keyword
