@@ -20,7 +20,7 @@ PART 2
 When a class implements `IComparable`, it gains the ability to decide which of two objects should come first. This is what makes sorting lists of custom objects possible.
 
 For example:
-```chsarp
+```csharp
 class Student : IComparable<Student>
 {
     public string Name { get; set; }
