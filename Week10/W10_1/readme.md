@@ -69,6 +69,6 @@ Console.WriteLine(customers.Dequeue()); // "Alice"
 
 By the end of this part, you’ll be able to:
 - Understand when to use a `Stack` vs. a `Queue`
-- Use `Push`, `Pop`, and `Peek` for stacks
-- Use `Enqueue`, `Dequeue`, and `Peek` for queues
+- Use `Push`, `Pop`, `Peek`, and `Count` for stacks
+- Use `Enqueue`, `Dequeue`, `Peek`, and `Count` for queues
 - Visualize how elements move through these collections
