@@ -35,7 +35,7 @@ By the end of this part, you’ll know how to:
 - Loop through and parse `enum` values
 - Convert between `enum` and other types
 
-⚙️ PART 2: Stacks & Queues
+PART 2: Stacks & Queues
 
 Both `Stack` and `Queue` are special collection types that control the order in which elements are added and removed. They are like specialized lines or piles — perfect for situations where order matters.
 
