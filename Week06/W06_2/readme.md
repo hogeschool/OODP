@@ -25,9 +25,17 @@ We’ll also learn about the `where` keyword, which lets us add restrictions to 
 For example:
 
 ```csharp
-void PrintAll<T>(List<T> items) where T : IComparable
+interface IPrint
 {
-    // T must implement IComparable
+    void Print();
+}
+
+public void PrintAll<T>(List<T> items) where T : IPrint // T must implement IPrint
+{
+    foreach (IPrint printable in items)
+    {
+        printable.Print();
+    }
 }
 ```
 
