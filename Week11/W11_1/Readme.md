@@ -21,7 +21,7 @@ int[,] grid = [
     [1, 2, 3],
     [4, 5, 6],
     [7, 8, 9],
-};
+];
 
 for (int row = 0; row < grid.GetLength(0); row++)
 {
@@ -70,5 +70,4 @@ By the end of this part about jagged and 2D arrays, you’ll be comfortable with
 - Initializing
 - Accessing elements
 - Iterating through them using nested loops
-
-Understanding when to use 2D arrays (grids) and when to use jagged arrays (uneven data)
+- Understanding when to use 2D arrays (grids) and when to use jagged arrays (uneven data)
