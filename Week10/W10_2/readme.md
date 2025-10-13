@@ -17,8 +17,9 @@ Arrays are a lot like `List`s, except they have a fixed size. In other words, on
 Example:
 ```csharp
 int[] numbers = [2, 4, 6, 8];
-// Alternative 1: int[] numbers = new int[] [2, 4, 6, 8];
-// Alternative 2: int[] numbers = [2, 4, 6, 8];
+// Alternative 1: int[] numbers = { 2, 4, 6, 8 };
+// Alternative 2: int[] numbers = new int[] { 2, 4, 6, 8 };
+
 Console.WriteLine(numbers[0]); // 2
 Console.WriteLine(numbers.Length); // 4
 ```
