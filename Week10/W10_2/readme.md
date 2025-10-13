@@ -16,8 +16,9 @@ Arrays are a lot like `List`s, except they have a fixed size. In other words, on
 
 Example:
 ```csharp
-int[] numbers = { 2, 4, 6, 8 };
-// Alternative: int[] numbers = [2, 4, 6, 8];
+int[] numbers = [2, 4, 6, 8];
+// Alternative 1: int[] numbers = new int[] [2, 4, 6, 8];
+// Alternative 2: int[] numbers = [2, 4, 6, 8];
 Console.WriteLine(numbers[0]); // 2
 Console.WriteLine(numbers.Length); // 4
 ```
@@ -41,6 +42,4 @@ Lists are built on top of arrays, offering more features at the cost of a little
 You’ll work with arrays from the ground up — creating them, manipulating elements, and thinking carefully about their fixed structure.
 
 ### Looking Ahead
-
-Arrays give you the foundation for working with fixed-size data structures — a concept that returns later when dealing with multidimensional arrays and performance-sensitive algorithms.
-You’ll also see how arrays fit naturally with loops, LINQ, and higher-order functions in later weeks, where you’ll process collections in more expressive and powerful ways.
+Arrays give you the foundation for working with fixed-size data structures — a concept that returns later when dealing with multidimensional arrays.
