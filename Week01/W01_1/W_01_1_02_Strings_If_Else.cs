@@ -1,9 +1,10 @@
-public class W_01_1_02_Lesson_DB
+static class W_01_1_02_Lesson
 {
-    public static void Main()
+    static void Main()
     {
-        // String methods: Length, ToUpper, ToLower
-        // https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0
+        // Useful string methods:
+        //  - `Contains`, `Trim`, `Split`, `Length`, `Substring`, `IsNullOrEmpty`, `ToUpper`, `ToLower`
+        // https://learn.microsoft.com/en-us/dotnet/api/system.string
 
         string s1 = "hello";
         int len = s1.Length;
