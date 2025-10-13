@@ -17,7 +17,15 @@ PART 2: More advanced lambda forms
 Lambdas are powerful functions that can be passed around like data. Think of lambdas as “functions without names” — useful when you need quick, one-time logic.
 
 For example:
-// insert example here
+```csharp
+Func<int, int> square = x => x * x;
+Console.WriteLine(square(5)); // 25
+```
+
+This means:
+- `x` is the parameter
+- `=>` separates the parameters from the function body
+- `x * x` is the returned expression
 
 ###### `Func` vs `Action`
 `Func` and `Action` are two built-in delegate types, with one difference:
@@ -33,7 +41,7 @@ Console.WriteLine(add(2, 3)); // 5
 The **last** type parameter (`int` in this case) defines the return type.
 
 An `Action` example:
-```charp
+```csharp
 Action<string> greet = name => Console.WriteLine($"Hello, {name}!");
 greet("Alice"); // Hello, Alice!
 ```
