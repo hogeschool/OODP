@@ -37,14 +37,13 @@ Strings: https://learn.microsoft.com/en-us/dotnet/api/system.string
 * Some useful string methods:
   * `Contains`, `Trim`, `Split`, `Length`, `Substring`, `IsNullOrEmpty`, `ToUpper`, `ToLower`
 
-
-Switch statements:
+Switch statements:\
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/selection-statements#the-switch-statement
 
-Switch expressions:
+Switch expressions:\
 https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/switch-expression
 
-Optional - more advanced resource for switch expression for those that are interested:
+Optional - more advanced resource for switch expression for those that are interested:\
 https://drakelambert.dev/2019/12/C%23-8-Switch-Expressions-with-Pattern-Matching.html
 
 Note: Switch statements are not always faster: https://www.dotnetperls.com/if-switch-performance
