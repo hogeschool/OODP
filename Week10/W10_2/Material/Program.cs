@@ -5,28 +5,36 @@ static class Program
         // The most important difference between Lists and arrays
         // is that arrays cannot change in size.
 
-        // Creating an array to store the lock combination
-        int[] combination = { 1, 2, 3, 4 };
+        int[] combination = [1, 2, 3, 4];
+        int[] input = ReadCombinationInput(4);
 
-        // Reading in user input to check the lock combination
+        bool isCorrect = IsCombinationCorrect(combination, input);
+        PrintResult(isCorrect);
+    }
+
+    static int[] ReadCombinationInput(int length)
+    {
         Console.WriteLine("Enter the lock combination:");
-        int[] input = new int[4];
+        int[] input = new int[length];
         for (int i = 0; i < input.Length; i++)
         {
             input[i] = int.Parse(Console.ReadLine());
         }
+        return input;
+    }
 
-        // Checking if the user input matches the lock combination
-        bool isCorrect = true;
+    static bool IsCombinationCorrect(int[] combination, int[] input)
+    {
         for (int i = 0; i < combination.Length; i++)
         {
             if (input[i] != combination[i])
-            {
-                isCorrect = false;
-                break;
-            }
+                return false;
         }
+        return true;
+    }
 
+    static void PrintResult(bool isCorrect)
+    {
         Console.WriteLine("The lock combination is " +
             (isCorrect ? "correct!" : "incorrect."));
     }
