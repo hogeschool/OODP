@@ -1,104 +1,118 @@
-/*
-Contents:
- - jagged arrays (W10.2.C01-02)
- - multidimensional arrays (W10.2.C03-04)
- - string methods 
-	-> https://learn.microsoft.com/en-us/dotnet/api/system.string?view=net-8.0#methods
-    Some string methods to mention:
-        - Contains, Trim, Split, Length, Substring, 
-        - IsNullOrEmpty, ToUpper, ToLower
-*/
-
-public class Program
+static class Program
 {
     static void Main()
     {
-        JaggedArrays();
-        //NDimArrays();
+        BasicExamples();
+        FuncExamples();
+        ActionExamples();
+        PracticalExamples();
+        CurriedLambdaExample();
     }
 
-    static void JaggedArrays()
+    static void BasicExamples()
     {
-        Console.WriteLine("Welcome to the Observation Tracker!");
+        Console.WriteLine("=== Basic Lambda Examples ===");
 
-        Console.Write("How many days would you like to track observations for? ");
-        int numDays = int.Parse(Console.ReadLine());
-        // Initialize array to store observations for each day
-        int[][] observations = new int[numDays][];
+        // A simple lambda that squares a number
+        Func<int, int> square = x => x * x;
+        Console.WriteLine($"Square of 5 = {square(5)}");
 
-        for (int i = 0; i < observations.Length; i++)
-        {
-            Console.Write($"How many observations did you make on day {i + 1}? ");
-            int numObs = int.Parse(Console.ReadLine());
-            // Initialize array to store observations for current day
-            observations[i] = new int[numObs];
+        // A lambda with multiple parameters
+        Func<int, int, int> add = (a, b) => a + b;
+        Console.WriteLine($"3 + 4 = {add(3, 4)}");
 
-            // Loop over each observation for current day
-            for (int j = 0; j < observations[i].Length; j++)
-            {
-                Console.Write($"Enter observation {j + 1} for day {i + 1}: ");
-                observations[i][j] = int.Parse(Console.ReadLine());
-            }
-        }
+        // A lambda with a more explicit syntax
+        Func<int, int> doubleValue = (int n) => { return n * 2; };
+        Console.WriteLine($"Double of 6 = {doubleValue(6)}");
 
-        Console.WriteLine("Observation tracker complete! Here are the results:");
-        for (int i = 0; i < observations.Length; i++)
-        {
-            Console.Write($"Day {i + 1}: {observations[i].Length} observations\n -");
-            foreach (int obs in observations[i])
-            {
-                Console.Write(" " + obs);
-            }
-            Console.WriteLine();
-        }
-
-        Console.ReadKey();
+        Console.WriteLine();
     }
 
-    static void NDimArrays()
+    static void FuncExamples()
     {
-        Console.WriteLine("Welcome to Minesweeper!");
+        Console.WriteLine("\n=== Func Examples ===");
 
-        // Set up board size
-        int numRows = 10;
-        int numCols = 10;
-        int numMines = 15;
+        // Func<TInput, TResult>
+        Func<string, int> countLetters = word => word.Length;
+        Console.WriteLine($"'Hello' has {countLetters("Hello")} letters");
 
-        // Initialize board with empty spaces
-        char[,] board = new char[numRows, numCols];
-        for (int i = 0; i < board.GetLength(0); i++)
+        // Func with no input, just returning something
+        Func<DateTime> getNow = () => DateTime.Now;
+        Console.WriteLine($"The time is: {getNow()}");
+
+        Console.WriteLine();
+    }
+
+    static void ActionExamples()
+    {
+        Console.WriteLine("\n=== Action Examples ===");
+
+        // Action<T> — does something, returns nothing
+        Action<string> greet = name => Console.WriteLine($"Hello, {name}!");
+        greet("Alice");
+
+        // Action with no parameters
+        Action sayHi = () => Console.WriteLine("Hi there!");
+        sayHi();
+
+        // Action with multiple parameters
+        Action<int, int> printSum = (a, b) => Console.WriteLine($"{a} + {b} = {a + b}");
+        printSum(5, 7);
+
+        Console.WriteLine();
+    }
+
+    static void PracticalExamples()
+    {
+        Console.WriteLine("\n=== Practical Lambda Example ===");
+
+        int[] numbers = [1, 2, 3, 4, 5, 6];
+        Func<int, int> triple = x => x * 3;
+        
+        // Transforming data
+        for (int i = 0; i < numbers.Length; i++)
         {
-            for (int j = 0; j < board.GetLength(1); j++)
-            {
-                board[i, j] = '-';
-            }
+            numbers[i] = triple(numbers[i]);
         }
-
-        // Randomly place mines
-        Random random = new();
-        int numMinesPlaced = 0;
-        while (numMinesPlaced < numMines)
+        
+        Console.WriteLine("\nTripled numbers:");
+        foreach (int number in numbers)
         {
-            int randRow = random.Next(0, numRows);
-            int randCol = random.Next(0, numCols);
-
-            if (board[randRow, randCol] != '*')
-            {
-                board[randRow, randCol] = '*';
-                numMinesPlaced++;
-            }
+            Console.Write(number + " ");
         }
+        Console.WriteLine();
+        
+        Console.WriteLine();
+    }
 
-        // Print board to console
-        for (int i = 0; i < board.GetLength(0); i++)
+    static void CurriedLambdaExample()
+    {
+        Console.WriteLine("=== Curried lambda example: configurable filters ===");
+
+        int[] scores = [45, 55, 60, 70, 80, 90];
+
+        // A curried lambda that builds a filtering function
+        Func<int, Func<int, bool>> isPassingWithThreshold =
+            threshold => score => score >= threshold;
+
+        // "Partially apply" the first argument to create new filters
+        Func<int, bool> isPassing50 = isPassingWithThreshold(50);
+        Func<int, bool> isPassing75 = isPassingWithThreshold(75);
+
+        Console.WriteLine("Students passing with threshold 50:");
+        foreach (int score in scores)
         {
-            for (int j = 0; j < board.GetLength(1); j++)
-            {
-                Console.Write(board[i, j] + " ");
-            }
-            Console.WriteLine();
+            if (isPassing50(score))
+                Console.Write(score + " ");
         }
+        Console.WriteLine();
 
-        Console.ReadKey();
+        Console.WriteLine("Students passing with threshold 75:");
+        foreach (int score in scores)
+        {
+            if (isPassing75(score))
+                Console.Write(score + " ");
+        }
+        Console.WriteLine();
     }
 }
