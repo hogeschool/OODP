@@ -26,12 +26,14 @@ Arrays don’t come with methods like `.Add()` or `.Remove()`.\
 However, you can still use indices (`[0]`, `[1]`, …) to access or modify values.
 
 Arrays vs Lists
-Feature	Array	List
-Size	Fixed	Flexible
-Syntax	`int[] arr = new int[5]`;	`List<int> list = new()`;
-Access	Index (`arr[0]`)	Index (`list[0]`)
-Add/Remove	Not directly supported	`.Add()`, `.Remove()`
-Performance	Slightly faster, less overhead	Slightly slower, but more convenient
+| Feature | **Array** | **List** |
+|----------|------------|-----------|
+| Size | Fixed | Flexible |
+| Syntax | `int[] arr = new int[5];` | `List<int> list = new();` |
+| Access | Index (`arr[0]`) | Index (`list[0]`) |
+| Add/Remove | Not directly supported | `.Add()`, `.Remove()` |
+| Performance | Slightly faster, less overhead | Slightly slower, but more convenient |
+
 
 Lists are built on top of arrays, offering more features at the cost of a little flexibility and performance overhead. **Arrays are best when you know exactly how many items you’ll have, or when you need high efficiency** (for example, in numerical or graphical computations).
 
