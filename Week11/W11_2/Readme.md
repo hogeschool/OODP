@@ -1,6 +1,6 @@
 # Week 11
 
-## Day 2 (W11.1)
+## Day 2 (W11.2)
 
 ### Contents:
 
