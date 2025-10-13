@@ -21,5 +21,7 @@ We will explore recursion through two related data structures: **linked lists** 
 A **linked list** connects each node to exactly one next node, forming a simple chain.\
 A **tree**, on the other hand, allows each node to connect to multiple other nodes, creating a branching structure.
 
-### Reading material
+### Some good sources
+https://www.freecodecamp.org/news/what-is-recursion/
+https://www.recursionvisualizer.com/
 https://github.com/hogeschool/OODP/blob/main/Week14/W14_1/readme.md
