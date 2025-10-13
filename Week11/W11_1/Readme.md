@@ -17,22 +17,42 @@ But sometimes, data naturally fits into a grid or table, such as a chessboard, a
 
 That’s where 2D arrays come in: they allow you to store elements in rows and columns, accessed using two indices:
 ```csharp
-int[,] board = new int[3, 3];
-board[0, 0] = 1;
-board[2, 1] = 5;
+int[,] grid = [
+    [1, 2, 3],
+    [4, 5, 6],
+    [7, 8, 9],
+};
+
+for (int row = 0; row < grid.GetLength(0); row++)
+{
+    for (int col = 0; col < grid.GetLength(1); col++)
+    {
+        Console.Write(grid[row, col] + " ");
+    }
+    Console.WriteLine();
+}
 ```
 
 A jagged array, on the other hand, is an array of arrays — meaning each row can have a different length:
 ```csharp
-int[][] triangle =
+int[][] jagged = [
+    [1, 2, 3],
+    [4, 5],
+    [6, 7, 8, 9],
+];
+
+for (int row = 0; row < jagged.Length; row++)
 {
-    new int[] { 1 },
-    new int[] { 2, 3 },
-    new int[] { 4, 5, 6 }
-};
+    for (int col = 0; col < jagged[row].Length; col++)
+    {
+        Console.Write(jagged[row][col] + " ");
+    }
+    Console.WriteLine();
+}
 ```
 
 This flexibility makes jagged arrays perfect for structures like triangles, game maps, or irregular grids.
+
 
 | Feature | **2D Array (`[,]`)** | **Jagged Array (`[][]`)** |
 |----------|-----------------------|---------------------------|
