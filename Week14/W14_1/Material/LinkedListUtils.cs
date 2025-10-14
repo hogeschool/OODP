@@ -1,4 +1,4 @@
-﻿// The base case and step are necessary to prevent a
+﻿// The base case is necessary to prevent a
 // `NullReferenceException` at the end of the linked list.
 
 static class LinkedListUtils
@@ -6,20 +6,20 @@ static class LinkedListUtils
     public static int SumOfValues(Node node)
     {
         if (node == null) // Base case
-            return 0; // Base step
-        return node.Value + SumOfValues(node.Next); // Recursive case & step
+            return 0;
+        // else: recursive case
+        return node.Value + SumOfValues(node.Next); // Recursive call: SumOfValues(node.Next), recursive step: node.Next
     }
     
     public static int ProductOfValues(Node node)
     {
         if (node == null) // Base case
-            return 1; // Base step (think--why is this 1 instead of 0?)
-        return node.Value * ProductOfValues(node.Next); // Recursive case & step
+            return 1; // Think--why is this 1 instead of 0?
+        // else: recursive case
+        return node.Value * ProductOfValues(node.Next);
     }
     
-    public static int HighestOfValues(Node node) => HighestValue(node, int.MinValue);
-    public static int HighestOfValues(Node node) => HighestOfValues(node, int.MinValue);
-
+    public static int HighestOfValues(Node node) => HighestOfValues(node, node.Value); // Take the first node's Value (node.Value) as the highest to start with
     private static int HighestOfValues(Node node, int currentHighest)
     {
         if (node == null)
