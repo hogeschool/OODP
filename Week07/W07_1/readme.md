@@ -10,7 +10,7 @@ PART 1
   * https://learn.microsoft.com/en-us/dotnet/api/system.icomparable-1.compareto
 
 PART 2
-* IEquatable (W07.1.1T02)
+* IEquatable (W07.1.1T02-03)
   * https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1
   * https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1.equals
 
