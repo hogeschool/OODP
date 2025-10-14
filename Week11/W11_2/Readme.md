@@ -6,9 +6,9 @@
 
 PART 1: lambda syntax
 * Writing lambdas:
-  * Inline functions; `Func`s (non-`void`) (W11.2.1T01)
+  * Inline functions; `Func`s (W11.2.1T01)
   * Signatures (W11.2.1T02)
-  * `Action`s (`void`) (W11.2.1T03)
+  * `Action`s (W11.2.1T03)
 PART 2: More advanced lambda forms
   * Statement lambdas (W11.2.1T04)
   * Curried lambdas (W11.2.1T05)
