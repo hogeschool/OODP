@@ -11,7 +11,7 @@ static class FactorialExample
     
     private static int Factorial(int n)
     {
-        if (n == 1) // Base case 
+        if (n == 0) // Base case 
             return 1;
         // Recursive case: n * Factorial(n - 1);
         // Recursive step: n - 1
@@ -29,6 +29,7 @@ static class FactorialExample
         Console.WriteLine(" = 5 * 4 * 3 * Factorial(2)");
         Console.WriteLine(" = 5 * 4 * 3 * 2 * Factorial(1)");
         Console.WriteLine(" = 5 * 4 * 3 * 2 * 1");
+        Console.WriteLine(" = 5 * 4 * 3 * 2 * 1 * 1");
         Console.WriteLine(" = 120");
 
         Console.WriteLine("Let's see this in action:");
