@@ -78,4 +78,3 @@ By defining equality ourselves, we make our classes work naturally with methods 
 By the end of this topic, you’ll be able to:
 * Implement `IComparable` to define a custom sort order
 * Implement `IEquatable` to define what makes two objects equal
-* Understand how these interfaces make generic collections more powerful
