@@ -33,7 +33,7 @@ class Student : IComparable<Student>
 }
 ```
 
-Now, a `List<Student>` can be sorted automatically using `students.Sort()` — because each student knows how to compare itself to another.
+Now, a `List<Student>` can be sorted automatically using `students.Sort()` and `students.OrderBy()` (`OrderBy` will come later in the course) — because each student knows how to compare itself to another.\
 
 ### `IEquatable`
 
@@ -43,13 +43,32 @@ This is useful when checking equality beyond basic reference comparison.
 ```csharp
 class Student : IEquatable<Student>
 {
+    public int Id { get; }
     public string Name { get; set; }
     public int Grade { get; set; }
 
     public bool Equals(Student other)
     {
-        return Name == other.Name && Grade == other.Grade;
+        return Id == other.Id;
     }
+}
+```
+
+Now we don't have to worry about how to check for equality when adding a student to a list. So instead of this:
+```csharp
+public void AddStudent(Student student)
+{
+    if (!Students.Any(s => s.Id == student.Id)) // Compare by Id
+        Students.Add(student);
+}
+```
+
+... we can now simply do this:
+```csharp
+public void AddStudent(Student student)
+{
+    if (!Students.Contains(student)) // Compare by equality
+        Students.Add(student);
 }
 ```
 
