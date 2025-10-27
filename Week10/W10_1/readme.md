@@ -6,7 +6,7 @@
 * `enum` creation (W10.1.1T01)
 * `enum` in combination with `switch` (W10.1.1T02)
 * `enum` looping & parsing (W10.1.1T03)
-* `enum` conversion (W10.1.1T04)
+* `enum` mapping (W10.1.1T04)
 
 ### PART 2: `Stack`s & `Queue`s
 * `Stack`s (W10.1.1T05)
