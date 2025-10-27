@@ -5,7 +5,6 @@
 ### Contents:
 
 PART 1: lambda syntax
-* Writing lambdas:
   * Inline functions; `Func`s (W11.2.1T01)
   * Signatures (W11.2.1T02)
   * `Action`s (W11.2.1T03)
