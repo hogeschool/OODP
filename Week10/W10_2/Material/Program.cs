@@ -31,7 +31,6 @@ static class Program
         // type[] name = new type[]{value1, value2, ...};
         int[] numbers = { 1, 2, 3, 4, 5 };
 
-
         // Length
         int length = numbers.Length;
 
