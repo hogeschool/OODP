@@ -13,6 +13,8 @@
 * `Queue`s (W10.1.1T06)
 
 ## Summary
+PART 1: enum
+
 An `enum`eration lets you define a set of named constants — values that belong together conceptually. They make your code easier to read, safer, and less error-prone than using “magic numbers” or raw strings.
 
 Example:
