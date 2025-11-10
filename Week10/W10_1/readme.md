@@ -55,7 +55,7 @@ plates.Push("Top");
 Console.WriteLine(plates.Pop()); // "Top"
 ```
 
-🚶 `Queue<T>`
+🚶🚶🚶 `Queue<T>`
 
 A `Queue` follows the FIFO rule — First In, First Out.\
 It’s like a line at the supermarket: the first person in line is the first to be served.
