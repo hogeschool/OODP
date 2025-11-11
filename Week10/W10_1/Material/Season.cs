@@ -16,7 +16,7 @@ constant values for each enum.
 enum Season // enum declaration
 {
     Winter = 1, // Initialization. The numbering is optional; it starts at 0 by default.
-    Spring, // The rest will be numbered 2-6 automatically.
+    Spring, // The rest will be numbered 2-4 automatically.
     Summer,
     Autumn,
 }
