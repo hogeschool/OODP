@@ -2,50 +2,81 @@ static class JaggedArray
 {
     public static void Run()
     {
-        Console.WriteLine("Welcome to the Observation Tracker!");
+        /*
+            group 0: {"John", "Mary", "Tim"}
+            group 1: {"Fred", "Wilma"}
+            group 2: {"Lisa", "Bart", "Homer", "Marge", "Maggie"}
+        */
 
-        int[][] observations = CreateObservationData();
-        PrintObservations(observations);
-    }
+        /* 
+        "short" way
+        type[][] name = [
+            [value1, value2,...],
+            [value1, value2,...],
+        ];
+        */
+        string[][] groups = [
+            ["John", "Mary", "Tim"],
+            ["Fred", "Wilma"],
+            ["Lisa", "Bart", "Homer", "Marge", "Maggie"],
+        ];
 
-    private static int[][] CreateObservationData()
-    {
-        Console.Write("How many days would you like to track observations for? ");
-        int numDays = int.Parse(Console.ReadLine());
-
-        int[][] observations = new int[numDays][];
-
-        for (int day = 0; day < observations.Length; day++)
-        {
-            observations[day] = ReadObservationsForDay(day + 1);
+        /*
+        Long pre dotnet 8 version:
+        type[][] name = {
+            new [] {value1, value2,...},
+            new [] {value1, value2,...},
         }
+        */
+        string[][] groups2 = {
+            new []{"John", "Mary", "Tim"},
+            new []{"Fred", "Wilma"},
+            new []{"Lisa", "Bart", "Homer", "Marge", "Maggie"}
+        };
 
-        return observations;
-    }
+        // Accessing elements
+        string firstInFirst = groups[0][0];
+        string firstInSecond = groups[1][0];
+        string lastInLast = groups[^1][^1];
 
-    private static int[] ReadObservationsForDay(int dayNumber)
-    {
-        Console.Write($"How many observations did you make on day {dayNumber}? ");
-        int numObs = int.Parse(Console.ReadLine());
-        int[] dayObservations = new int[numObs];
+        // Length
+        Console.WriteLine($"Number of rows: {groups.Length}");
+        Console.WriteLine($"Number of columns in the first row: {groups[0].Length}");
+        Console.WriteLine($"Number of columns in the second row: {groups[1].Length}");
+        Console.WriteLine($"Number of columns in the third row: {groups[2].Length}");
 
-        for (int j = 0; j < dayObservations.Length; j++)
+        // Print using for
+        Console.WriteLine("---\nfor:");
+        for (int i = 0; i < groups.Length; i++)
         {
-            Console.Write($"Enter observation {j + 1} for day {dayNumber}: ");
-            dayObservations[j] = int.Parse(Console.ReadLine());
+            for (int j = 0; j < groups[i].Length; j++)
+            {
+                Console.Write(groups[i][j] + " ");
+            }
+            Console.WriteLine();
         }
+        /*
+                i   j   groups[i].Length    groups[i][j])
+                0   0   3                   "John"
+                0   1   3                   "Mary"
+                0   2   3                   "Tim"
+                1   0   2                   "Fred" 
+                1   1   2                   "Wilma"
+                2   0   5                   "Maggie"
+                2   1   5                   "Lisa"
+                2   2   5                   "Bart"
+                2   3   5                   "Homer"
+                2   4   5                   "Marge"     
+        */
 
-        return dayObservations;
-    }
-
-    private static void PrintObservations(int[][] observations)
-    {
-        Console.WriteLine("\nObservation tracker complete! Here are the results:");
-        for (int day = 0; day < observations.Length; day++)
+        //Print using foreach
+        Console.WriteLine("---\nforeach:");
+        foreach (var array in groups)
         {
-            Console.Write($"Day {day + 1}: {observations[day].Length} observations\n -");
-            foreach (int obs in observations[day])
-                Console.Write(" " + obs);
+            foreach (var name in array)
+            {
+                Console.Write(name + " ");
+            }
             Console.WriteLine();
         }
     }
