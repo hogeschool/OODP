@@ -1,4 +1,9 @@
-﻿static class Program
+﻿// See the Excel sheet for an overview of the LINQ methods.
+
+// Note: all examples work with both lists and arrays.
+// Make sure to use `ToList()` for lists and `ToArray()` for arrays.
+
+static class Program
 {
     static void Main()
     {
