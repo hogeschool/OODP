@@ -46,7 +46,7 @@ static class JaggedArray
         Console.WriteLine($"Number of columns in the third row: {groups[2].Length}");
 
         // Print using for
-        Console.WriteLine("---\nfor:");
+        Console.WriteLine("\n---\nfor:");
         for (int i = 0; i < groups.Length; i++)
         {
             for (int j = 0; j < groups[i].Length; j++)
