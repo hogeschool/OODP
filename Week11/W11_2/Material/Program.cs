@@ -2,117 +2,150 @@ static class Program
 {
     static void Main()
     {
-        BasicExamples();
-        FuncExamples();
-        ActionExamples();
-        PracticalExamples();
-        CurriedLambdaExample();
-    }
+        /*
+            C# is a strongly typed language. Even methods have a type
+            It allows you to treat methods as variables,
+            so you can then (for example) send these to methods.
+            We will see this when we look at LINQ and
+            higher order functions
+        */
 
-    static void BasicExamples()
-    {
-        Console.WriteLine("=== Basic Lambda Examples ===");
+        // Remember storing a variable has this syntax:
+        // type name = value;
+        int n = 1;
 
-        // A simple lambda that squares a number
-        Func<int, int> square = x => x * x;
-        Console.WriteLine($"Square of 5 = {square(5)}");
+        // We can also store methods in variables.
+        // Func<paramType1, paramType2, ..., returnType>
+        Func<int, bool> isNeg = IsNegative; // isNeg takes an int and returns a bool
+        Func<int, int, int> sum = Sum; // sum takes two ints and returns an int
+        Func<string> sayBoo = SayBoo;
 
-        // A lambda with multiple parameters
-        Func<int, int, int> add = (a, b) => a + b;
-        Console.WriteLine($"3 + 4 = {add(3, 4)}");
+        // We can rewrite these using lambdas
+        Func<int, bool> isNeg2 = number => number < 0;
+        Func<int, int, int> sum2 = (a, b) => a + b;
+        Func<string> sayBoo2 = () => "Boo!";
 
-        // A lambda with a more explicit syntax
-        Func<int, int> doubleValue = (int n) => { return n * 2; };
-        Console.WriteLine($"Double of 6 = {doubleValue(6)}");
+        // We can use our "new names" to call the methods as normal:
+        int result = sum2(1, 2);
 
-        Console.WriteLine();
-    }
+        // We cannot use void as the return type
+        // Func<string, void> notGonnaWork = Print; //Error, can't use void
 
-    static void FuncExamples()
-    {
-        Console.WriteLine("\n=== Func Examples ===");
+        // Instead, we have to use Action for methods that have a void return type.
+        // Action<paramType1, paramType2, ...>
+        Action helloWorld = HelloWorld;
+        Action<string> print = Print;
 
-        // Func<TInput, TResult>
-        Func<string, int> countLetters = word => word.Length;
-        Console.WriteLine($"'Hello' has {countLetters("Hello")} letters");
+        // We can rewrite these using lambdas
+        Action helloWorld2 = () => Console.WriteLine("Hello world!");
+        Action<string> print2 = s => Console.WriteLine(s);
+        // Or: Action<string> print2 = Console.WriteLine;
 
-        // Func with no input, just returning something
-        Func<DateTime> getNow = () => DateTime.Now;
-        Console.WriteLine($"The time is: {getNow()}");
+        // We can then use our "new names" to call the methods as norma;
+        helloWorld2();
 
-        Console.WriteLine();
-    }
-
-    static void ActionExamples()
-    {
-        Console.WriteLine("\n=== Action Examples ===");
-
-        // Action<T> — does something, returns nothing
-        Action<string> greet = name => Console.WriteLine($"Hello, {name}!");
-        greet("Alice");
-
-        // Action with no parameters
-        Action sayHi = () => Console.WriteLine("Hi there!");
-        sayHi();
-
-        // Action with multiple parameters
-        Action<int, int> printSum = (a, b) => Console.WriteLine($"{a} + {b} = {a + b}");
-        printSum(5, 7);
-
-        Console.WriteLine();
-    }
-
-    static void PracticalExamples()
-    {
-        Console.WriteLine("\n=== Practical Lambda Example ===");
-
-        int[] numbers = [1, 2, 3, 4, 5, 6];
-        Func<int, int> triple = x => x * 3;
-        
-        // Transforming data
-        for (int i = 0; i < numbers.Length; i++)
+        /*
+            The lambdas that we have looked at so far are known as
+            expression lambdas. Expression lambdas have an expression
+            as its body. A statement lambda has a statement block
+            as its body, containing multiple statements.
+        */
+        Func<int[], int> sumArray = (array) =>
         {
-            numbers[i] = triple(numbers[i]);
-        }
-        
-        Console.WriteLine("\nTripled numbers:");
-        foreach (int number in numbers)
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                count += array[i];
+            }
+            return count;
+        };
+
+        Action<int[]> printArray = (array) =>
         {
-            Console.Write(number + " ");
-        }
-        Console.WriteLine();
-        
-        Console.WriteLine();
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        };
     }
 
-    static void CurriedLambdaExample()
+    public static bool IsNegative(int n)
     {
-        Console.WriteLine("=== Curried lambda example: configurable filters ===");
+        return n < 0;
+    }
 
-        int[] scores = [45, 55, 60, 70, 80, 90];
+    public static int Sum(int a, int b)
+    {
+        return a + b;
+    }
 
-        // A curried lambda that builds a filtering function
-        Func<int, Func<int, bool>> isPassingWithThreshold =
-            threshold => score => score >= threshold;
+    public static string SayBoo()
+    {
+        return "Boo!!";
+    }
 
-        // "Partially apply" the first argument to create new filters
-        Func<int, bool> isPassing50 = isPassingWithThreshold(50);
-        Func<int, bool> isPassing75 = isPassingWithThreshold(75);
+    public static void Print(string s)
+    {
+        Console.WriteLine(s);
+    }
 
-        Console.WriteLine("Students passing with threshold 50:");
-        foreach (int score in scores)
+    public static void HelloWorld()
+    {
+        Console.WriteLine("Hello World!");
+    }
+
+    public static void InClassExercises()
+    {
+        /*
+            Store lambdas which do the following:
+            - squares a given number
+            - prints the first element in an array
+            - multiplies three numbers together
+            - sum a 2D int array
+            - sets the first element in an array to a given value
+            - print a jagged string array
+        */
+
+        Func<int, int> square = x => x * x; // Squares a given number
+        Console.WriteLine($"Square of 5: {square(5)}");
+
+        // prints the first element in an array
+        Action<int[]> printFirstElement = arr => Console.WriteLine($"First element: {arr[0]}");
+        printFirstElement([10, 20, 30]);
+
+        // Multiplies three numbers together
+        Func<int, int, int, int> multiplyThree = (a, b, c) => a * b * c;
+        Console.WriteLine($"Multiply 2, 3, 4: {multiplyThree(2, 3, 4)}");
+
+        // Sum a 2D int array
+        Func<int[,], int> sum2DArray = arr =>
         {
-            if (isPassing50(score))
-                Console.Write(score + " ");
-        }
-        Console.WriteLine();
+            int sum = 0;
+            foreach (var num in arr)
+                sum += num;
+            return sum;
+        };
+        int[,] matrix = { { 1, 2 }, { 3, 4 } };
+        Console.WriteLine($"Sum of 2D array: {sum2DArray(matrix)}");
 
-        Console.WriteLine("Students passing with threshold 75:");
-        foreach (int score in scores)
+        // Sets the first element in an array to a given value
+        Action<int[], int> setFirstElement = (arr, value) => arr[0] = value;
+        int[] numbers = [5, 6, 7];
+        setFirstElement(numbers, 99);
+        Console.WriteLine($"Updated first element: {numbers[0]}");
+
+        // print a jagged string array
+        Action<string[][]> printJaggedArray = jagged =>
         {
-            if (isPassing75(score))
-                Console.Write(score + " ");
-        }
-        Console.WriteLine();
+            foreach (var innerArray in jagged)
+            {
+                Console.WriteLine(string.Join(", ", innerArray));
+            }
+        };
+        string[][] jaggedArray = [
+            ["Hello", "World"],
+            ["C#", "Lambda", "Funcs"]
+        ];
+        printJaggedArray(jaggedArray);
     }
 }
