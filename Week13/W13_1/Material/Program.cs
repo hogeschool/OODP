@@ -1,127 +1,193 @@
-/*
-Week 13: Higher-order Methods & Lambda's
-    
-In C#, a lambda expression is a shorthand syntax for creating an anonymous
-method. It allows you to define a block of code that can be passed as an argument to a method or stored in a variable, without having to define a named method separately.
-
-Here's an example of a simple lambda expression: x => x * 2
-In this example, x is the input parameter, => is the arrow symbol that separates the input parameter from the expression body, and x * 2 is the body of the expression.
-
-You can think of a lambda expression as a kind of "inline" method definition.
-It's not named, but it can be used in the same way as a named method, such as
-by passing it as a parameter to another method or assigning it to a delegate variable.
-
-More on Lambda expressions and anonymous functions:
-https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/operators/lambda-expressions
-
-A higher-order method is a method that takes one or more methods as arguments
-and/or returns a method as its result. Some of the methods in the List class in
-C# do fit this definition. For example:
- - The ForEach method takes a method or lambda as an argument and applies it to
-   each element in the list.
- - The Find method takes a method or lambda as an argument and returns the
-   first element in the list that satisfies the method or lambda.
-    
-All of these methods take one or more methods as arguments, which makes them higher-order methods.
-*/
-
 static class Program
 {
     static void Main()
     {
-        Basic();
-        Advanced();
-        Examples();
+        MethodsAsVariables();
+        HigherOrderFunctions();
+        UsingHOFs();
+        HOFsReturningHOFs();
     }
 
-    public static void Basic()
+    private static void MethodsAsVariables()
     {
-        // Calling a Higher-order Method with a named method
-        RepeatAction(3, RepeatString);
+        // C# is a strongly typed language. Even methods have a type.
+        // It allows you to treat methods as variables
 
-        // with a lambda expression
-        RepeatAction(3, (i) => $"Hello, world! (iteration {i + 1})");
+        // Func<paramType1, paramType2, ..., return type>
+        int n = 1;
+        Func<int, bool> isNeg = IsNegative; // isNeg takes an int and returns a bool
+        Func<int, int, int> sum = Sum; // sum takes two ints and returns an int
+        Func<string> sayBoo = SayBoo;
 
-        // Array.FindAll with lambda
-        string[] teachers = ["Gert-Jan", "Ditmar", "Joana", "Cigdem", "Alessandro", "Kevin", "Jurn"];
-        string[] myArr = Array.FindAll(teachers, (e) => e.StartsWith('J'));
+        // We can rewrite these as lambdas
+        Func<int, bool> isNeg2 = number => number < 0;
+        Func<int, int, int> sum2 = (a, b) => a + b;
+        Func<string> sayBoo2 = () => "Boo!";
 
-        // Print all teacher names starting with a 'J'
-        for (int i = 0; i < myArr.Length; i++)
+        // Func<string, void> notGonnaWork = Print; //Error, can't use void
+        // Instead, we have to use Action for methods that have a void return type
+        // Action<paramType1, paramType2, ...>
+        Action<string> cw1 = Print;
+        Action helloWorld = HelloWorld;
+
+        // We can rewrite these as lambdas
+        Action<string> cw2 = s => Console.WriteLine(s);
+        Action helloWorld2 = () => Console.WriteLine("Hello world!");
+
+        // We can then use our "new names" to call the methods 
+        bool ans = isNeg(5);
+    }
+
+    public static bool IsNegative(int n)
+    {
+        return n < 0;
+    }
+
+    public static int Sum(int a, int b)
+    {
+        return a + b;
+    }
+
+    public static string SayBoo()
+    {
+        return "Boo!!";
+    }
+
+    public static void Print(string s)
+    {
+        Console.WriteLine(s);
+    }
+
+    public static void HelloWorld()
+    {
+        Console.WriteLine("Hello World!");
+    }
+
+    private static void HigherOrderFunctions()
+    {
+        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // What is the difference between IncreaseArray and TripleArray?
+        IncreaseArray(numbers);
+        TripleArray(numbers);
+
+        // Can use higher order function instead
+        // Can send our "usual" methods
+        UpdateArray(numbers, Increase);
+
+        // Or send a stored lambda
+        Func<int, int> increase = x => x + 1;
+        UpdateArray(numbers, increase);
+
+        // Or send an inline lambda
+        UpdateArray(numbers, x => x + 3);
+
+        Repeat10(HelloWorld);
+        Repeat10(HumptyDumpty);
+        Repeat10(() => Console.WriteLine("Round we go"));
+    }
+
+    public static int Increase(int number)
+    {
+        return number + 1;
+    }
+
+    public static void HumptyDumpty()
+    {
+        Console.WriteLine("Humpty Dumpty sat on a wall,");
+        Console.WriteLine("Humpty Dumpty had a great fall.");
+        Console.WriteLine("All the king's horses and all the king's men");
+        Console.WriteLine("Couldn't put Humpty together again.");
+    }
+
+    static void IncreaseArray(int[] arr)
+    {
+        for (int i = 0; i < arr.Length; i++)
         {
-            Console.WriteLine("{0}", myArr[i]);
+            arr[i] = arr[i] + 1;
         }
-
-        // Or print with Array.ForEach using a lambda expression!
-        Array.ForEach(myArr, (e) => Console.WriteLine(e));
     }
 
-/*
-Some more advanced examples using the delegate types Action and Func.
- - A Func delegate is a type that represents a method that takes zero or more input parameters and returns a value.
- - An Action delegate is a type that represents a method that takes zero or more input parameters and returns no value.
-*/
-    public static void Advanced()
+    static void TripleArray(int[] arr)
     {
-        // Calling a Higher Order Method with Func object containing a lambda expression
-        Func<int, string> funcRepeatString = (i) => $"Hello, world! (iteration {i + 1})";
-        RepeatAction(3, funcRepeatString);
-
-        // With Action object containing a lambda expression
-        Action<string> sayIt = (name) => Console.WriteLine($"My name is {name}!");
-        SayMyName(3, "James", sayIt);
-    }
-
-// Higher Order Method taking a method with an input parameter and that returns a value
-    public static void RepeatAction(int numTimes, Func<int, string> action)
-    {
-        for (int i = 0; i < numTimes; i++)
+        for (int i = 0; i < arr.Length; i++)
         {
-            string result = action(i);
-            Console.WriteLine(result);
+            arr[i] = arr[i] * 3;
         }
     }
 
-// Higher Order Method taking a method with only an input parameter
-    public static void SayMyName(int numTimes, string name, Action<string> action)
+    static void UpdateArray(int[] arr, Func<int, int> update)
     {
-        for (int i = 0; i < numTimes; i++)
+        for (int i = 0; i < arr.Length; i++)
         {
-            action(name);
+            arr[i] = update(arr[i]);
         }
     }
 
-//Named method
-    public static string RepeatString(int numRepeats)
+    static void Repeat10(Action repeatThis)
     {
-        return $"Hello, world! (iteration {numRepeats + 1})";
+        for (int i = 0; i < 10; i++)
+        {
+            repeatThis();
+        }
     }
 
-    public static void Examples()
+    private static void UsingHOFs()
     {
-        List<Car> cars = [new Car("Kia", "Blue"), new Car("Mazda", "Red"), new Car("Volvo", "Black")];
+        int[] nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        List<string> words = ["hi", "hello", "bye"];
+        // The thing you will do most often with higher order functions is use them
+        // Find/FindAll
+        int three = Array.Find(nums, x => x == 3);
+        int largerThanThree = Array.Find(nums, x => x > 3);
+        int[] allLargerThanThree = Array.FindAll(nums, x => x > 3);
 
-        // LONG
-        List<Car> filteredCars = [];
-        foreach (Car car in cars)
+        string? result = words.Find(s => s == "bye");
+        List<string> beginsWithH = words.FindAll(s => s[0] == 'h');
+
+        // ForEach
+        Array.ForEach(nums, x => Console.WriteLine(x));
+        // Or: Array.ForEach(nums, Console.WriteLine);
+        words.ForEach(s => Console.WriteLine(s));
+        // Or: words.ForEach(Console.WriteLine);
+    }
+
+    static void HOFsReturningHOFs()
+    {
+        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // We were able to call our methods like so:
+        IncreaseArray(numbers);
+        TripleArray(numbers);
+        // Now we need to send in an extra parameter
+        UpdateArray(numbers, x => x + 1);
+
+        // We can get back the original functionality by creating a
+        // Higher Order Function which returns an Action.
+        // So this method generates methods, like a method factory.
+
+        // We then create the methods:
+        Action<int[]> increaseArray = GenerateMethod(x => x + 1);
+        Action<int[]> tripleArray = GenerateMethod(x => x * 3);
+
+        // Then we can call them like we did before:
+        increaseArray(numbers);
+        tripleArray(numbers);
+
+        // How could we store our Generate method?
+        Func<Func<int, int>, Action<int[]>> generateMethod = GenerateMethod;
+
+        // We can even do the following if we do not wish to create and store a method.
+        GenerateMethod(x => x + 1)(numbers);
+    }
+
+    // Generate Method
+    static Action<int[]> GenerateMethod(Func<int, int> update)
+    {
+        return arr =>
         {
-            if (car.Brand.StartsWith('V'))
+            for (int i = 0; i < arr.Length; i++)
             {
-                filteredCars.Add(car);
+                arr[i] = update(arr[i]);
             }
-        }
-        foreach (Car car in filteredCars)
-        {
-            Console.WriteLine(car);
-        }
-
-        // SHORTER
-        filteredCars = FilterCars(cars, car => car.Brand.StartsWith('V'));
-        filteredCars.ForEach(car => Console.WriteLine(car));
-
-        // SHORTEST (?)
-        cars.FindAll(car => car.Brand.StartsWith('V')).ForEach(car => Console.WriteLine(car));
+        };
     }
-
-    public static List<Car> FilterCars(List<Car> cars, Func<Car, bool> action) => cars.FindAll(car => action(car));
 }
