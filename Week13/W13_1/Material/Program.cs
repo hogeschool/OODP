@@ -2,40 +2,71 @@ static class Program
 {
     static void Main()
     {
-        MethodsAsVariables();
-        HigherOrderFunctions();
-        UsingHOFs();
-        HOFsReturningHOFs();
-    }
+        /*
+            C# is a strongly typed language. Even methods have a type
+            It allows you to treat methods as variables,
+            so you can then (for example) send these to methods.
+            We will see this when we look at LINQ and
+            higher order functions
+        */
 
-    private static void MethodsAsVariables()
-    {
-        // C# is a strongly typed language. Even methods have a type.
-        // It allows you to treat methods as variables
-
-        // Func<paramType1, paramType2, ..., return type>
+        // Remember storing a variable has this syntax:
+        // type name = value;
         int n = 1;
+
+        // We can also store methods in variables.
+        // Func<paramType1, paramType2, ..., returnType>
         Func<int, bool> isNeg = IsNegative; // isNeg takes an int and returns a bool
         Func<int, int, int> sum = Sum; // sum takes two ints and returns an int
         Func<string> sayBoo = SayBoo;
 
-        // We can rewrite these as lambdas
+        // We can rewrite these using lambdas
         Func<int, bool> isNeg2 = number => number < 0;
         Func<int, int, int> sum2 = (a, b) => a + b;
         Func<string> sayBoo2 = () => "Boo!";
 
+        // We can use our "new names" to call the methods as normal:
+        int result = sum2(1, 2);
+
+        // We cannot use void as the return type
         // Func<string, void> notGonnaWork = Print; //Error, can't use void
-        // Instead, we have to use Action for methods that have a void return type
+
+        // Instead, we have to use Action for methods that have a void return type.
         // Action<paramType1, paramType2, ...>
-        Action<string> cw1 = Print;
         Action helloWorld = HelloWorld;
+        Action<string> print = Print;
 
-        // We can rewrite these as lambdas
-        Action<string> cw2 = s => Console.WriteLine(s);
+        // We can rewrite these using lambdas
         Action helloWorld2 = () => Console.WriteLine("Hello world!");
+        Action<string> print2 = s => Console.WriteLine(s);
+        // Or: Action<string> print2 = Console.WriteLine;
 
-        // We can then use our "new names" to call the methods 
-        bool ans = isNeg(5);
+        // We can then use our "new names" to call the methods as norma;
+        helloWorld2();
+
+        /*
+            The lambdas that we have looked at so far are known as
+            expression lambdas. Expression lambdas have an expression
+            as its body. A statement lambda has a statement block
+            as its body, containing multiple statements.
+        */
+        Func<int[], int> sumArray = (array) =>
+        {
+            int count = 0;
+            for (int i = 0; i < array.Length; i++)
+            {
+                count += array[i];
+            }
+            return count;
+        };
+
+        Action<int[]> printArray = (array) =>
+        {
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.WriteLine(array[i]);
+            }
+        };
     }
 
     public static bool IsNegative(int n)
@@ -63,131 +94,58 @@ static class Program
         Console.WriteLine("Hello World!");
     }
 
-    private static void HigherOrderFunctions()
+    public static void InClassExercises()
     {
-        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        // What is the difference between IncreaseArray and TripleArray?
-        IncreaseArray(numbers);
-        TripleArray(numbers);
+        /*
+            Store lambdas which do the following:
+            - squares a given number
+            - prints the first element in an array
+            - multiplies three numbers together
+            - sum a 2D int array
+            - sets the first element in an array to a given value
+            - print a jagged string array
+        */
 
-        // Can use higher order function instead
-        // Can send our "usual" methods
-        UpdateArray(numbers, Increase);
+        Func<int, int> square = x => x * x; // Squares a given number
+        Console.WriteLine($"Square of 5: {square(5)}");
 
-        // Or send a stored lambda
-        Func<int, int> increase = x => x + 1;
-        UpdateArray(numbers, increase);
+        // prints the first element in an array
+        Action<int[]> printFirstElement = arr => Console.WriteLine($"First element: {arr[0]}");
+        printFirstElement([10, 20, 30]);
 
-        // Or send an inline lambda
-        UpdateArray(numbers, x => x + 3);
+        // Multiplies three numbers together
+        Func<int, int, int, int> multiplyThree = (a, b, c) => a * b * c;
+        Console.WriteLine($"Multiply 2, 3, 4: {multiplyThree(2, 3, 4)}");
 
-        Repeat10(HelloWorld);
-        Repeat10(HumptyDumpty);
-        Repeat10(() => Console.WriteLine("Round we go"));
-    }
-
-    public static int Increase(int number)
-    {
-        return number + 1;
-    }
-
-    public static void HumptyDumpty()
-    {
-        Console.WriteLine("Humpty Dumpty sat on a wall,");
-        Console.WriteLine("Humpty Dumpty had a great fall.");
-        Console.WriteLine("All the king's horses and all the king's men");
-        Console.WriteLine("Couldn't put Humpty together again.");
-    }
-
-    static void IncreaseArray(int[] arr)
-    {
-        for (int i = 0; i < arr.Length; i++)
+        // Sum a 2D int array
+        Func<int[,], int> sum2DArray = arr =>
         {
-            arr[i] = arr[i] + 1;
-        }
-    }
+            int sum = 0;
+            foreach (var num in arr)
+                sum += num;
+            return sum;
+        };
+        int[,] matrix = { { 1, 2 }, { 3, 4 } };
+        Console.WriteLine($"Sum of 2D array: {sum2DArray(matrix)}");
 
-    static void TripleArray(int[] arr)
-    {
-        for (int i = 0; i < arr.Length; i++)
+        // Sets the first element in an array to a given value
+        Action<int[], int> setFirstElement = (arr, value) => arr[0] = value;
+        int[] numbers = [5, 6, 7];
+        setFirstElement(numbers, 99);
+        Console.WriteLine($"Updated first element: {numbers[0]}");
+
+        // print a jagged string array
+        Action<string[][]> printJaggedArray = jagged =>
         {
-            arr[i] = arr[i] * 3;
-        }
-    }
-
-    static void UpdateArray(int[] arr, Func<int, int> update)
-    {
-        for (int i = 0; i < arr.Length; i++)
-        {
-            arr[i] = update(arr[i]);
-        }
-    }
-
-    static void Repeat10(Action repeatThis)
-    {
-        for (int i = 0; i < 10; i++)
-        {
-            repeatThis();
-        }
-    }
-
-    private static void UsingHOFs()
-    {
-        int[] nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        List<string> words = ["hi", "hello", "bye"];
-        // The thing you will do most often with higher order functions is use them
-        // Find/FindAll
-        int three = Array.Find(nums, x => x == 3);
-        int largerThanThree = Array.Find(nums, x => x > 3);
-        int[] allLargerThanThree = Array.FindAll(nums, x => x > 3);
-
-        string? result = words.Find(s => s == "bye");
-        List<string> beginsWithH = words.FindAll(s => s[0] == 'h');
-
-        // ForEach
-        Array.ForEach(nums, x => Console.WriteLine(x));
-        // Or: Array.ForEach(nums, Console.WriteLine);
-        words.ForEach(s => Console.WriteLine(s));
-        // Or: words.ForEach(Console.WriteLine);
-    }
-
-    static void HOFsReturningHOFs()
-    {
-        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
-        // We were able to call our methods like so:
-        IncreaseArray(numbers);
-        TripleArray(numbers);
-        // Now we need to send in an extra parameter
-        UpdateArray(numbers, x => x + 1);
-
-        // We can get back the original functionality by creating a
-        // Higher Order Function which returns an Action.
-        // So this method generates methods, like a method factory.
-
-        // We then create the methods:
-        Action<int[]> increaseArray = GenerateMethod(x => x + 1);
-        Action<int[]> tripleArray = GenerateMethod(x => x * 3);
-
-        // Then we can call them like we did before:
-        increaseArray(numbers);
-        tripleArray(numbers);
-
-        // How could we store our Generate method?
-        Func<Func<int, int>, Action<int[]>> generateMethod = GenerateMethod;
-
-        // We can even do the following if we do not wish to create and store a method.
-        GenerateMethod(x => x + 1)(numbers);
-    }
-
-    // Generate Method
-    static Action<int[]> GenerateMethod(Func<int, int> update)
-    {
-        return arr =>
-        {
-            for (int i = 0; i < arr.Length; i++)
+            foreach (var innerArray in jagged)
             {
-                arr[i] = update(arr[i]);
+                Console.WriteLine(string.Join(", ", innerArray));
             }
         };
+        string[][] jaggedArray = [
+            ["Hello", "World"],
+            ["C#", "Lambda", "Funcs"]
+        ];
+        printJaggedArray(jaggedArray);
     }
 }
