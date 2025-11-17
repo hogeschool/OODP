@@ -6,6 +6,7 @@
 - HOF that takes a function (W13.1.1T01)
 - HOF that returns a function (W13.1.1T02)
 - Generic HOF (W13.1.1T03)
+- Curried lambdas (W13.1.1T04)
 
 ### Summary
 A **higher-order function** is a method that takes one or more functions as arguments, and/or returns a function as its result.

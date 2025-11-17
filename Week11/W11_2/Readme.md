@@ -10,7 +10,6 @@ PART 1: lambda syntax
   * `Action`s (W11.2.1T03)
 PART 2: More advanced lambda forms
   * Statement lambdas (W11.2.1T04)
-  * Curried lambdas (W11.2.1T05)
 
 ### Summary
 Lambdas are powerful functions that can be passed around like data. Think of lambdas as “functions without names” — useful when you need quick, one-time logic.
@@ -76,10 +75,8 @@ You’ll start with the basics:
 
 PART 2: More advanced lambda forms
 
-Once you’re comfortable with the syntax, you’ll move on to more expressive versions of lambdas:
-- Statement lambdas, which can contain multiple lines of code
-- Curried lambdas, which return other lambdas
+Once you’re comfortable with the syntax, you’ll move on to statement lambdas, which can contain multiple lines of code.
 
 ###### Looking Ahead
-After this week, you’ll see how lambdas come to life in LINQ, allowing you to query and transform data using expressive, functional-style syntax.
-From there, you’ll learn about higher-order functions, which take lambdas to the next level — functions that create or consume other functions.
+After this week, you’ll see how lambdas come to life in LINQ, allowing you to query and transform data using expressive, functional-style syntax.\
+From there, you’ll learn about higher-order functions, which take lambdas to the next level — functions that create or consume other functions, or even chain them.
