@@ -8,7 +8,6 @@
   * `GroupBy` (W12.1.1T03)
   * Query expressions (W12.1.1T04)
 
-
 ### Summary
 LINQ stands for Language INtegrated Query.
 It allows you to query and transform collections such as lists and arrays in a clear and expressive way.

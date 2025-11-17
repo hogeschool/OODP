@@ -3,4 +3,4 @@
 ## Day 2 (W12_2)
 
 ### Contents
-Just Objective assignments -- This is Part 2 of LINQ.
+Just Objective assignments--this is Part 2 of LINQ.
