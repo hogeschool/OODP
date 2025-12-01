@@ -13,12 +13,12 @@ Revision
 - What does the `Select` method do?
     > Projects/maps each element of a sequence into a new form
 - What will be in the array `b` after this code has executed?
-    ```
+    ```csharp
     int[] a = [1, 2, 3];
     int[] b = a.Reverse().ToArray();
-    ```
+    ```csharp
     > [3, 2, 1]
--   How can you sort elements of a sequence in ascending order and descending order?
+- How can you sort elements of a sequence in ascending order and descending order?
     > `OrderBy` and `OrderByDescending`
 - How can you do subsequent ordering of a sequence?
     > `ThenBy` and `ThenByDescending`
@@ -28,7 +28,7 @@ Revision
     ```
     > From youngest to oldest.
 - In the following code, how can I print the age groups and the size of each age group? How can I loop through each person in each of the age groups?
-    ```
+    ```csharp
     IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
     foreach (var group in groupByAge)
     {

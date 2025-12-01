@@ -7,18 +7,18 @@ Revision
 - How do you filter a sequence of values based on given criteria
 - What does the `Select` method do?
 - What will be in the array `b` after this code has executed?
-    ```
+    ```csharp
     int[] a = [1, 2, 3];
     int[] b = a.Reverse().ToArray();
     ```
--   How can you sort elements of a sequence in ascending order and descending order?
+- How can you sort elements of a sequence in ascending order and descending order?
 - How can you do subsequent ordering of a sequence?
 - In the following code, in what order will the ages be grouped?
     ```csharp
     IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
     ```
 - In the following code, how can I print the age groups and the size of each age group? How can I loop through each person in each of the age groups?
-    ```
+    ```csharp
     IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
     foreach (var group in groupByAge)
     {
@@ -26,8 +26,6 @@ Revision
     ```
 - How can I get the unique elements in a sequence?
 - What do `Intersect` and `Union` do?
-    > - `Intersect`: Produces the set intersection of two sequences (shared values) 
-    > - `Union`: Produces the set union of two sequences. (unique values)
 -  What do `Min`, `Max`, `Sum` and `Count` do?
 - What will the value of `any` be in the following code?
     ```csharp
