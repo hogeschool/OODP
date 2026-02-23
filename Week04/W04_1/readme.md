@@ -5,9 +5,12 @@
 ### Contents:
 
 PART 1: overloading
-* method (W04.1.1T01)
-* constructor (W04.1.1T02-04)
-* fix error (W04.1.1T05)
+* method
+* constructor (including constructor chaining)
 
 PART 2: inheritance
-* inheritance basics (W04.1.1T06-07)
+* inheritance basics 
+  * is a relationship
+  * base
+
+### Resources:
