@@ -5,11 +5,15 @@
 ### Contents:
 
 PART 1: more on inheritance
-* keyword `is` (W04.2.1T01)
-* `virtual` & `override` (W04.2.1T02)
-* derived classes (W04.2.1T03-04)
-* `Object` class (W04.2.1T05)
-* keyword `as` (W04.2.1T06)
+* Type conversion
+    * `()`
+    * keyword `as`
+    * keyword `is` 
+* `Object` class
+    * `ToString()`
+* `virtual` & `override`
+    * `base` to access base implementation
+* Inheritance hierarchy
 
 PART 2: encapsulation (access modifiers)
-* `private` members (W04.1.1T07-09)
+* `private` members
