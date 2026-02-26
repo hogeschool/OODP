@@ -12,7 +12,7 @@ class Course:
     def Info(self):
         return f"The Course {self.Name} is worth {self.Credits} credits"
 
-For a graphical overview, see W02_1_2_ClassStructure.png.
+For a graphical overview, see Part2_ClassStructure.png.
 */
 public class Course
 {
