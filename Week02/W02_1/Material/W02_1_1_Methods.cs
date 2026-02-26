@@ -2,8 +2,13 @@ public static class W02_1_1_Methods
 {
     public static void Main2()
     {
-        // void methods (CTRL CLICK) (ALT BACK) 
-        PrintHello();
+        // Pro tip: In your IDE, CTRL click on a method name to nagivate to it
+        // To navigate back:
+        // - Visual Studio: CTRL -
+        // - Visual Studio Code: ALT BACK
+
+        // void methods
+        PrintHello(); // In your IDE, CTRL click to go to the method
 
         // parameters (debug step over, into, out)
         PrintGreeting("Heya!");
