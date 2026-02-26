@@ -19,3 +19,6 @@ PART 3: readonly
 PART 4: ValueTuples
 *   W03.1.1T09: create
 *   W03.1.1T10: read
+
+### Resources:
+*  https://medium.com/@kittikawin_ball/c-static-vs-non-static-how-they-work-and-when-to-use-them-de47a620788a
