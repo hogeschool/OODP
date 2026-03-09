@@ -1,70 +1,47 @@
+# Week 03
+
 ## Day 2 (W03_2)
 
 ### Contents:
 
-PART 1: Unit testing (MSTest):
-*  How to run the example Jukebox test project (see below)
-*  Setting up a new test project and running unit tests
-*  Test attributes
-*  Asserts
-*  Data-driven unit tests
-*  Best practices & references
-*  W03.2.1T01
+PART 1: Unit testing
+* What is Unit Testing
+* Running unit tests
+* Understanding unit tests
+    * The following attributes
+        * [TestClass]
+        * [TestMethod]
+        * [DataRow()]
+    * Assert methods (For example Assert.AreEqual)
+    * Best practices
+* Setting up a testing environment and writing tests
 
-PART 2: exception handling
-*  W03.2.1T02 general exceptions
-*  W03.2.1T03 specific exceptions
-*  W03.2.1T04 `finally` block
+PART 2: Exception handling
+* throwing exceptions
+* try/catch/finally
+* using (optional)
 
+Part 3: Reading from and writing to a database
+* SQL revision: Do the following exercises in CodeGrade:
+    * [Project] Working with SQL
+    * [Project] Working with SQL & Dapper
 
-### How to use the 'jukebox-testing.zip'
-* Unzip the contents of the 'jukebox-testing.zip' on your machine.
-* Go to the 'JukeboxTest/W03_2.JukeboxTest.cs' on how to introduce the mstest unit testing concepts.
-* Student instruction: The 'jukebox-testing.zip' can be handed-out to the students. 
-* Instruct them to read and try-out the instructions explained in the 'JukeboxTest/W03_2.JukeboxTest.cs' file for themselves.
+### Resources:
+## Unit testing:
 
+- [Unit testing best practices for .NET](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices)
+- [Tutorial: Test a .NET class library using Visual Studio Code](https://learn.microsoft.com/en-us/dotnet/core/tutorials/testing-library-with-visual-studio-code?pivots=dotnet-8-0)
+- [MSTest attributes](https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-mstest-writing-tests-attributes)
+- [Assert Class](https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=visualstudiosdk-2022)
 
-### How to run the example Jukebox test project ##
-The 'Jukebox' folder contains the project with the source code to be tested. The 'JukeboxTest' folder contains the test project with the unit test class. The 'JukeboxTest.csproj' contains a reference to the location of the Jukebox project so mstest knows where to find the source code, so make sure this points to the right location!
-To run the JukeboxTest project, execute the 'dotnet test' command inside the JukeboxTest project folder in the terminal of Visual Studio Code or another command line interface. The test execution will have run correctly if you see in the output that the 7 tests have 'Passed'.
+## Exception handling 
+* [Exceptions and Exception Handling (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/)
+* [The throw statement (Microsoft documentation)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement)
+* [Using Standard Exception Types (Microsoft documentation)](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/using-standard-exception-types)
+* [est practices for exceptions (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
+* [The Art of Throwing Exceptions in C# (or How to Fail Gracefully)](https://rollbar.com/blog/throw-exceptions-c-sharp/)
+* [.NET Exceptions (all of them)](https://mikevallotton.wordpress.com/2009/07/08/net-exceptions-all-of-them/)
 
-### Setting up a new test project and running unit tests  ##
-1. The following instructions will create a new mstest project in a new folder (e.g. SampleTest):
-    /> dotnet new mstest -o SampleTest
-2. Change the current directory to go into the newly created folder for the mstest project:
-    /> cd SampleTest
-3. Add a reference to the project which contains the source code you want to test (e.g. a console application named SampleProject):
-    /> dotnet add reference ../SampleProject/SampleProject.csproj
-4. Execute the test command:
-    /> dotnet test
-
-###  Test attributes ##
-Some examples of test attributes are:
-* [TestClass]
-* [TestMethod]
-* [DataTestMethod]
-* [DataRow]
-
-See the CheatsheetTest.cs file for more examples of test attributes.
-
-### Asserts ## 
-Some examples of Assert methods are:
-* Assert.AreEqual
-* Assert.IsTrue
-* Assert.IsNull
-* Assert.IsNotNull
-
-See the CheatsheetTest.cs file for more examples of Assert class methods.
-
-### Data-driven unit tests ##
-The following methods are examples of data-driven unit tests:
-- TestAddSongs
-- TestAddSongsDynamicDataMethod
-See the CheatsheetTest.cs file for more examples of Data-driven unit tests.
-
-### Best practices & references ##
-* https://learn.microsoft.com/en-us/dotnet/core/testing/unit-testing-best-practices
-* https://learn.microsoft.com/en-us/dotnet/core/tutorials/testing-library-with-visual-studio-code?pivots=dotnet-6-0
-* https://learn.microsoft.com/en-us/dotnet/api/microsoft.visualstudio.testtools.unittesting.assert?view=visualstudiosdk-2022
-
-Now try to create some more tests for yourself! (W03.2.1T01)
+## Using
+* [Using objects that implement IDisposable  (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/standard/garbage-collection/using-objects)
+* [How IDisposable and Using Statements Work Together in C# (YouTube)](https://www.youtube.com/watch?app=desktop&v=C4qzrFeYHgs)
