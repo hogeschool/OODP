@@ -1,95 +1,35 @@
-﻿/*
-    Contents:
-    * PART 1: overloaded methods
-    *  - overload styles
-    *     * code duplication
-    *     * method forwarding
-    *  - parameter types
-    * PART 2: overloaded constructors
-    *  - overload styles
-    *     * code duplication
-    *     * constructor chaining
-    *  - 'copy' constructor (not an official term)
-    * PART 3: inheritance
-    *  - creating objects
-    *  - constructor
-*/
-
-static class Program
+﻿static class Program
 {
-    public static void Main()
-    {
-        OverloadedMethods();
-        OverloadedConstructors();
-        Inheritance();
-    }
+    static void Main()
+    {      
+        // Convert.ToInt32 is an overloaded method
+        // https://learn.microsoft.com/en-us/dotnet/api/system.convert.toint32?view=net-8.0 
+        Convert.ToInt32("19");
 
-    public static void OverloadedMethods()
-    {
-        Console.WriteLine("=== Method overloading ===");
-        //StringFormatter.Capitalize and StringFormatter.Lowercase
-        //are overloaded in different ways. Have a look at the code.
+        // Test SequenceGenerator.Generate
+        string seq1 = SequenceGenerator.Generate(1, 10, 2, ", ");
+        int seq2 = SequenceGenerator.Generate(1, 4);
+        string seq3 = SequenceGenerator.Generate(10);
 
-        //Note that the parameter type determines which method is called
-        char h = 'h';
-        char H = StringFormatter.Capitalize(h);
-        Console.WriteLine($"'{h}' was changed to '{H}'");
+        // Test Person Constructor
+        Person p1 = new("123456", "Bill", 22);
+        Person p2 = new("654321", "Lisa");
+        Person p3 = new(344543, "Jane");
+        Person p4 = new(p1);
 
-        //Note that the parameter count determines which method is called
-        string hello = "hello!";
-        string toUpper1 = StringFormatter.Capitalize(hello);
-        string toUpper2 = StringFormatter.Capitalize(hello, false);
-        string toUpper3 = StringFormatter.Capitalize(hello, true);
-        foreach (var word in new List<string>() { toUpper1, toUpper2, toUpper3 })
-        {
-            Console.WriteLine($"'{hello}' was changed to '{word}'");
-        }
-        Console.WriteLine();
+        // Will p1's age change when "copy" constructor is used?
+        p4.Age++;
 
-        char W = 'W';
-        char w = StringFormatter.Lowercase(W);
-        Console.WriteLine($"'{W}' was changed to '{w}'");
+        // Student
+        Student s1 = new("987654", "Ria", 22, "7878021", 2023);
+        // Check what is available s1 (Person members + Student members)
 
-        string world = "WORLD!";
-        string toLower1 = StringFormatter.Lowercase(world);
-        string toLower2 = StringFormatter.Lowercase(world, false);
-        string toLower3 = StringFormatter.Lowercase(world, true);
-        foreach (var word in new List<string>() { toLower1, toLower2, toLower3 })
-        {
-            Console.WriteLine($"'{world}' was changed to '{word}'");
-        }
-        Console.WriteLine();
-    }
+        // Student members are not available to a Person (p1)
 
-    public static void OverloadedConstructors()
-    {
-        Console.WriteLine("=== Constructor overloading ===");
+        // Student IS a Person
+        Person sp = new Student("6352826", "Nick", 24, "01909111", 2021);
 
-        //The Vehicle constructor has constructor that are commented out.
-        //Have a look at the code to see the different styles.
-
-        List<Vehicle> vehicles = [];
-        Vehicle car1 = new("Toyota", "Camry", 2020);
-        Vehicle car2 = new("Toyota", 2020);
-        Vehicle car3 = new(2020);
-        Vehicle car4 = new(car1);
-
-        foreach (Vehicle car in new List<Vehicle>() { car1, car2, car3, car4 })
-        {
-            Console.WriteLine("Make: " + car.Make);
-            Console.WriteLine("Model: " + car.Model);
-            Console.WriteLine("Year: " + car.Year);
-            Console.WriteLine();
-        }
-    }
-
-    public static void Inheritance()
-    {
-        Console.WriteLine("=== Inheritance ===");
-
-        Console.WriteLine("Class car reuses the fields and one constructor of" +
-            "its base class Vehicle.");
-        Vehicle vehicle = new("New Holland", "T7.270", 2018);
-        Car car = new("Toyota", "Camry", 2020, "Petrol");
+        // Doing this will limit what we can access. More on this next week!
+        // Console.WriteLine(sp.StudentID); // Error!
     }
 }
