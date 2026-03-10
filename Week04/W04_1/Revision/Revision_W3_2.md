@@ -20,7 +20,7 @@ Revision
 - What is a `try-catch` statement?
 - How does `finally` work?
 - What is wrong with the following code?
-    ```
+    ```csharp
         try
         {
             Student s = new Student(student.Name, student.Age);
