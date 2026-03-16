@@ -58,6 +58,6 @@ LoginService(cm);
 LoginService(nr);
 ```
 
-Instead of being forced into one tree, interfaces let you connect classes across different branches. It’s more like a web than a tree.
--> **Inheritance is about what something _is_**
+Instead of being forced into one tree, interfaces let you connect classes across different branches. It’s more like a web than a tree.\
+-> **Inheritance is about what something _is_**\
 -> **interfaces are about what something _has_ or _can_**
