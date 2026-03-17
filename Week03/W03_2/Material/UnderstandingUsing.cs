@@ -59,6 +59,7 @@
         {
             System.Console.WriteLine("Could not write to file, exception: " + e);
         }
+        // otherwise https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/how-to-execute-cleanup-code-using-finally
     }
 
     public static bool IsValidPath(string path)

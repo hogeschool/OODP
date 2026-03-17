@@ -5,18 +5,12 @@ namespace Les1;
 public static class ShapeDrawer
 {
     public static void DrawHorizontalLine()
-    {
-        for(int i = 0; i < 20; i++)
-        {
-            Console.Write("-");
-        }
-        // next content on new line.
-        Console.WriteLine();
-    }
+     => DrawHorizontalLine(20, "-");
+
 
     public static void DrawHorizontalLine(int length)
     {
-        for(int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++)
         {
             Console.Write("-");
         }
@@ -26,7 +20,7 @@ public static class ShapeDrawer
 
     public static void DrawHorizontalLine(int length, string symbol)
     {
-        for(int i = 0; i < length; i++)
+        for (int i = 0; i < length; i++)
         {
             Console.Write(symbol);
         }
@@ -36,8 +30,8 @@ public static class ShapeDrawer
 
     public static void DrawCircle(
         double sizePercentage,
-        double positionLeftPercentage, 
-        double positionTopPercentage,         
+        double positionLeftPercentage,
+        double positionTopPercentage,
         string color,
         bool filled
         )
@@ -47,7 +41,7 @@ public static class ShapeDrawer
 
     public static void DrawCircle(
         double sizePercentage,
-        double positionLeftPercentage, 
+        double positionLeftPercentage,
         double positionTopPercentage,
         string color
         )
@@ -57,7 +51,7 @@ public static class ShapeDrawer
 
     public static void DrawCircle(
         double sizePercentage,
-        double positionLeftPercentage, 
+        double positionLeftPercentage,
         double positionTopPercentage
         )
     {

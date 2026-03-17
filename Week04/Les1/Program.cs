@@ -10,6 +10,8 @@
 // how can we solve this in C#
 // https://learn.microsoft.com/en-us/dotnet/api/system.console.writeline?view=net-10.0
 
+using Les1;
+
 void exampleMethodOverloadingInFramework()
 {
     Console.WriteLine();
@@ -22,4 +24,12 @@ void exampleMethodOverloadingInFramework()
 }
 
 
+Vehicle drone = new Vehicle(0);
+
+Bike bike = new Bike();
+
+Vehicle v = bike;
+bike = (Bike)v;
+
+bike.RingBell();
 
