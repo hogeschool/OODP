@@ -53,6 +53,5 @@ public class RoyalPerson : Person
     public void Hi()
     {
         this.firstName.ToUpper();
-        Title = "King";
     }
 }
