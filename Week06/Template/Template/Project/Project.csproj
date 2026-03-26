@@ -1,0 +1,22 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+   <Content Include="DataSources/*">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+   </Content>
+</ItemGroup>
+
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Data.Sqlite" Version="9.0.2" />
+    <PackageReference Include="Dapper" Version="2.1.66" />
+  </ItemGroup>
+
+</Project>
