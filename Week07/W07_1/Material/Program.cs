@@ -1,12 +1,12 @@
 ﻿/*
 Contents:
- - IComparable (W07.1.1T01)              
-        -> https://learn.microsoft.com/en-us/dotnet/api/system.icomparable-1
-        -> https://learn.microsoft.com/en-us/dotnet/api/system.icomparable
- - IEquatable (W07.1.1T02-03)
-        -> https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1
-        -> https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1.equals
-        -> https://learn.microsoft.com/en-us/dotnet/api/system.object.equals
+- IComparable (W07.1.1T01)              
+       -> https://learn.microsoft.com/en-us/dotnet/api/system.icomparable-1
+       -> https://learn.microsoft.com/en-us/dotnet/api/system.icomparable
+- IEquatable (W07.1.1T02-03)
+       -> https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1
+       -> https://learn.microsoft.com/en-us/dotnet/api/system.iequatable-1.equals
+       -> https://learn.microsoft.com/en-us/dotnet/api/system.object.equals
 */
 
 static class Program
@@ -56,6 +56,6 @@ static class Program
         Console.WriteLine($"person1.Equals(person2): {person1.Equals(person2)}");
         Console.WriteLine($"person1.Equals(person3): {person1.Equals(person3)}");
         Console.WriteLine($"person1.Equals(null): {person1.Equals(null)}");
-        Console.WriteLine($"person1.Equals(\"string\"): {person1.Equals("string")}");
+        Console.WriteLine($"person1.Equals(\"string\"): {person1!.Equals("string")}");
     }
 }
