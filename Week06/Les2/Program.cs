@@ -9,6 +9,7 @@
 
 List<int> numbers = new List<int>();
 List<string> names = new List<string>();
+List<double> doubles = new ();
 Dictionary<string, int> nameToAge = new Dictionary<string, int>();
 
 // if we didn't have generics, we would have to do something like this:
