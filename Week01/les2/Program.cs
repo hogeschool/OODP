@@ -6,7 +6,7 @@
     bool correctInput = false;
     while (!correctInput)
     {
-        Console.WriteLine("Enter a nickname");
+        Console.WriteLine("Enter a nickname:");
         string input = Console.ReadLine();
 
         if (input.Length > 4 && input[0] >= 'A' && input[0] <= 'Z')
