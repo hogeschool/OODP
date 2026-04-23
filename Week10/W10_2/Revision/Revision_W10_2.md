@@ -24,8 +24,6 @@
 - Can you assign specific values to all enum members?
 - How can you get the integer value of the enum member `Option.Stop` in code?
 - How can you get the string value of the enum member `Option.Stop` in code?
-- How can you get all the values in an `enum`, for example in `Option`? What type will you get?
-- How can you check if a `string` has a corresponding `enum`?
 
 ## Stacks
 - What is a `Stack` data structure?

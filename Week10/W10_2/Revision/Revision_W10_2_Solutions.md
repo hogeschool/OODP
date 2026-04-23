@@ -3,9 +3,9 @@
 - What is an `enum` type?
     > An `enum` type (or enumeration type) is a value type defined by a set of named constants of the underlying integral numeric type. In short, it is a set of named constants.
 - When would you use an enum?
-    > - Representing a finite set of options
-      - Improving code clarity and maintainability
-      - When you want to match a set of names with a set of constant values
+    > - When you want to represent a finite set of options while also:
+      - improve code clarity and maintainability
+      - use meaningful names instead of magic numbers/strings
 - What is the underlying type of an enum in C#?
     > By default, the underlying type of an enum is `int`. However, you can specify another integral type like `byte`, `short`, `long`, etc.
 - What is the integer value of `Option.Start`? Why?
@@ -31,15 +31,9 @@
 -  Can you assign specific values to all `enum` members?
     > Yes
 - How can you get the integer value of the `enum` member `Option.Stop` in code?
-    > `int intValue = (int) Option.Stop;`
+    > `int intValue = (int)Option.Stop;`
 - How can you get the string value of the enum member `Option.Stop` in code?
     > `string stringValue = Option.Stop.ToString();`
-- How can you get all the values in an `enum`, for example in `Option`? What type will you get?
-    > `Enum.GetValues<Option>()`\
-    > `Option[]`
-- How can you check if a `string` has a corresponding `enum`?
-    > `Enum.IsDefined(typeof(Enumtype), valueToCheck)`\
-    > Safer: `Enum.TryParse(stringToCheck, out Enumtype variableName)` 
 
 ## Stacks
 - What is a `Stack` data structure?
