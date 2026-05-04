@@ -2,10 +2,11 @@
 {
     static void Main()
     {
-        Console.WriteLine("====== Jagged arrays ======");
-        JaggedArray.Run();
+        ArraysRevision.Run();
 
-        Console.WriteLine("\n====== 2D arrays ======");
-        NDimArray.Run();
+        JaggedArrays.Run();
+        int[][] array = JaggedArrays.GetTriangle(4);
+
+        MultiDimArrays.Run();
     }
 }

@@ -1,4 +1,4 @@
-static class JaggedArray
+﻿static class JaggedArrays
 {
     public static void Run()
     {
@@ -22,36 +22,32 @@ static class JaggedArray
         ];
 
         /*
-        Long pre dotnet 8 version:
+        Long pre .NET 8 version:
         type[][] name = {
-            new [] {value1, value2,...},
-            new [] {value1, value2,...},
+            new []{value1, value2,...},
+            new []{value1, value2,...},
         }
         */
-        string[][] groups2 = {
-            new []{"John", "Mary", "Tim"},
-            new []{"Fred", "Wilma"},
-            new []{"Lisa", "Bart", "Homer", "Marge", "Maggie"}
-        };
+        string[][] groups2 = [
+            ["John", "Mary", "Tim"],
+            ["Fred", "Wilma"],
+            ["Lisa", "Bart", "Homer", "Marge", "Maggie"]
+        ];
+
+        // Length
 
         // Accessing elements
         string firstInFirst = groups[0][0];
         string firstInSecond = groups[1][0];
         string lastInLast = groups[^1][^1];
 
-        // Length
-        Console.WriteLine($"Number of rows: {groups.Length}");
-        Console.WriteLine($"Number of columns in the first row: {groups[0].Length}");
-        Console.WriteLine($"Number of columns in the second row: {groups[1].Length}");
-        Console.WriteLine($"Number of columns in the third row: {groups[2].Length}");
-
         // Print using for
-        Console.WriteLine("\n---\nfor:");
+        Console.WriteLine("---\nfor:");
         for (int i = 0; i < groups.Length; i++)
         {
             for (int j = 0; j < groups[i].Length; j++)
             {
-                Console.Write(groups[i][j] + " ");
+                Console.Write($"{groups[i][j]} ");
             }
             Console.WriteLine();
         }
@@ -71,13 +67,49 @@ static class JaggedArray
 
         //Print using foreach
         Console.WriteLine("---\nforeach:");
-        foreach (var array in groups)
+        foreach (string[] array in groups)
         {
-            foreach (var name in array)
+            foreach (string name in array)
             {
-                Console.Write(name + " ");
+                Console.Write($"{name} ");
             }
             Console.WriteLine();
         }
+    }
+
+    /*
+        Write a method to create a triangular jagged array of a given size, filled with 1s. For example, if the given size is 4, the jagged array would be:
+        ```
+        [
+            [1],
+            [1,1],
+            [1,1,1],
+            [1,1,1,1]
+        ]
+        ```
+    */
+    public static int[][] GetTriangle(int size)
+    {
+        //type[][] name = new type[size][];
+
+        int[][] triangle = new int[size][]; // {null, null, null, null}
+
+        // Fill array, first create array in each slot, 
+        // triangle[0] = new int[1];
+        // triangle[1] = new int[2];
+        // triangle[2] = new int[3];
+        // ... better with a loop
+
+        for (int i = 0; i < triangle.Length; i++)
+        {
+            triangle[i] = new int[i + 1];
+            for (int j = 0; j < triangle[i].Length; j++)
+            {
+                // then put 1 in each slot of those arrays
+                triangle[i][j] = 1;
+            }
+        }
+
+        return triangle;
     }
 }
