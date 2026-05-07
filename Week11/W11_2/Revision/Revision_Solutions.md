@@ -5,13 +5,13 @@ Revision
 - When would you use a jagged array? Can you give an example situation?
     > When you need to store groups of data of different lengths. For example storing the names of the students in the groups in Project.
 - What is in the `numbers` array after this line of code is executed? Why? 
-    ```
+    ```csharp
     int[][] numbers = new int[3][];
     ```
     
     > 3 nulls `{null, null, null}`,  since `null` is the default type for arrays and we are creating an empty array of arrays. This creates a jagged array with three elements, but it hasn't initialized the inner arrays yet
 - Given the following jagged array, What will `numbers.Length` tell you?
-    ```
+    ```csharp
     int[][] numbers = [
         [1, 2, 3],
         [8, 3, 4, 1, 9],
@@ -20,7 +20,7 @@ Revision
     ``` 
     > 3, the amount of arrays in the array
 - Given the following jagged array, What will `numbers[2].Length` tell you?
-    ```
+    ```csharp
     int[][] numbers = [
         [1, 2, 3],
         [8, 3, 4, 1, 9],
@@ -35,19 +35,19 @@ Revision
 - When would you use a multidimentional array?
     > Useful when you need a grid-like structure with fixed dimensions, such as a chessboard or a matrix.
 - Given the following code 
-    ```
+    ```csharp
     string[,] board = new string[4, 2];
     ```
     How many rows does `board` have? How can you determine this using code?
     > 4, `board.GetLength(0)`
 - Given the following code 
-    ```
+    ```csharp
     string[,] board = new string[4, 2];
     ```
     How many columns does `board` have? How can you determine this using code?
     > 4, `board.GetLength(1)`
 - Given the following code 
-    ```
+    ```csharp
     string[,] board = new string[4, 2];
     int number = board.Length;
     ```
