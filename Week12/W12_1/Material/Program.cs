@@ -1,7 +1,5 @@
 ﻿static class Program
 {
-    // The examples with intArr will also work with lists.
-    // You do however need to change ToArray() to ToList().
     static readonly int[] intArr = [12, 1, 3, 2, 6, 3, 2, 4, 9, 10, 7, 1, 5];
     static readonly List<Person> people = [
         new("Clara", 25),
@@ -23,16 +21,16 @@
             Allows us to easily perform queries on data.
             https://www.tutorialsteacher.com/linq (English is not great though!!!)
         */
-        Filter();
-        Map();
-        Ordering();
-        Grouping();
-        SetOperations();
-        Aggregation();
+        // Filter();
+        // Map();
+        // Ordering();
+        // Grouping();
+        // SetOperations();
+        // Aggregation();
         ExaminingElements();
-        RangeGeneration();
-        QuerySyntax();
-        MoreExamples();
+        // RangeGeneration();
+        // QuerySyntax();
+        // MoreExamples();
     }
 
     public static void Filter()
@@ -127,7 +125,6 @@
     {
         /*
             Reverse: Inverts the order of the elements in a sequence.
-            
             OrderBy: sorts the elements of a sequence in ascending order
             OrderByDescending: sorts the elements of a sequence in descending order
             ThenBy: second level sorting in ascending order
@@ -238,6 +235,7 @@
             Min: Returns the minimum value in a sequence of values.
             Max: Returns the maximum value in a sequence of values.
             Sum: Computes the sum of a sequence of numeric values.
+            Count: The number of elements in a sequence
         */
 
         // Min, max and sum of numbers
@@ -249,21 +247,33 @@
         int countEvent = intArr.Count(num => num % 2 == 0);
 
         // Get maximum age
-        int maxAge1 = people.Select(person => person.Age).Max();
-        int maxAge2 = people.Max(person => person.Age);
+        int maxAge = people.Max(person => person.Age);
     }
 
     public static void ExaminingElements()
     {
         /*
-            First: Returns the first element of a sequence.
-            Last: Returns the last element of a sequence.
-            Any: Determines whether a sequence contains any elements.
+            * First: Returns the first element of a sequence.
+            * FirstOrDefault: Returns the first element of the 
+              sequence that satisfies a condition 
+              or a default value if no such element is found.
+            * Last: Returns the last element of a sequence.
+            * Any: Determines whether a sequence contains any elements.
+            * Take: Returns a specified number of elements from the 
+              start of a sequence. If there are not enough values to take,
+              it takes what it can.
         */
+        // First
         int firstEven = intArr
             .Where(num => num % 2 == 0)
             .OrderBy(_ => _)
             .First();
+
+        // FirstOrDefault
+        int firstEvenValue = intArr.FirstOrDefault(num => num % 2 == 0);
+        int find100 = intArr.FirstOrDefault(num => num == 100);
+
+        // Last
         int lastEven = intArr
             .Where(num => num % 2 == 0)
             .OrderBy(_ => _)
@@ -278,10 +288,22 @@
         string firstTask = tasks.First();
         string lasTask = tasks.Last();
 
+        // Any
         while (tasks.Any())
         {
             Console.WriteLine(tasks.Dequeue());
         }
+
+        // Take
+        int[] firstThreeEvens = intArr
+        .Where(number => number % 2 == 0)
+        .Take(3)
+        .ToArray();
+
+        int[] notEnough = intArr
+        .Where(number => number >=10)
+        .Take(5)
+        .ToArray();
     }
 
     public static void RangeGeneration()
