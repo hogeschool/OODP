@@ -21,16 +21,16 @@
             Allows us to easily perform queries on data.
             https://www.tutorialsteacher.com/linq (English is not great though!!!)
         */
-        // Filter();
-        // Map();
-        // Ordering();
-        // Grouping();
-        // SetOperations();
-        // Aggregation();
+        Filter();
+        Map();
+        Ordering();
+        Grouping();
+        SetOperations();
+        Aggregation();
         ExaminingElements();
-        // RangeGeneration();
-        // QuerySyntax();
-        // MoreExamples();
+        RangeGeneration();
+        QuerySyntax();
+        MoreExamples();
     }
 
     public static void Filter()
