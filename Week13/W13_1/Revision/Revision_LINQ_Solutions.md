@@ -6,7 +6,7 @@ Revision
     > A lot of LINQ queries return an `IEnumerable`, so converting to an array or list forces the query to execute immediately and store the results in memory.
 - How do you convert an `IEnumerable` to an array?
     > `ToArray()`
-- How do you convert an IEnumerable to an list?
+- How do you convert an IEnumerable to a list?
     > `ToList()`
 - How do you filter a sequence of values based on given criteria
     > `Where`
