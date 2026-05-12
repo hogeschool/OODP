@@ -8,7 +8,7 @@ Revision
     > `ToArray()`
 - How do you convert an IEnumerable to a list?
     > `ToList()`
-- How do you filter a sequence of values based on given criteria
+- How do you filter a sequence of values based on given criteria?
     > `Where`
 - What does the `Select` method do?
     > Projects/maps each element of a sequence into a new form
@@ -16,7 +16,7 @@ Revision
     ```csharp
     int[] a = [1, 2, 3];
     int[] b = a.Reverse().ToArray();
-    ```csharp
+    ```
     > [3, 2, 1]
 - How can you sort elements of a sequence in ascending order and descending order?
     > `OrderBy` and `OrderByDescending`
