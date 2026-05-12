@@ -3,7 +3,7 @@ Revision
 - Explain lazy evaluation in LINQ.
 - Why do you need to convert the outcome of LINQ queries to an array or a list?
 - How do you convert an `IEnumerable` to an array?
-- How do you convert an IEnumerable to an list?
+- How do you convert an IEnumerable to a list?
 - How do you filter a sequence of values based on given criteria
 - What does the `Select` method do?
 - What will be in the array `b` after this code has executed?
