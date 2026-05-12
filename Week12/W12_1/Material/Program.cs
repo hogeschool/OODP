@@ -296,14 +296,14 @@
 
         // Take
         int[] firstThreeEvens = intArr
-        .Where(number => number % 2 == 0)
-        .Take(3)
-        .ToArray();
+            .Where(number => number % 2 == 0)
+            .Take(3)
+            .ToArray();
 
         int[] notEnough = intArr
-        .Where(number => number >=10)
-        .Take(5)
-        .ToArray();
+            .Where(number => number >=10)
+            .Take(5)
+            .ToArray();
     }
 
     public static void RangeGeneration()
