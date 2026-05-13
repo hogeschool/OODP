@@ -1,12 +1,12 @@
 Revision
 ---
-- Explain lazy evaluation in LINQ.
+- Explain lazy evaluation with respect to LINQ.
     > Lazy evaluation means the query is not executed until the data is accessed.
-- Why do you need to convert the outcome of LINQ queries to an array or a list?
+- Why would you convert the outcome of LINQ queries to an array or a list?
     > A lot of LINQ queries return an `IEnumerable`, so converting to an array or list forces the query to execute immediately and store the results in memory.
 - How do you convert an `IEnumerable` to an array?
     > `ToArray()`
-- How do you convert an IEnumerable to a list?
+- How do you convert an `IEnumerable` to a `List`?
     > `ToList()`
 - How do you filter a sequence of values based on given criteria?
     > `Where`
@@ -76,6 +76,16 @@ Revision
     int last = stack.Last();
     ```
     > first = 2, last = 1
+- What will the values of `firstEven` and `moreThan3` be in the following code?
+    ```csharp
+    int[] numbers = [1, 3, 5, 7];
+    int firstEven = numbers.FirstOrDefault(x => x % 2 == 0);
+    int[] moreThan3 = numbers
+    .Where(x => x > 3)
+    .Take(3)
+    .ToArray();
+    ```
+    > firstEven = 0, moreThan3 = [5, 7]
 - What will `values` contain? 
     ```csharp
     int[] values = Enumerable.Range(0, 5).ToArray();
