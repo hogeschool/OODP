@@ -4,10 +4,10 @@ Revision
     > Lazy evaluation means the query is not executed until the data is accessed.
 - Why would you convert the outcome of LINQ queries to an array or a list?
     > A lot of LINQ queries return an `IEnumerable`, so converting to an array or list forces the query to execute immediately and store the results in memory.
-- How do you convert an `IEnumerable` to an array?
-    > `ToArray()`
-- How do you convert an `IEnumerable` to a `List`?
-    > `ToList()`
+    - How do you convert an `IEnumerable` to an array?
+        > `ToArray()`
+    - How do you convert an `IEnumerable` to a `List`?
+        > `ToList()`
 - How do you filter a sequence of values based on given criteria?
     > `Where`
 - What does the `Select` method do?
@@ -24,12 +24,14 @@ Revision
     > `ThenBy` and `ThenByDescending`
 - In the following code, in what order will the ages be grouped?
     ```csharp
-    IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
+    IEnumerable<IGrouping<int, Person>> groupByAge = people
+        .GroupBy(person => person.Age);
     ```
     > From youngest to oldest.
 - In the following code, how can I print the age groups and the size of each age group? How can I loop through each person in each of the age groups?
     ```csharp
-    IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
+    IEnumerable<IGrouping<int, Person>> groupByAge = people
+        .GroupBy(person => person.Age);
     foreach (var group in groupByAge)
     {
     }
@@ -81,9 +83,9 @@ Revision
     int[] numbers = [1, 3, 5, 7];
     int firstEven = numbers.FirstOrDefault(x => x % 2 == 0);
     int[] moreThan3 = numbers
-    .Where(x => x > 3)
-    .Take(3)
-    .ToArray();
+        .Where(x => x > 3)
+        .Take(3)
+        .ToArray();
     ```
     > firstEven = 0, moreThan3 = [5, 7]
 - What will `values` contain? 

@@ -2,8 +2,8 @@ Revision
 ---
 - Explain lazy evaluation with respect to LINQ.
 - Why would you convert the outcome of LINQ queries to an array or a list?
-- How do you convert an `IEnumerable` to an array?
-- How do you convert an `IEnumerable` to a `List`?
+    - How do you convert an `IEnumerable` to an array?
+    - How do you convert an `IEnumerable` to a `List`?
 - How do you filter a sequence of values based on given criteria?
 - What does the `Select` method do?
 - What will be in the array `b` after this code has executed?
@@ -15,11 +15,13 @@ Revision
 - How can you do subsequent ordering of a sequence?
 - In the following code, in what order will the ages be grouped?
     ```csharp
-    IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
+    IEnumerable<IGrouping<int, Person>> groupByAge = people
+        .GroupBy(person => person.Age);
     ```
 - In the following code, how can I print the age groups and the size of each age group? How can I loop through each person in each of the age groups?
     ```csharp
-    IEnumerable<IGrouping<int, Person>> groupByAge = people.GroupBy(person => person.Age);
+    IEnumerable<IGrouping<int, Person>> groupByAge = people
+        .GroupBy(person => person.Age);
     foreach (var group in groupByAge)
     {
     }
@@ -45,9 +47,9 @@ Revision
     int[] numbers = [1, 3, 5, 7];
     int firstEven = numbers.FirstOrDefault(x => x % 2 == 0);
     int[] moreThan3 = numbers
-    .Where(x => x > 3)
-    .Take(3)
-    .ToArray();
+        .Where(x => x > 3)
+        .Take(3)
+        .ToArray();
     ```
 - What will `values` contain? 
     ```csharp
