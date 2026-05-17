@@ -6,10 +6,10 @@ static class Program
         UsingHOFs();
         HOFsReturningHOFs();
     }
-    
+
     public static void HigherOrderFunctions()
     {
-        int[] numbers = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+        int[] numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
         // What is the difference between IncreaseArray and TripleArray?
         IncreaseArray(numbers);
@@ -33,10 +33,7 @@ static class Program
         Repeat10(() => Console.WriteLine("Round we go"));
     }
 
-    private static int Increase(int number)
-    {
-        return number + 1;
-    }
+    private static int Increase(int number) => number + 1;
 
     private static void IncreaseArray(int[] arr)
     {
@@ -53,6 +50,8 @@ static class Program
             arr[i] = arr[i] * 3;
         }
     }
+
+    private static void HelloWorld() => Console.WriteLine("Hello, World!");
 
     private static void HumptyDumpty()
     {
@@ -89,12 +88,14 @@ static class Program
         int largerThanThree = Array.Find(nums, x => x > 3);
         int[] allLargerThanThree = Array.FindAll(nums, x => x > 3);
 
-        string result = words.Find(s => s == "bye");
+        string? found = words.Find(s => s == "bye");
         List<string> beginsWithH = words.FindAll(s => s[0] == 'h');
 
         //ForEach
         Array.ForEach(nums, x => Console.WriteLine(x));
-        words.ForEach(s => Console.WriteLine(s));
+        Array.ForEach(nums, Console.WriteLine); // Same as above
+
+        words.ForEach(Console.WriteLine);
     }
 
     public static void HOFsReturningHOFs()
@@ -109,7 +110,7 @@ static class Program
         // We can get back the original functionality by creating a
         // Higher Order Function which returns an Action
         // So this method generates methods, like a method factory.
-        
+
         // We then create the methods:
         Action<int[]> increaseArray = GenerateMethod(x => x + 1);
         Action<int[]> tripleArray = GenerateMethod(x => x * 3);
