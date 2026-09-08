@@ -1,6 +1,7 @@
 Revision
 --------
 - What is in a class?
+- What are fields?
 - What is a constructor?
 - What is a method?
 - What do we write when we do not return anything from a method?
