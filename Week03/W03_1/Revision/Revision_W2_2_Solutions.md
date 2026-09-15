@@ -1,7 +1,7 @@
 Revision solutions
 --------
 - What color will `c1.Color` be after the following code has executed?
-  ```
+  ```c#
       Car c1 = new Car(“Red”);
       Car c2 = c1;
       c2.Color = “Green”;
@@ -10,13 +10,13 @@ Revision solutions
 - What does `null` mean?
   > It is a value that indicates that there is no object reference, so it does not refer to any object.
 - Given a `Person` class with a field `Name`, will this code compile? Will it run? What will happen?
-  ```
+  ```c#
   Person p = null;
   Console.WriteLine($"Name: {p.Name}");
   ```
   > It will compile and run, but it will not finish running as there will be a runtime exception. This is because a null reference exception is thrown since `p` is `null` and therefor it does not have a `Name`.
 - Given the following classes, how would you add an Elephant to Rotterdam Zoo?
-  ```
+  ```c#
   public class Animal
   {
       public string Type;
@@ -40,7 +40,7 @@ Revision solutions
   }
   ```
 
-  > ``` 
+  > ```c#
   > Zoo rotterdamZoo = new Zoo("Rotterdam");
   > rotterdamZoo.Animals.Add(new Animal("Elephant"));
   > ```
