@@ -1,23 +1,42 @@
-﻿class Student : IComparable<Student>
+public class Student : IComparable<Student>
 {
     public string Name { get; set; }
     public int Age { get; set; }
-    public int GradeLevel { get; set; }
+    public int Grade { get; set; }
 
-    //Implement the IComparable interface method
-    public int CompareTo(Student? other)
+    public Student(string name, int age, int grade)
     {
-        if (other == null) return 1;
+        Name = name;
+        Age = age;
+        Grade = grade;
+    }
 
-        //Compare by grade level first
-        int gradeComparison = GradeLevel.CompareTo(other.GradeLevel);
-        if (gradeComparison != 0) { return gradeComparison; }
+    public override string ToString()
+    {
+        return $"Name: {Name}, Age: {Age}, Grade: {Grade}";
+    }
 
-        //If grade level is the same, compare by age
-        int ageComparison = Age.CompareTo(other.Age);
-        if (ageComparison != 0) { return ageComparison; }
+    // Implement the method from the IComparable<Student> interface
+    public int CompareTo(Student other)
+    {
+        // if null return 1
+        if (other == null) { return 1; }
 
-        //If age is also the same, compare by name
-        return Name.CompareTo(other.Name);
+        // Compare by name first
+        int nameComparison = this.Name.CompareTo(other.Name);
+        if (nameComparison != 0)
+            return nameComparison;
+
+        // If name is the same, compare by age
+        int ageComparison = this.Age.CompareTo(other.Age);
+        if (ageComparison != 0)
+            return ageComparison;
+
+        // If age is also the same, compare by grade
+        return this.Grade.CompareTo(other.Grade);
+        // Grade high to low:
+        // return -1* this.Grade.CompareTo(other.Grade);
+        // or
+        // return other.Grade.CompareTo(this.Grade);
     }
 }
