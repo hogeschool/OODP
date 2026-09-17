@@ -38,7 +38,7 @@ Part 3: Reading from and writing to a database
 * [Exceptions and Exception Handling (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/csharp/fundamentals/exceptions/)
 * [The throw statement (Microsoft documentation)](https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/statements/exception-handling-statements#the-throw-statement)
 * [Using Standard Exception Types (Microsoft documentation)](https://learn.microsoft.com/en-us/dotnet/standard/design-guidelines/using-standard-exception-types)
-* [est practices for exceptions (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
+* [Best practices for exceptions (Microsoft Learn)](https://learn.microsoft.com/en-us/dotnet/standard/exceptions/best-practices-for-exceptions)
 * [The Art of Throwing Exceptions in C# (or How to Fail Gracefully)](https://rollbar.com/blog/throw-exceptions-c-sharp/)
 * [.NET Exceptions (all of them)](https://mikevallotton.wordpress.com/2009/07/08/net-exceptions-all-of-them/)
 
