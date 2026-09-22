@@ -2,6 +2,8 @@ Revision
 --------------------------
 # Unit testing
 - What is a project?
+- What is the .csproj file?
+- What is a solution?
 - What is an SLN file?
 - What command do you use to create a new ms test project?
 - What do you need to do to link this to the project you wish to test?
