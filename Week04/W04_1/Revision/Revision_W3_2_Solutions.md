@@ -14,13 +14,13 @@ Revision
 - What do you need to do to link this to the project you wish to test? For example, if you want to test a project named ProjectToTest
     > `dotnet add reference ../ProjectToTest/ProjectToTest.csproj`
 -  What do the following mean?
-    - [TestClass]
+    - `[TestClass]`
         > required on any class that contains unit test methods that you want to run.
-    - [TestMethod]
+    - `[TestMethod]`
         > Each test method that you want to run must have this attribute
-    - [DataRow()]
+    - `[DataRow()]`
         > Used to specify values for the inputs into a TestMethod
-    - Asserts
+    - `Assert`
         > Used to verify functionality
     
 
@@ -41,7 +41,7 @@ Revision
 - How does `finally` work?
     > The `finally` block is executed regardless of whether an exception happens or not.
 - What is wrong with the following code?
-    ```
+    ```C#
         try
         {
             Student s = new Student(student.Name, student.Age);
