@@ -29,9 +29,9 @@ Revision
     > An exception happens at run time. A compile time error means that something is wrong with your code and so it cannot be compiled and can therefore not run.
 - What does `throw` do?
     > The `throw` statement throws an exception.
-- When should you throw an Exception?
+- When should you `throw` an `Exception`?
     > When your program really has no way to continue because of some problem. Exceptions should be used in exceptional situations.
-- It is not good practice to throw an exception of type Exception. Why and what should you do instead.
+- It is not good practice to throw an exception of type `Exception`. Why and what should you do instead.
     > It makes it more difficult to understand and handle the exception. Instead, you should throw a more specific exception. Specific exceptions make it easier for other developers to catch and handle particular error conditions.
 - What is an `ArgumentException` and an `ArgumentOutOfRangeException`?
     > `ArgumentException`: Thrown when a method receives an argument that is invalid.
