@@ -8,16 +8,16 @@ Revision
 - What command do you use to create a new ms test project?
 - What do you need to do to link this to the project you wish to test?
 -  What do the following mean?
-    - [TestClass]
-    - [TestMethod]
-    - [DataRow()]
-    - Asserts
+    - `[TestClass]`
+    - `[TestMethod]`
+    - `[DataRow()]`
+    - `Assert`
 
 # Exceptions
 - What is an exception and how does it differ from a compile time error?
 - What does `throw` do?
-- When should you throw an Exception?
-- It is not good practice to throw an exception of type Exception. Why and what should you do instead.
+- When should you `throw` an `Exception`?
+- It is not good practice to throw an exception of type `Exception`. Why and what should you do instead.
 - What is an `ArgumentException` and an `ArgumentOutOfRangeException`?
 - What is a `try-catch` statement?
 - How does `finally` work?
