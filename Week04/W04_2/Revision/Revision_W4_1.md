@@ -33,5 +33,5 @@
 - How do you denote that a class inherits from another class?
 - How many classes can a class inherit from?
 - How can you call the base class's constructor from the derived class?
-- Given that the `Student` class inherits from the `Person` class, are there any issues with the following code? 
-`Person test = new Student();`
+- Given that the `Student` class inherits from the `Person` class, are there any issues with the following code?\
+  `Person test = new Student();`
