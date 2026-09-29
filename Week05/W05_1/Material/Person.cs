@@ -27,14 +27,14 @@ PART 2: Properties
 public class Person
 {
 
-    private string _bsn { get; } // the same as readonly (sort of)
-    
+    private string BSN { get; } // the same as readonly (sort of)
+
     // string _bsn { get; } // default is private
-    
+
     // auto implemented property with default value
     // public string Name { get; set; } // Public property acts just like a public field
-    public string Name { get; private set; } = "John Doe"; 
-    
+    public string Name { get; private set; } = "John Doe";
+
     private int _age; // backing field
 
     // Multi-Line
@@ -54,7 +54,8 @@ public class Person
     // }    
 
     // One line
-    protected int Age {
+    protected int Age
+    {
         get => _age;
         private set => _age = Math.Clamp(value, 0, 150);
     }
@@ -66,11 +67,11 @@ public class Person
     // }
 
     // public virtual string ID {get => $"BSN: {_bsn}";}
-    public virtual string ID => $"BSN: {_bsn}"; // same as above
+    public virtual string ID => $"BSN: {BSN}"; // same as above
 
     public Person(string bsn, string name, int age)
     {
-        _bsn = bsn;
+        BSN = bsn;
         Name = name;
         Age = age;
     }
@@ -81,7 +82,7 @@ public class Person
 
     public Person(string bsn)
     {
-        _bsn = bsn;
+        BSN = bsn;
     }
 
     public void IncreaseAge()
@@ -102,6 +103,6 @@ public class Person
 
     public override string ToString()
     {
-        return $"BSN: {_bsn}, Name: {Name}, Age: {Age}";
+        return $"BSN: {BSN}, Name: {Name}, Age: {Age}";
     }
 }
