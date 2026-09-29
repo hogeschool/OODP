@@ -15,20 +15,20 @@ Take the Employee class from last week and make the following modifications:
 
 public class Employee : Person
 {
-    private string _employeeID { get; }
-    
-    public override string ID => $"{base.ID}\nEmployee ID: {_employeeID}";
+    private string EmployeeID { get; }
+
+    public override string ID => $"{base.ID}\nEmployee ID: {EmployeeID}";
 
     public Employee(string bsn, string name, int age, string employeeID)
         : base(bsn, name, age)
     {
-        _employeeID = employeeID;
+        EmployeeID = employeeID;
     }
 
     // Override the ToString method to include EmployeeID
     public override string ToString()
     {
-        return base.ToString() + $", Employee ID: {_employeeID}";
+        return base.ToString() + $", Employee ID: {EmployeeID}";
     }
 
     public double GetHourlyWage() => Age switch
@@ -39,6 +39,6 @@ public class Employee : Person
         18 => 6.84,
         19 => 8.21,
         20 => 10.94,
-        _ => 13.68 
+        _ => 13.68
     };
 }
