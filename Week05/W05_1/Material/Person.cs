@@ -26,12 +26,11 @@ PART 2: Properties
 */
 public class Person
 {
-
     private string BSN { get; } // the same as readonly (sort of)
 
-    // string _bsn { get; } // default is private
+    // string BSN { get; } // default access modifier is private
 
-    // auto implemented property with default value
+    // auto-implemented property with default value
     // public string Name { get; set; } // Public property acts just like a public field
     public string Name { get; private set; } = "John Doe";
 
@@ -60,7 +59,7 @@ public class Person
         private set => _age = Math.Clamp(value, 0, 150);
     }
 
-    // Infinite loop, why?
+    // Infinite loop; why?
     // protected int Age {
     //     get => Age;
     //     private set => Age = Math.Clamp(value, 0, 150);
@@ -75,10 +74,6 @@ public class Person
         Name = name;
         Age = age;
     }
-
-    // public Person(string bsn) : this(bsn, "John Doe", 0)
-    // {
-    // }
 
     public Person(string bsn)
     {
