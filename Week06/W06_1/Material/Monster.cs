@@ -17,9 +17,4 @@ public class Monster : Player
     }
 
     public override int Attack() => 3;
-
-    public override void Defend(int damage)
-    {
-        CurrentHitPoints -= damage;
-    }
 }
