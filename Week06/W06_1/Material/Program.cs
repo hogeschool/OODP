@@ -13,12 +13,14 @@ public class Program
     static void Main(string[] args)
     {
         // Player p = new Player("Tim", 1000); // Error!!! Class Player is abstract.
-        List<Player> players = new List<Player> {
-            new Knight("Sir Lancelot",100,new Weapon("Lance", 10)),
-            new Knight("Brienne of Tarth", 150, new Weapon("Sword", 15)),
+        List<Player> players = [
+            new Knight("Sir Lancelot", 100,
+                new Weapon("Lance", 10), null!),
+            new Knight("Brienne of Tarth", 150,
+                new Weapon("Sword", 15), new Armor("Shield", 3)),
             new Monster("Dracula", 50),
             new Monster("Snake", 5)
-        };
+        ];
 
         foreach (var player in players)
         {
