@@ -36,13 +36,12 @@ public abstract class Player
     public int Y { get; private set; }
     public string CurrentPosition => $"({X}, {Y})";
 
-    private int _maximumHitPoints;
+    private readonly int _maximumHitPoints;
 
-    private int _currentHitPoints;
     public int CurrentHitPoints
     {
-        get => _currentHitPoints;
-        protected set => _currentHitPoints = Math.Clamp(value, 0, _maximumHitPoints);
+        get;
+        protected set => field = Math.Clamp(value, 0, _maximumHitPoints);
     }
     protected static readonly Random RandomGenerator = new();
     public abstract string ASCII { get; }
