@@ -2,7 +2,7 @@
     static void Main(string[] args)
     {
         // You have already worked with generic classes
-        // https://learn.microsoft.com/en-us/dotnet/api/collections.generic.list-1?view=net-8.0
+        // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1
         List<int> intList = new() { 1, 2, 3 };
         List<string> stringList = new() { "a", "b", "c" };
         List<Weapon> weaponList = new() {
