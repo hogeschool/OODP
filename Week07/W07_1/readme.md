@@ -21,19 +21,37 @@ When a class implements `IComparable`, it gains the ability to decide which of t
 
 For example:
 ```csharp
-class Student : IComparable<Student>
+public class SoftwareVersion : IComparable<SoftwareVersion>
 {
-    public string Name { get; set; }
-    public int Grade { get; set; }
+    public int Major { get; }
+    public int Minor { get; }
+    public int Patch { get; }
 
-    public int CompareTo(Student other)
+    public SoftwareVersion(int major, int minor, int patch)
     {
-        return Grade.CompareTo(other.Grade);
+        Major = major;
+        Minor = minor;
+        Patch = patch;
+    }
+
+    public int CompareTo(SoftwareVersion? other)
+    {
+        if (other == null) { return 1; }
+
+        int majorCompared = Major.CompareTo(other.Major);
+        if (majorCompared != 0) { return majorCompared; }
+
+        int minorCompared = Minor.CompareTo(other.Minor);
+        if (minorCompared != 0)  { return minorCompared; }
+
+        return Patch.CompareTo(other.Patch);
     }
 }
 ```
 
-Now, a `List<Student>` can be sorted automatically using `students.Sort()` and `students.OrderBy()` (`OrderBy` will come later in the course) — because each student knows how to compare itself to another.\
+Now, a `List<SoftwareVersion>` can be sorted automatically using `softwareVersions.Sort()` and `softwareVersions.OrderBy()` (`OrderBy` will come later in the course) — because each software version knows how to compare itself to another.\
+
+This is very useful for classes that have an intuitive way to sort them. Some types you already know have it: `int`, `string`, etc.
 
 ### `IEquatable`
 
