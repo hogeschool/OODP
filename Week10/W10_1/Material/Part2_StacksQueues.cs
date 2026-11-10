@@ -6,7 +6,6 @@ static class Part2_StacksQueues
         Queues();
     }
     
-    // Function explaining Stack
     private static void Stacks()
     {
         // Stack is a collection of objects that are inserted and removed 
@@ -72,7 +71,7 @@ static class Part2_StacksQueues
         string bottomCard = cards.Pop();
         // What will be in the stack at this point?
 
-        // Or use LINQ (covered in next lesson)
+        // Or use LINQ.
         cards.Push("Ace of Spades");
         cards.Push("Queen of Hearts");
         cards.Push("Jack of Clubs");
@@ -80,8 +79,6 @@ static class Part2_StacksQueues
         string bottomCard2 = cards.Last();
     }
 
-
-    // Function explaining Queue
     public static void Queues()
     {
         // https://learn.microsoft.com/en-us/dotnet/api/system.collections.generic.queue-1
