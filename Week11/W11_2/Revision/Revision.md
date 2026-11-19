@@ -13,7 +13,7 @@ Revision
         [1, 2, 3],
         [8, 3, 4, 1, 9],
         [9, 5]
-    ],
+    ];
     ``` 
 - Given the following jagged array, What will `numbers[2].Length` tell you?
     ```csharp
@@ -21,7 +21,7 @@ Revision
         [1, 2, 3],
         [8, 3, 4, 1, 9],
         [9, 5]
-    ],
+    ];
     ``` 
 - How can you access the first element in the first array of a jagged array named `numbers`?
 - How can you access the last element in the last array of a jagged array named `numbers`?
